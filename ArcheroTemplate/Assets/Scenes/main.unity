@@ -214,7 +214,7 @@ Transform:
   m_GameObject: {fileID: 567919354}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 0}
+  m_LocalScale: {x: 30, y: 40, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -324,6 +324,8 @@ GameObject:
   - component: {fileID: 1027933791}
   - component: {fileID: 1027933790}
   - component: {fileID: 1027933788}
+  - component: {fileID: 1027933792}
+  - component: {fileID: 1027933787}
   - component: {fileID: 1027933786}
   m_Layer: 0
   m_Name: Player
@@ -347,6 +349,18 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!114 &1027933787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027933785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3fddcd8fb484a8db932c65c90c454b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1027933788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +374,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usingJoystickMovement: 0
+  movement:
+  - {fileID: 1027933792}
+  - {fileID: 1027933787}
 --- !u!4 &1027933789
 Transform:
   m_ObjectHideFlags: 0
@@ -403,6 +420,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1027933792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027933785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f37bd16c51074212adf145fa0ef42c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1155351496
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,13 +636,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411595554}
-  m_LocalRotation: {x: 0.27446273, y: 0, z: 0, w: 0.96159774}
-  m_LocalPosition: {x: 0, y: 7.27, z: -8.04}
+  m_LocalRotation: {x: 0.37654766, y: 0, z: 0, w: 0.92639726}
+  m_LocalPosition: {x: 0, y: 8.12, z: -9.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 31.86, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 44.24, y: 0, z: 0}
 --- !u!114 &1411595558
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -55,5 +55,18 @@ public static class GameEvents
      * public static [[MyEventType]] [[EventName]] = new [[MyEventType]]();
      * 
      */
-    
+
+
+    public class V2Event : UnityEvent<Vector2> { };
+
+
+    //
+    // Input reading
+    //
+
+    public static V2Event TouchPress = new V2Event();
+
+    public static UnityEvent TouchRelease = new UnityEvent();
+
+    public static V2Event TouchDelta = new V2Event();
 }

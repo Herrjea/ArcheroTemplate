@@ -6,7 +6,7 @@
             "id": "d953ab6d-6501-460a-aa59-bcf94d0670d8",
             "actions": [
                 {
-                    "name": "Touch",
+                    "name": "MouseLeft",
                     "type": "Button",
                     "id": "8445a918-0bec-4300-a65d-836e66f36974",
                     "expectedControlType": "Button",
@@ -31,11 +31,43 @@
                 },
                 {
                     "name": "TouchPosition",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "e91d8c3b-a9be-4fd3-8830-c88ac1cb546d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "TouchDelta",
+                    "type": "Value",
+                    "id": "a4c14636-6305-43ed-91f3-a011566d0531",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "TouchPress",
+                    "type": "Button",
+                    "id": "abd521ff-5ca6-49fe-a247-5a3c355193fb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "TouchHold",
+                    "type": "Button",
+                    "id": "7e91029b-732c-4f05-8833-05961a956421",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold"
+                },
+                {
+                    "name": "TouchRelease",
+                    "type": "Button",
+                    "id": "04130741-f273-462e-8027-bcfdcad53abd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
                 }
             ],
             "bindings": [
@@ -46,29 +78,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Touch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3060d634-97fa-4d4a-837d-a16873671e84",
-                    "path": "<Touchscreen>/touch0/indirectTouch",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9adcbb5c-af85-404c-a67b-51f192831782",
-                    "path": "<Touchscreen>/touch0/tap",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch",
+                    "action": "MouseLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -86,7 +96,7 @@
                 {
                     "name": "",
                     "id": "490cb0f6-5f45-4355-846b-50a7bcbfdfd5",
-                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "path": "<Touchscreen>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -203,6 +213,50 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b3781af1-36be-452f-beff-ffb321685061",
+                    "path": "<Touchscreen>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchDelta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4703668-6900-4e33-b26c-05207c1d6916",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d76805c-f35e-4e1d-96bb-a42e72ed6e2b",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchHold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "56f10c63-4b9c-4dc6-af1b-b070f4eb42f7",
+                    "path": "<Touchscreen>/touch1/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchRelease",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

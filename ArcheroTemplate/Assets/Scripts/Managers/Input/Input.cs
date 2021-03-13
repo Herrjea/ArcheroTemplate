@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Input/Input.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Managers/Input/Input.inputactions'
 
 using System;
 using System.Collections;
@@ -19,7 +19,7 @@ public class @Input : IInputActionCollection, IDisposable
             ""id"": ""d953ab6d-6501-460a-aa59-bcf94d0670d8"",
             ""actions"": [
                 {
-                    ""name"": ""Touch"",
+                    ""name"": ""MouseLeft"",
                     ""type"": ""Button"",
                     ""id"": ""8445a918-0bec-4300-a65d-836e66f36974"",
                     ""expectedControlType"": ""Button"",
@@ -44,11 +44,43 @@ public class @Input : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""TouchPosition"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""e91d8c3b-a9be-4fd3-8830-c88ac1cb546d"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""TouchDelta"",
+                    ""type"": ""Value"",
+                    ""id"": ""a4c14636-6305-43ed-91f3-a011566d0531"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""TouchPress"",
+                    ""type"": ""Button"",
+                    ""id"": ""abd521ff-5ca6-49fe-a247-5a3c355193fb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""TouchHold"",
+                    ""type"": ""Button"",
+                    ""id"": ""7e91029b-732c-4f05-8833-05961a956421"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold""
+                },
+                {
+                    ""name"": ""TouchRelease"",
+                    ""type"": ""Button"",
+                    ""id"": ""04130741-f273-462e-8027-bcfdcad53abd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
                 }
             ],
             ""bindings"": [
@@ -59,29 +91,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Touch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3060d634-97fa-4d4a-837d-a16873671e84"",
-                    ""path"": ""<Touchscreen>/touch0/indirectTouch"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Touch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9adcbb5c-af85-404c-a67b-51f192831782"",
-                    ""path"": ""<Touchscreen>/touch0/tap"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Touch"",
+                    ""action"": ""MouseLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -99,7 +109,7 @@ public class @Input : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""490cb0f6-5f45-4355-846b-50a7bcbfdfd5"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""path"": ""<Touchscreen>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -216,6 +226,50 @@ public class @Input : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3781af1-36be-452f-beff-ffb321685061"",
+                    ""path"": ""<Touchscreen>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TouchDelta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4703668-6900-4e33-b26c-05207c1d6916"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TouchPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d76805c-f35e-4e1d-96bb-a42e72ed6e2b"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TouchHold"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""56f10c63-4b9c-4dc6-af1b-b070f4eb42f7"",
+                    ""path"": ""<Touchscreen>/touch1/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TouchRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -224,10 +278,14 @@ public class @Input : IInputActionCollection, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Touch = m_Player.FindAction("Touch", throwIfNotFound: true);
+        m_Player_MouseLeft = m_Player.FindAction("MouseLeft", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
         m_Player_TouchPosition = m_Player.FindAction("TouchPosition", throwIfNotFound: true);
+        m_Player_TouchDelta = m_Player.FindAction("TouchDelta", throwIfNotFound: true);
+        m_Player_TouchPress = m_Player.FindAction("TouchPress", throwIfNotFound: true);
+        m_Player_TouchHold = m_Player.FindAction("TouchHold", throwIfNotFound: true);
+        m_Player_TouchRelease = m_Player.FindAction("TouchRelease", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -277,18 +335,26 @@ public class @Input : IInputActionCollection, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Touch;
+    private readonly InputAction m_Player_MouseLeft;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_MousePosition;
     private readonly InputAction m_Player_TouchPosition;
+    private readonly InputAction m_Player_TouchDelta;
+    private readonly InputAction m_Player_TouchPress;
+    private readonly InputAction m_Player_TouchHold;
+    private readonly InputAction m_Player_TouchRelease;
     public struct PlayerActions
     {
         private @Input m_Wrapper;
         public PlayerActions(@Input wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Touch => m_Wrapper.m_Player_Touch;
+        public InputAction @MouseLeft => m_Wrapper.m_Player_MouseLeft;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
         public InputAction @TouchPosition => m_Wrapper.m_Player_TouchPosition;
+        public InputAction @TouchDelta => m_Wrapper.m_Player_TouchDelta;
+        public InputAction @TouchPress => m_Wrapper.m_Player_TouchPress;
+        public InputAction @TouchHold => m_Wrapper.m_Player_TouchHold;
+        public InputAction @TouchRelease => m_Wrapper.m_Player_TouchRelease;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -298,9 +364,9 @@ public class @Input : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Touch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouch;
-                @Touch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouch;
-                @Touch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouch;
+                @MouseLeft.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseLeft;
+                @MouseLeft.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseLeft;
+                @MouseLeft.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseLeft;
                 @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
@@ -310,13 +376,25 @@ public class @Input : IInputActionCollection, IDisposable
                 @TouchPosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
                 @TouchPosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
                 @TouchPosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
+                @TouchDelta.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchDelta;
+                @TouchDelta.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchDelta;
+                @TouchDelta.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchDelta;
+                @TouchPress.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPress;
+                @TouchPress.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPress;
+                @TouchPress.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPress;
+                @TouchHold.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchHold;
+                @TouchHold.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchHold;
+                @TouchHold.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchHold;
+                @TouchRelease.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchRelease;
+                @TouchRelease.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchRelease;
+                @TouchRelease.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchRelease;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Touch.started += instance.OnTouch;
-                @Touch.performed += instance.OnTouch;
-                @Touch.canceled += instance.OnTouch;
+                @MouseLeft.started += instance.OnMouseLeft;
+                @MouseLeft.performed += instance.OnMouseLeft;
+                @MouseLeft.canceled += instance.OnMouseLeft;
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
@@ -326,15 +404,31 @@ public class @Input : IInputActionCollection, IDisposable
                 @TouchPosition.started += instance.OnTouchPosition;
                 @TouchPosition.performed += instance.OnTouchPosition;
                 @TouchPosition.canceled += instance.OnTouchPosition;
+                @TouchDelta.started += instance.OnTouchDelta;
+                @TouchDelta.performed += instance.OnTouchDelta;
+                @TouchDelta.canceled += instance.OnTouchDelta;
+                @TouchPress.started += instance.OnTouchPress;
+                @TouchPress.performed += instance.OnTouchPress;
+                @TouchPress.canceled += instance.OnTouchPress;
+                @TouchHold.started += instance.OnTouchHold;
+                @TouchHold.performed += instance.OnTouchHold;
+                @TouchHold.canceled += instance.OnTouchHold;
+                @TouchRelease.started += instance.OnTouchRelease;
+                @TouchRelease.performed += instance.OnTouchRelease;
+                @TouchRelease.canceled += instance.OnTouchRelease;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnTouch(InputAction.CallbackContext context);
+        void OnMouseLeft(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
         void OnTouchPosition(InputAction.CallbackContext context);
+        void OnTouchDelta(InputAction.CallbackContext context);
+        void OnTouchPress(InputAction.CallbackContext context);
+        void OnTouchHold(InputAction.CallbackContext context);
+        void OnTouchRelease(InputAction.CallbackContext context);
     }
 }
