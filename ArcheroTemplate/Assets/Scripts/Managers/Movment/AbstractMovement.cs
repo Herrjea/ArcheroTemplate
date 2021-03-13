@@ -21,7 +21,7 @@ public abstract class AbstractMovement : MonoBehaviour
         this.maxSpeed = maxSpeed;
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
@@ -61,9 +61,13 @@ public abstract class AbstractMovement : MonoBehaviour
             yield return null;
         }
 
-        // permitir una frenada gradual al dejar de tocar la pantalla? _________
-
         TouchEnd();
+    }
+
+    protected void ClampVelocityToMaxSpeed()
+    {
+        if (velocity.magnitude > maxSpeed)
+            velocity = velocity.normalized * maxSpeed;
     }
 
 

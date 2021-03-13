@@ -27,12 +27,10 @@ public class JoystickMovement : AbstractMovement
         if (touchPosition != joystickPosition)
         {
             currentOffset = touchPosition - joystickPosition;
-            if (currentOffset.magnitude > maxSpeed)
-                currentOffset = currentOffset.normalized * maxSpeed;
-
             // actualizar la UI del joystick ________
 
             velocity = new Vector3(currentOffset.x, 0, currentOffset.y);
+            ClampVelocityToMaxSpeed();
 
             print($"touchPosition: {touchPosition} , joystickPosition: {joystickPosition} , offset: {currentOffset}");
         }

@@ -50,6 +50,8 @@ public class PlayerMovementController : MonoBehaviour
         GameEvents.TouchRelease.AddListener(TouchRelease);
 
         GameEvents.TouchDelta.AddListener(TouchDelta);
+
+        GameEvents.ChangeMovementType.AddListener(ChangeMovementType);
     }
 
     void InitMovementTypes()
@@ -71,23 +73,27 @@ public class PlayerMovementController : MonoBehaviour
 
     void TouchPress(Vector2 position)
     {
-        //print("Touch started at " + position);
-
         Movement.TouchPress(position);
     }
 
     void TouchRelease()
     {
-        //print("Touch released");
-
         Movement.TouchRelease();
     }
 
     void TouchDelta(Vector2 delta)
     {
-        //print("delta of " + delta);
-
         Movement.TouchDelta(delta);
+    }
+
+    void ChangeMovementType()
+    {
+        if (selectedMovementType == movementTypes.Length - 1)
+            CurrentMovementType = 0;
+        else
+            CurrentMovementType = selectedMovementType + 1;
+
+        print("Movement type chaned to " + selectedMovementType);
     }
 
     #endregion

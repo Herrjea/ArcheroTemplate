@@ -49,6 +49,8 @@ public class PlayerInput : MonoBehaviour
         input.Player.TouchPress.canceled += context => TouchReleased();
 
         input.Player.TouchDelta.performed += context => TouchDelta(context.ReadValue<Vector2>());
+
+        input.Player.ChanegMovementType.performed += context => ChangeMovementType();
     }
 
     #endregion
@@ -90,6 +92,16 @@ public class PlayerInput : MonoBehaviour
         //print("delta: " + delta);
 
         GameEvents.TouchDelta.Invoke(delta);
+    }
+
+    #endregion
+
+
+    #region Debug
+
+    void ChangeMovementType()
+    {
+        GameEvents.ChangeMovementType.Invoke();
     }
 
     #endregion

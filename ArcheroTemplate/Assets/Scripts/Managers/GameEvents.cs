@@ -69,4 +69,6 @@ public static class GameEvents
     public static UnityEvent TouchRelease = new UnityEvent();
 
     public static V2Event TouchDelta = new V2Event();
+
+    public static UnityEvent ChangeMovementType = new UnityEvent();
 }

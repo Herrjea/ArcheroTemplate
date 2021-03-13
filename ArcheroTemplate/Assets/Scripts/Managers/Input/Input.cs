@@ -81,6 +81,14 @@ public class @Input : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=1)""
+                },
+                {
+                    ""name"": ""ChanegMovementType"",
+                    ""type"": ""Button"",
+                    ""id"": ""ac779076-67a2-4c53-a32a-fe1b7707dc6b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -270,6 +278,17 @@ public class @Input : IInputActionCollection, IDisposable
                     ""action"": ""TouchRelease"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a1c36c8d-90f2-4f60-a531-9004d0ee2259"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChanegMovementType"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -286,6 +305,7 @@ public class @Input : IInputActionCollection, IDisposable
         m_Player_TouchPress = m_Player.FindAction("TouchPress", throwIfNotFound: true);
         m_Player_TouchHold = m_Player.FindAction("TouchHold", throwIfNotFound: true);
         m_Player_TouchRelease = m_Player.FindAction("TouchRelease", throwIfNotFound: true);
+        m_Player_ChanegMovementType = m_Player.FindAction("ChanegMovementType", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -343,6 +363,7 @@ public class @Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_TouchPress;
     private readonly InputAction m_Player_TouchHold;
     private readonly InputAction m_Player_TouchRelease;
+    private readonly InputAction m_Player_ChanegMovementType;
     public struct PlayerActions
     {
         private @Input m_Wrapper;
@@ -355,6 +376,7 @@ public class @Input : IInputActionCollection, IDisposable
         public InputAction @TouchPress => m_Wrapper.m_Player_TouchPress;
         public InputAction @TouchHold => m_Wrapper.m_Player_TouchHold;
         public InputAction @TouchRelease => m_Wrapper.m_Player_TouchRelease;
+        public InputAction @ChanegMovementType => m_Wrapper.m_Player_ChanegMovementType;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -388,6 +410,9 @@ public class @Input : IInputActionCollection, IDisposable
                 @TouchRelease.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchRelease;
                 @TouchRelease.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchRelease;
                 @TouchRelease.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchRelease;
+                @ChanegMovementType.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChanegMovementType;
+                @ChanegMovementType.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChanegMovementType;
+                @ChanegMovementType.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChanegMovementType;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -416,6 +441,9 @@ public class @Input : IInputActionCollection, IDisposable
                 @TouchRelease.started += instance.OnTouchRelease;
                 @TouchRelease.performed += instance.OnTouchRelease;
                 @TouchRelease.canceled += instance.OnTouchRelease;
+                @ChanegMovementType.started += instance.OnChanegMovementType;
+                @ChanegMovementType.performed += instance.OnChanegMovementType;
+                @ChanegMovementType.canceled += instance.OnChanegMovementType;
             }
         }
     }
@@ -430,5 +458,6 @@ public class @Input : IInputActionCollection, IDisposable
         void OnTouchPress(InputAction.CallbackContext context);
         void OnTouchHold(InputAction.CallbackContext context);
         void OnTouchRelease(InputAction.CallbackContext context);
+        void OnChanegMovementType(InputAction.CallbackContext context);
     }
 }
