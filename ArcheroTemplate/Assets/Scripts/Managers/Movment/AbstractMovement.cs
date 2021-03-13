@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class AbstractMovement : MonoBehaviour
 {
+    [SerializeField] AnimationCurve movementEase = AnimationCurve.EaseInOut(0, 0, 1, 1);
+
     protected Vector2 touchPosition = new Vector2(-1, -1);
 
     protected bool isTouching = false;
