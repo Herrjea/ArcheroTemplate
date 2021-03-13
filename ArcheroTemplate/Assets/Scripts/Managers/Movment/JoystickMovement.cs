@@ -7,32 +7,41 @@ public class JoystickMovement : AbstractMovement
     [SerializeField] float maxOffset = 100;
 
     Vector2 joystickPosition = new Vector2(-1, -1);
+    Vector2 currentOffset = Vector2.zero;
 
     // referencia a la UI del joystick ________
 
 
     protected override void TouchStart(Vector2 position)
     {
-        print("JoystickMovement touch start");
+        joystickPosition = position;
 
-        // actualizar joystickPosition ________
+
         // colocar la UI del joystick en la posición del touch ________
 
         // hacer que el pj deje de atacar ________
     }
 
-    protected override void ProcessMovement()
+    protected override void CalculateVelocity()
     {
-        print("JoystickMovement movement loop");
+        if (touchPosition != joystickPosition)
+        {
+            currentOffset = touchPosition - joystickPosition;
+            if (currentOffset.magnitude > maxSpeed)
+                currentOffset = currentOffset.normalized * maxSpeed;
 
-        // recalcular vector entre la posición del joystick y la posición del touch  actual ________
-        // actualizar la UI del joystick ________
-        // mover al pj con la dirección y magnitud del vector de antes ________
+            // actualizar la UI del joystick ________
+
+            velocity = new Vector3(currentOffset.x, 0, currentOffset.y);
+
+            print($"touchPosition: {touchPosition} , joystickPosition: {joystickPosition} , offset: {currentOffset}");
+        }
     }
 
     protected override void TouchEnd()
     {
-        print("JoystickMovement touch end");
+        joystickPosition = new Vector2(-1, -1);
+        currentOffset = Vector2.zero;
 
         // ocultar la UI del joystick ________
 

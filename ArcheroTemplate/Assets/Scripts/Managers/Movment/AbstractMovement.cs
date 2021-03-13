@@ -4,15 +4,32 @@ using UnityEngine;
 
 public abstract class AbstractMovement : MonoBehaviour
 {
-    [SerializeField] AnimationCurve movementEase = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    protected AnimationCurve movementEase;
+    protected float maxSpeed;
 
     protected Vector2 touchPosition = new Vector2(-1, -1);
 
     protected bool isTouching = false;
 
+    Rigidbody rb;
+    protected Vector3 velocity = Vector3.zero;
+
+
+    public void InitParams(AnimationCurve movementEase, float maxSpeed)
+    {
+        this.movementEase = movementEase;
+        this.maxSpeed = maxSpeed;
+    }
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
 
     public void TouchPress(Vector2 position)
     {
+        touchPosition = position;
         isTouching = true;
 
         StartCoroutine(UpdateMovement(position));
@@ -35,10 +52,16 @@ public abstract class AbstractMovement : MonoBehaviour
 
         while (isTouching)
         {
-            ProcessMovement();
+            CalculateVelocity();
+
+            rb.velocity = velocity;
+
+            // rotar al pj hacia su velocity
 
             yield return null;
         }
+
+        // permitir una frenada gradual al dejar de tocar la pantalla? _________
 
         TouchEnd();
     }
@@ -46,7 +69,7 @@ public abstract class AbstractMovement : MonoBehaviour
 
     protected abstract void TouchStart(Vector2 position);
 
-    protected abstract void ProcessMovement();
+    protected abstract void CalculateVelocity();
 
     protected abstract void TouchEnd();
 }

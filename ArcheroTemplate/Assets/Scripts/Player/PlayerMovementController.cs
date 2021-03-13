@@ -6,20 +6,23 @@ public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField] bool usingJoystickMovement = false;
 
-    [SerializeField] AbstractMovement[] movement;
+    [SerializeField] AbstractMovement[] movementTypes;
     int selectedMovementType;
+
+    [SerializeField] AnimationCurve movementEase = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    [SerializeField] float maxSpeed = 10;
 
 
     AbstractMovement Movement
     {
-        get => movement[selectedMovementType];
+        get => movementTypes[selectedMovementType];
     }
 
     public int CurrentMovementType
     {
         set
         {
-            if (value >= movement.Length)
+            if (value >= movementTypes.Length)
             {
                 Debug.LogError("Unknown movement type: " + value);
             }
@@ -51,9 +54,14 @@ public class PlayerMovementController : MonoBehaviour
 
     void InitMovementTypes()
     {
-        for (int i = 0; i < movement.Length; i++)
-            if (i != selectedMovementType)
-                movement[i].enabled = false;
+        if (movementTypes.Length == 0)
+            Debug.LogError("No movement type assigned");
+
+        for (int i = 0; i < movementTypes.Length; i++)
+        {
+            movementTypes[i].InitParams(movementEase, maxSpeed);
+            movementTypes[i].enabled = i == selectedMovementType;
+        }
     }
 
     #endregion

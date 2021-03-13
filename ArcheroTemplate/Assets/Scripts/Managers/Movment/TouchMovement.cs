@@ -11,12 +11,12 @@ public class TouchMovement : AbstractMovement
         // hacer que el pj deje de atacar ________
     }
 
-    protected override void ProcessMovement()
+    protected override void CalculateVelocity()
     {
         print("TouchMovement movement loop");
 
         // calcular la worldPosition a la que corresponde la touchPosition ________
-        // mover al pj hacia esa worldPosition ________
+        // calcular la velocity ________
     }
 
     protected override void TouchEnd()
