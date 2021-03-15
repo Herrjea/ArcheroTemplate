@@ -6,11 +6,13 @@ public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField] bool usingJoystickMovement = false;
 
+    [SerializeField] float maxSpeed = 10;
+    [SerializeField] float rollStrength = 1.5f;
+    [SerializeField] float rotationSeekspeed = .9f;
+    [SerializeField] bool rotateTowardsMoveDirection = true;
+
     [SerializeField] AbstractMovement[] movementTypes;
     int selectedMovementType;
-
-    [SerializeField] AnimationCurve movementEase = AnimationCurve.EaseInOut(0, 0, 1, 1);
-    [SerializeField] float maxSpeed = 10;
 
 
     AbstractMovement Movement
@@ -61,7 +63,7 @@ public class PlayerMovementController : MonoBehaviour
 
         for (int i = 0; i < movementTypes.Length; i++)
         {
-            movementTypes[i].InitParams(movementEase, maxSpeed);
+            movementTypes[i].InitParams(maxSpeed, rollStrength, rotationSeekspeed, rotateTowardsMoveDirection);
             movementTypes[i].enabled = i == selectedMovementType;
         }
     }

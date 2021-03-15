@@ -48,6 +48,8 @@ public class TouchMovement : AbstractMovement
             // Instant acceleration otherwise
             else
                 MaximizeVelocity();
+
+            velocity.y = 0; // otherwise it can face downwards when too close to touch position
         }
         else
         {

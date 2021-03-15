@@ -32,8 +32,6 @@ public class JoystickMovement : AbstractMovement
 
             velocity = new Vector3(currentOffset.x, 0, currentOffset.y) * offsetScaling;
             ClampVelocityToMaxSpeed();
-
-            print($"touchPosition: {touchPosition} , joystickPosition: {joystickPosition} , offset: {currentOffset}");
         }
     }
 

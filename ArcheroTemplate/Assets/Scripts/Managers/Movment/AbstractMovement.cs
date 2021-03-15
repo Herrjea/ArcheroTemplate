@@ -4,8 +4,10 @@ using UnityEngine;
 
 public abstract class AbstractMovement : MonoBehaviour
 {
-    protected AnimationCurve movementEase;
     protected float maxSpeed;
+    float rollStrength;
+    float rotationSeekspeed;
+    bool rotateTowardsMoveDirection;
 
     protected Vector2 touchPosition = new Vector2(-1, -1);
 
@@ -15,10 +17,12 @@ public abstract class AbstractMovement : MonoBehaviour
     protected Vector3 velocity = Vector3.zero;
 
 
-    public void InitParams(AnimationCurve movementEase, float maxSpeed)
+    public void InitParams(float maxSpeed, float rollStrength, float rotationSeekspeed, bool rotateTowardsMoveDirection)
     {
-        this.movementEase = movementEase;
         this.maxSpeed = maxSpeed;
+        this.rollStrength = rollStrength;
+        this.rotationSeekspeed = rotationSeekspeed;
+        this.rotateTowardsMoveDirection = rotateTowardsMoveDirection;
     }
 
     protected virtual void Awake()
@@ -56,12 +60,70 @@ public abstract class AbstractMovement : MonoBehaviour
 
             rb.velocity = velocity;
 
-            // rotar al pj hacia su velocity
+            RotatePlayer();
 
             yield return null;
         }
 
         TouchEnd();
+
+        if (!rotateTowardsMoveDirection)
+            DampenRoll();
+    }
+
+
+    void RotatePlayer()
+    {
+        if (rotateTowardsMoveDirection)
+            RotateTowardsMovementDirection();
+        else
+            HorizontalVelocityRoll();
+    }
+
+    void RotateTowardsMovementDirection()
+    {
+        rb.MoveRotation(
+            Quaternion.Lerp(
+                transform.rotation,
+                Quaternion.LookRotation(velocity),
+                rotationSeekspeed
+            )
+        );
+    }
+
+    void HorizontalVelocityRoll()
+    {
+        float roll = -velocity.x * rollStrength;
+
+        rb.MoveRotation(
+            Quaternion.Lerp(
+                transform.rotation,
+                Quaternion.AngleAxis(roll, transform.forward),
+                rotationSeekspeed
+            )
+        );
+    }
+
+    // Gradually removes teh applied roll, after the user stops moving the player
+    void DampenRoll()
+    {
+        StartCoroutine(DampenRollCoroutine());
+    }
+
+    IEnumerator DampenRollCoroutine()
+    {
+        while (!isTouching && Mathf.Abs(transform.rotation.z) > .001f)
+        {
+            transform.rotation = Quaternion.Lerp(
+                    transform.rotation,
+                    Quaternion.Euler(0, 0, 0),
+                    rotationSeekspeed / 2
+            );
+
+            yield return null;
+        }
+
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     protected void ClampVelocityToMaxSpeed()
