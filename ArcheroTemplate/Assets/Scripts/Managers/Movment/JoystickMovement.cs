@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class JoystickMovement : AbstractMovement
 {
-    [SerializeField] float maxOffset = 100;
+    [SerializeField] float maxUiOffset = 100;
+    [SerializeField] float offsetScaling = .1f;
 
     Vector2 joystickPosition = new Vector2(-1, -1);
     Vector2 currentOffset = Vector2.zero;
@@ -29,7 +30,7 @@ public class JoystickMovement : AbstractMovement
             currentOffset = touchPosition - joystickPosition;
             // actualizar la UI del joystick ________
 
-            velocity = new Vector3(currentOffset.x, 0, currentOffset.y);
+            velocity = new Vector3(currentOffset.x, 0, currentOffset.y) * offsetScaling;
             ClampVelocityToMaxSpeed();
 
             print($"touchPosition: {touchPosition} , joystickPosition: {joystickPosition} , offset: {currentOffset}");
