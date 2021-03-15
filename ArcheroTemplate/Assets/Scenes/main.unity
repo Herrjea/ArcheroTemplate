@@ -793,7 +793,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 20, z: 0}
-  speedSmooth: 0.08
+  speedSmooth: 1.4
+  positionClamp: {x: 3, y: 3}
 --- !u!1 &1444979870
 GameObject:
   m_ObjectHideFlags: 0

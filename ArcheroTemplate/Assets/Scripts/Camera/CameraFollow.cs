@@ -7,7 +7,9 @@ public class CameraFollow : MonoBehaviour
     Transform target;
 
     [SerializeField] Vector3 offset = new Vector3(0, 20, 0);
-    [SerializeField] float speedSmooth = .08f;
+    [SerializeField] float speedSmooth = 2;
+
+    [SerializeField] Vector2 positionClamp = new Vector2(20, 30);
 
     Vector3 ownPositionFlattened;
 
@@ -25,12 +27,21 @@ public class CameraFollow : MonoBehaviour
         ownPositionFlattened = transform.position;
         ownPositionFlattened.y = target.position.y;
 
+        // Follow the target
         transform.position =
             Vector3.Lerp(
                 ownPositionFlattened,
                 target.position,
-                speedSmooth
-            );
-        transform.position += offset;
+                speedSmooth * Time.deltaTime
+            )
+            +
+            offset;
+
+        // Limit camera's movement
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x, -positionClamp.x, positionClamp.x),
+            transform.position.y,
+            Mathf.Clamp(transform.position.z, -positionClamp.y, positionClamp.y)
+        );
     }
 }
