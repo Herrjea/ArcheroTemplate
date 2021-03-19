@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
     PlayerMovementController movementController;
+    PlayerShot shotController;
     Input input;
 
     Touch touch;
@@ -16,6 +17,8 @@ public class PlayerInput : MonoBehaviour
     void Awake()
     {
         movementController = GetComponent<PlayerMovementController>();
+        shotController = GetComponent<PlayerShot>();
+        shotController.StartShooting();
 
         input = new Input();
     }

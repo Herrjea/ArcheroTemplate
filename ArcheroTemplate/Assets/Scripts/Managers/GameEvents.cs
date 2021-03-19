@@ -58,6 +58,7 @@ public static class GameEvents
 
 
     public class V2Event : UnityEvent<Vector2> { };
+    public class GOV3Event : UnityEvent<GameObject, Vector3> { };
 
 
     //
@@ -71,4 +72,10 @@ public static class GameEvents
     public static V2Event TouchDelta = new V2Event();
 
     public static UnityEvent ChangeMovementType = new UnityEvent();
+
+    //
+    // Gameplay
+    //
+
+    public static GOV3Event PlayerShot = new GOV3Event();
 }
