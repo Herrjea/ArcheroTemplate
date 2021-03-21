@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Projectile : MonoBehaviour
+public abstract class Proj : MonoBehaviour
 {
     [HideInInspector] public Vector3 velocity;
+    [HideInInspector] public Transform target = null;
 
     [SerializeField] float lifetime = 5;
 

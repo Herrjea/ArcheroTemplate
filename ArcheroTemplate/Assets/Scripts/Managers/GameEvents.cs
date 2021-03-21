@@ -58,7 +58,7 @@ public static class GameEvents
 
 
     public class V2Event : UnityEvent<Vector2> { };
-    public class GOV3Event : UnityEvent<GameObject, Vector3> { };
+    public class PoolV3TransEvent : UnityEvent<ObjectPool, Vector3, Transform> { };
 
 
     //
@@ -66,9 +66,7 @@ public static class GameEvents
     //
 
     public static V2Event TouchPress = new V2Event();
-
     public static UnityEvent TouchRelease = new UnityEvent();
-
     public static V2Event TouchDelta = new V2Event();
 
     public static UnityEvent ChangeMovementType = new UnityEvent();
@@ -77,5 +75,9 @@ public static class GameEvents
     // Gameplay
     //
 
-    public static GOV3Event PlayerShot = new GOV3Event();
+    public static UnityEvent StartShooting = new UnityEvent();
+    public static UnityEvent StopShooting = new UnityEvent();
+    public static UnityEvent ToggleShooting = new UnityEvent();
+
+    public static PoolV3TransEvent PlayerShot = new PoolV3TransEvent();
 }

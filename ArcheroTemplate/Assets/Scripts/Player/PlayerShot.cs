@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerShot : MonoBehaviour
 {
-    BulletSocketList sockets;
+    ProjSocketList sockets;
 
     bool shooting = false;
 
@@ -14,25 +14,42 @@ public class PlayerShot : MonoBehaviour
     [SerializeField] float shotCD = 1;
     float CDRemaining = 0;
 
-    public GameObject projectile;
+    [SerializeField] ObjectPool projPool;
 
 
     private void Awake()
     {
-        sockets = transform.Find("BulletSockets").GetComponent<BulletSocketList>();
+        sockets = transform.Find("ProjSockets").GetComponent<ProjSocketList>();
 
         projectileVelocity = projectileVelocity.normalized * projectileSpeed;
+
+        GameEvents.StartShooting.AddListener(StartShooting);
+        GameEvents.StopShooting.AddListener(StopShooting);
+        GameEvents.ToggleShooting.AddListener(ToggleShooting);
+    }
+
+    private void Start()
+    {
+        StartShooting();
     }
 
 
-    public void StartShooting()
+    void StartShooting()
     {
         StartCoroutine(Shoot());
     }
 
-    public void StopShooting()
+    void StopShooting()
     {
         shooting = false;
+    }
+
+    void ToggleShooting()
+    {
+        if (shooting)
+            StopShooting();
+        else
+            StartShooting();
     }
 
 
@@ -49,7 +66,11 @@ public class PlayerShot : MonoBehaviour
 
                 if (CDRemaining <= 0)
                 {
-                    GameEvents.PlayerShot.Invoke(projectile, projectileVelocity);
+                    GameEvents.PlayerShot.Invoke(
+                        projPool,
+                        projectileVelocity,
+                        null
+                    );
 
                     CDRemaining = shotCD;
                 }

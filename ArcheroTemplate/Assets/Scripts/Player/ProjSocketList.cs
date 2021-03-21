@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletSocketList : MonoBehaviour
+public class ProjSocketList : MonoBehaviour
 {
-    List<BulletSocket> sockets;
-    BulletSocket newSocket;
+    List<ProjSocket> sockets;
+    ProjSocket newSocket;
 
     [SerializeField] float interSocketDistance = .3f;
 
@@ -16,9 +16,9 @@ public class BulletSocketList : MonoBehaviour
 
     private void Awake()
     {
-        sockets = new List<BulletSocket>();
+        sockets = new List<ProjSocket>();
 
-        newSocket = new BulletSocket(
+        newSocket = new ProjSocket(
             GameObject.Instantiate(new GameObject(), transform).transform,
             SocketPosition.Front
         );
@@ -30,18 +30,19 @@ public class BulletSocketList : MonoBehaviour
     }
 
 
-    public void Shoot(GameObject prefab, Vector3 velocity)
+    public void Shoot(ObjectPool pool, Vector3 velocity, Transform target)
     {
-        GameObject projectile;
+        GameObject projObj;
+        Proj proj;
 
-        foreach (BulletSocket socket in sockets)
+        foreach (ProjSocket socket in sockets)
         {
-            projectile = GameObject.Instantiate(
-                prefab,
-                socket.transform.position,
-                Quaternion.identity
-            );
-            projectile.GetComponent<Projectile>().velocity = velocity;
+            projObj = pool.GetNext();
+            projObj.transform.position = socket.transform.position;
+
+            proj = projObj.GetComponent<Proj>();
+            proj.velocity = velocity;
+            proj.target = target;
         }
     }
 }

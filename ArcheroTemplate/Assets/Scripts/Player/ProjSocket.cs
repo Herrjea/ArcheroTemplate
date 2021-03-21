@@ -11,12 +11,12 @@ public enum SocketPosition
 }
 
 
-public class BulletSocket
+public class ProjSocket
 {
     public Transform transform;
     public SocketPosition position;
 
-    public BulletSocket(Transform transform, SocketPosition position)
+    public ProjSocket(Transform transform, SocketPosition position)
     {
         this.transform = transform;
         this.position = position;

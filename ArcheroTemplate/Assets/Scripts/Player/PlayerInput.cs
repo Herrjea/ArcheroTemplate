@@ -1,25 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
+
 
 public class PlayerInput : MonoBehaviour
 {
-    PlayerMovementController movementController;
-    PlayerShot shotController;
     Input input;
-
-    Touch touch;
 
 
     #region Initialization
 
     void Awake()
     {
-        movementController = GetComponent<PlayerMovementController>();
-        shotController = GetComponent<PlayerShot>();
-        shotController.StartShooting();
-
         input = new Input();
     }
 
@@ -53,13 +43,19 @@ public class PlayerInput : MonoBehaviour
 
         input.Player.TouchDelta.performed += context => TouchDelta(context.ReadValue<Vector2>());
 
+        //
+        // Keyboard (development only)
+        // 
+
         input.Player.ChanegMovementType.performed += context => ChangeMovementType();
+
+        input.Player.ToggleShooting.performed += context => ToggleShooting();
     }
 
     #endregion
 
 
-    #region Mouse
+    #region Mouse&Keyboard
 
     void DirectMovementInput(Vector2 direction)
     {
@@ -100,11 +96,16 @@ public class PlayerInput : MonoBehaviour
     #endregion
 
 
-    #region Debug
+    #region Development only
 
     void ChangeMovementType()
     {
         GameEvents.ChangeMovementType.Invoke();
+    }
+
+    void ToggleShooting()
+    {
+        GameEvents.ToggleShooting.Invoke();
     }
 
     #endregion

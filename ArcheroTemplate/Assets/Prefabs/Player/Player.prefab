@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5959706050266118598}
   - component: {fileID: 1883994522843722669}
   m_Layer: 0
-  m_Name: BulletSockets
+  m_Name: ProjSockets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,10 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33e04553f3d047119f935aade4149fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interSocketDistance: 0.3
   frontOffset: {x: 0, y: 0, z: 1}
   sideOffset: {x: 1, y: 0, z: 0}
   rearOffset: {x: 0, y: 0, z: -1}
-  interSocketDistance: 0.3
 --- !u!1 &7267145860503068422
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,6 +199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7e9b271d06940ddbe2f04a4eae3b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileSpeed: 1
+  shotCD: 1
+  projPool: {fileID: 0}
 --- !u!114 &7267145860503068421
 MonoBehaviour:
   m_ObjectHideFlags: 0

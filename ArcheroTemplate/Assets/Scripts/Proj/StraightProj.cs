@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StraightProjectile : Projectile
+public class StraightProj : Proj
 {
     protected override void FixedUpdate()
     {
