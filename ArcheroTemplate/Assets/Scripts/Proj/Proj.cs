@@ -15,7 +15,7 @@ public abstract class Proj : MonoBehaviour
 
     protected void OnTriggerEnter(Collider other)
     {
-        print("projectile entered trigger from " + other.name);
+        print("proj entered trigger from " + other.name);
 
         gameObject.SetActive(false);
     }
