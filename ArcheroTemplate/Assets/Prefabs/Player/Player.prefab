@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interSocketDistance: 0.3
-  frontOffset: {x: 0, y: 0, z: 1}
+  frontOffset: {x: 0, y: 0, z: 2}
   sideOffset: {x: 1, y: 0, z: 0}
-  rearOffset: {x: 0, y: 0, z: -1}
+  rearOffset: {x: 0, y: 0, z: -2}
 --- !u!1 &7267145860503068422
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 4832326013735089871}
   - component: {fileID: 7267145860503068421}
   - component: {fileID: 7267145860503068478}
+  - component: {fileID: 788257704}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -100,7 +101,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &7267145860503068417
@@ -200,8 +201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 1
-  shotCD: 1
-  projPool: {fileID: 0}
+  shotCD: 0.2
+  projPool: {fileID: 788257704}
 --- !u!114 &7267145860503068421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +249,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &788257704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7267145860503068422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7820fef661b1642aabf43f38041a7875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToPool: {fileID: 556716477552090682, guid: 96844790f4f7f4898b643b948580fe53,
+    type: 3}
+  poolSize: 20
+  makeChildrenOfSelf: 0
 --- !u!1 &7267145860616893708
 GameObject:
   m_ObjectHideFlags: 0

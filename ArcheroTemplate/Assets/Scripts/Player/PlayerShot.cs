@@ -7,6 +7,7 @@ public class PlayerShot : MonoBehaviour
     ProjSocketList sockets;
 
     bool shooting = false;
+    Coroutine shootCoroutine = null;
 
     [SerializeField] float projectileSpeed = 1;
     Vector3 projectileVelocity = Vector3.forward;
@@ -36,7 +37,8 @@ public class PlayerShot : MonoBehaviour
 
     void StartShooting()
     {
-        StartCoroutine(Shoot());
+        if (shootCoroutine == null)
+            shootCoroutine = StartCoroutine(Shoot());
     }
 
     void StopShooting()
@@ -55,28 +57,24 @@ public class PlayerShot : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        // Prevent two shooting coroutines to run simultaneously
-        if (!shooting)
+        shooting = true;
+
+        while (shooting)
         {
-            shooting = true;
+            CDRemaining -= Time.deltaTime;
 
-            while (shooting)
+            if (CDRemaining <= 0)
             {
-                CDRemaining -= Time.deltaTime;
+                GameEvents.PlayerShot.Invoke(
+                    projPool,
+                    projectileVelocity,
+                    null
+                );
 
-                if (CDRemaining <= 0)
-                {
-                    GameEvents.PlayerShot.Invoke(
-                        projPool,
-                        projectileVelocity,
-                        null
-                    );
-
-                    CDRemaining = shotCD;
-                }
-
-                yield return null;
+                CDRemaining = shotCD;
             }
+
+            yield return null;
         }
     }
 }

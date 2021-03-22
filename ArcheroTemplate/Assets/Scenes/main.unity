@@ -123,12 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &306439979 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 556716477552090682, guid: 96844790f4f7f4898b643b948580fe53,
-    type: 3}
-  m_PrefabInstance: {fileID: 556716477858363665}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &567919354
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,28 +328,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &788257694 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7267145860503068422, guid: 42f4a0295c83e4d818c245473b5ceaad,
-    type: 3}
-  m_PrefabInstance: {fileID: 7267145859651426655}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &788257704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788257694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7820fef661b1642aabf43f38041a7875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToPool: {fileID: 556716477552090682, guid: 96844790f4f7f4898b643b948580fe53,
-    type: 3}
-  poolSize: 20
-  makeChildrenOfSelf: 0
 --- !u!1 &892656456
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,41 +898,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1883994522843722669, guid: 42f4a0295c83e4d818c245473b5ceaad,
-        type: 3}
-      propertyPath: rearOffset.z
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1883994522843722669, guid: 42f4a0295c83e4d818c245473b5ceaad,
-        type: 3}
-      propertyPath: frontOffset.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4832326013735089871, guid: 42f4a0295c83e4d818c245473b5ceaad,
-        type: 3}
-      propertyPath: shotCD
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4832326013735089871, guid: 42f4a0295c83e4d818c245473b5ceaad,
-        type: 3}
-      propertyPath: projPool
-      value: 
-      objectReference: {fileID: 788257704}
-    - target: {fileID: 4832326013735089871, guid: 42f4a0295c83e4d818c245473b5ceaad,
-        type: 3}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 306439979}
-    - target: {fileID: 4832326013735089871, guid: 42f4a0295c83e4d818c245473b5ceaad,
-        type: 3}
-      propertyPath: projectileSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7267145860503068416, guid: 42f4a0295c83e4d818c245473b5ceaad,
-        type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7267145860503068418, guid: 42f4a0295c83e4d818c245473b5ceaad,
         type: 3}
       propertyPath: m_RootOrder
