@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Proj : MonoBehaviour
 {
-    [HideInInspector] public Vector3 velocity;
-    [HideInInspector] public Transform target = null;
+    [HideInInspector] protected Vector3 velocity;
+    [HideInInspector] protected Transform target = null;
 
     [SerializeField] float lifetime = 5;
 
@@ -29,5 +29,26 @@ public abstract class Proj : MonoBehaviour
     void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+
+    public Vector3 Velocity
+    {
+        set => velocity = value;
+    }
+
+    public Transform Target
+    {
+        set
+        {
+            if (value != null)
+            {
+                float speed = velocity.magnitude;
+                velocity =
+                    (target.position - transform.position).normalized
+                    *
+                    speed;
+            }
+        }
     }
 }

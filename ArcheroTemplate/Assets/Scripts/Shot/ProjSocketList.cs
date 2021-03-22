@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class ProjSocketList : MonoBehaviour
 {
-    List<ProjSocket> sockets;
-    ProjSocket newSocket;
+    protected List<ProjSocket> sockets;
+    protected ProjSocket newSocket;
 
-    [SerializeField] float interSocketDistance = .3f;
+    [SerializeField] protected float interSocketDistance = .3f;
 
-    [SerializeField] Vector3 frontOffset = new Vector3(0, 0, 1);
-    [SerializeField] Vector3 sideOffset = new Vector3(1, 0, 0);
-    [SerializeField] Vector3 rearOffset = new Vector3(0, 0, -1);
+    [SerializeField] protected Vector3 frontOffset = new Vector3(0, 0, 1);
+    [SerializeField] protected Vector3 sideOffset = new Vector3(1, 0, 0);
+    [SerializeField] protected Vector3 rearOffset = new Vector3(0, 0, -1);
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
         sockets = new List<ProjSocket>();
 
@@ -22,11 +22,9 @@ public class ProjSocketList : MonoBehaviour
             GameObject.Instantiate(new GameObject(), transform).transform,
             SocketPosition.Front
         );
-        newSocket.transform.position += frontOffset;
+        newSocket.transform.localPosition += frontOffset;
 
         sockets.Add(newSocket);
-
-        GameEvents.PlayerShot.AddListener(Shoot);
     }
 
 
@@ -41,8 +39,8 @@ public class ProjSocketList : MonoBehaviour
             projObj.transform.position = socket.transform.position;
 
             proj = projObj.GetComponent<Proj>();
-            proj.velocity = velocity;
-            proj.target = target;
+            proj.Velocity = velocity;
+            proj.Target = target;
         }
     }
 }

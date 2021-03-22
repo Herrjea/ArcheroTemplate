@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5959706050266118598}
-  - component: {fileID: 1883994522843722669}
+  - component: {fileID: 767812220730035550}
   m_Layer: 0
-  m_Name: ProjSockets
+  m_Name: PlayerProjSockets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 7267145860503068418}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1883994522843722669
+--- !u!114 &767812220730035550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 631680396824520234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d33e04553f3d047119f935aade4149fd, type: 3}
+  m_Script: {fileID: 11500000, guid: f988e67727d044fd28dc4459811604dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interSocketDistance: 0.3
@@ -61,10 +61,10 @@ GameObject:
   - component: {fileID: 7267145860503068419}
   - component: {fileID: 7267145860503068420}
   - component: {fileID: 7267145860503068479}
-  - component: {fileID: 4832326013735089871}
   - component: {fileID: 7267145860503068421}
   - component: {fileID: 7267145860503068478}
   - component: {fileID: 788257704}
+  - component: {fileID: 7724219268489536602}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -188,21 +188,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxUiOffset: 100
   offsetScaling: 0.1
---- !u!114 &4832326013735089871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7267145860503068422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7e9b271d06940ddbe2f04a4eae3b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSpeed: 1
-  shotCD: 0.2
-  projPool: {fileID: 788257704}
 --- !u!114 &7267145860503068421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +250,21 @@ MonoBehaviour:
     type: 3}
   poolSize: 20
   makeChildrenOfSelf: 0
+--- !u!114 &7724219268489536602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7267145860503068422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9cc59666256045eba5a0ebf20e55a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpeed: 1
+  shotCD: 1
+  projPool: {fileID: 788257704}
 --- !u!1 &7267145860616893708
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 7267145860660861587}
   - component: {fileID: 7267145860660861588}
   m_Layer: 0
-  m_Name: head
+  m_Name: playerHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 7267145861152627712}
   - component: {fileID: 7267145861152627713}
   m_Layer: 0
-  m_Name: wings
+  m_Name: playerWings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 7267145861656546955}
   - component: {fileID: 7267145861656546956}
   m_Layer: 0
-  m_Name: body
+  m_Name: playerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
