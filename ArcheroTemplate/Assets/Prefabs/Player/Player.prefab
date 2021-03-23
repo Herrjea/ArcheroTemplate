@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5959706050266118598}
   - component: {fileID: 767812220730035550}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerProjSockets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 7267145860503068478}
   - component: {fileID: 788257704}
   - component: {fileID: 7724219268489536602}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 1
-  shotCD: 1
+  shotCD: 0.5
   projPool: {fileID: 788257704}
 --- !u!1 &7267145860616893708
 GameObject:
@@ -274,7 +274,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7267145860616893707}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 7267145860660861590}
   - component: {fileID: 7267145860660861587}
   - component: {fileID: 7267145860660861588}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: playerHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 7267145861152627775}
   - component: {fileID: 7267145861152627712}
   - component: {fileID: 7267145861152627713}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: playerWings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 7267145861656546954}
   - component: {fileID: 7267145861656546955}
   - component: {fileID: 7267145861656546956}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: playerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}

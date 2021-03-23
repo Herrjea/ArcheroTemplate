@@ -29,8 +29,6 @@ public class Shot : MonoBehaviour
 
     protected virtual void Start()
     {
-        print("Shot start. " + gameObject.name);
-
         StartShooting();
     }
 

@@ -13,8 +13,6 @@ public class PlayerShot : Shot
 
     protected override void Start()
     {
-        print("PlayeShot start. " + gameObject.name);
-
         GameEvents.StartShooting.AddListener(StartShooting);
         GameEvents.StopShooting.AddListener(StopShooting);
         GameEvents.ToggleShooting.AddListener(ToggleShooting);
