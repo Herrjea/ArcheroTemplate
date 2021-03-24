@@ -23,7 +23,7 @@ public class EnemyShot : Shot
             {
                 sockets.Shoot(
                     projPool,
-                    projectileVelocity,
+                    transform.forward * projSpeed,
                     target
                 );
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1548917326985757976}
   - component: {fileID: 1548917326985758438}
   - component: {fileID: 1548917326985757977}
+  - component: {fileID: 1625771825}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -62,9 +63,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b6482e059994a2b95b0a79cfa3fecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 0.3
+  projSpeed: 0.5
   shotCD: 1
   projPool: {fileID: 1548917326985758438}
+--- !u!114 &1625771825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548917326985757979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef8caf02102b44baab7e0845462eb9b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSeekspeed: 0.1
 --- !u!1 &1548917328038597955
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,8 +12,8 @@ public class Shot : MonoBehaviour
     protected bool shooting = false;
     protected Coroutine shootCoroutine = null;
 
-    [SerializeField] protected float projectileSpeed = 1;
-    protected Vector3 projectileVelocity;
+    [SerializeField] protected float projSpeed = 1;
+    protected Vector3 projVelocity;
     protected Transform target = null;
 
     [SerializeField] protected float shotCD = 1;
@@ -24,7 +24,7 @@ public class Shot : MonoBehaviour
 
     protected virtual void Awake()
     {
-        projectileVelocity = transform.forward.normalized * projectileSpeed;
+        projVelocity = transform.forward * projSpeed;
     }
 
     protected virtual void Start()

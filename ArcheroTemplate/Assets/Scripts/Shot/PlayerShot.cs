@@ -32,7 +32,7 @@ public class PlayerShot : Shot
             {
                 GameEvents.PlayerShot.Invoke(
                     projPool,
-                    projectileVelocity,
+                    projVelocity,
                     target
                 );
 
