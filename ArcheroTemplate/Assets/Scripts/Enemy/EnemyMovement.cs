@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] protected float seekSpeed = 1;
-    protected Transform target;
+    [SerializeField] protected float seekSpeed = .1f;
+    protected Transform player;
     protected bool seeking = false;
+
+    protected Vector2 roomSize = new Vector2(10, 15);
 
 
     protected void Awake()
     {
-        target = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player").transform;
     }
 }
