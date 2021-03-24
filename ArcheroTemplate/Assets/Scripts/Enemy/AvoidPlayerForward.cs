@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AvoidPlayerForward : EnemyMovement
+public class AvoidPlayerForward : TargetFollower
 {
     [Tooltip(
         "Least horizontal distance from the player that the enemy will try to keep")]
@@ -14,11 +14,6 @@ public class AvoidPlayerForward : EnemyMovement
         "Seconds until the enemy attempts a new horizontal avoidance")]
     [SerializeField] float avoidanceCD = 3;
 
-    Vector3 targetPosition;
-
-    float epsilon = 0.01f;
-    Coroutine avoidCoroutine = null;
-
 
     void Start()
     {
@@ -29,6 +24,7 @@ public class AvoidPlayerForward : EnemyMovement
     IEnumerator AvoidanceTrigger()
     {
         float currentOffset;
+        float targetPositionX;
 
         while (gameObject.activeSelf)
         {
@@ -40,16 +36,22 @@ public class AvoidPlayerForward : EnemyMovement
                 targetOffset = Random.Range(minOffset, minOffset * 2);
 
                 // Movement horizontally away from the player
-                targetPosition = ComputeTargetPosition();
+                targetPositionX = ComputeTargetXPosition();
 
                 // Movement towards the opposite direction
                 // if it would end up outside the screen
-                if (Mathf.Abs(targetPosition.x) > roomSize.x)
-                    targetPosition = ComputeTargetPosition(-1);
+                if (Mathf.Abs(targetPositionX) > roomSize.x)
+                    targetPositionX = ComputeTargetXPosition(-1);
 
-                if (avoidCoroutine != null)
-                    StopCoroutine(avoidCoroutine);
-                avoidCoroutine = StartCoroutine(Avoid());
+                targetPosition = new Vector3(
+                    targetPositionX,
+                    transform.position.y,
+                    transform.position.z
+                );
+
+                if (movingCoroutine != null)
+                    StopCoroutine(movingCoroutine);
+                movingCoroutine = StartCoroutine(MoveToTarget());
 
                 yield return new WaitForSeconds(avoidanceCD);
             }
@@ -58,27 +60,11 @@ public class AvoidPlayerForward : EnemyMovement
         }
     }
 
-    Vector3 ComputeTargetPosition(float oppositeDirection = 1)
+    float ComputeTargetXPosition(float oppositeDirection = 1)
     {
-        return new Vector3(
-            player.position.x + targetOffset * currentOffsetSign * oppositeDirection,
-            transform.position.y,
-            transform.position.z
-        );
-    }
-
-
-    IEnumerator Avoid()
-    {
-        while (Mathf.Abs(transform.position.x - targetPosition.x) > epsilon)
-        {
-            transform.position = Vector3.Lerp(
-                transform.position,
-                targetPosition,
-                seekSpeed
-            );
-
-            yield return null;
-        }
+        return
+            player.position.x
+            +
+            targetOffset * currentOffsetSign * oppositeDirection;
     }
 }
