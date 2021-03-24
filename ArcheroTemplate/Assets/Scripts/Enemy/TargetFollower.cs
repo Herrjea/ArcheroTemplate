@@ -5,9 +5,8 @@ using UnityEngine;
 public class TargetFollower : EnemyMovement
 {
     [SerializeField] protected float seekSpeed = .1f;
-    protected Transform player;
-    protected bool seeking = false;
 
+    protected Transform player;
     protected Vector3 targetPosition;
 
     protected float epsilon = 0.01f;

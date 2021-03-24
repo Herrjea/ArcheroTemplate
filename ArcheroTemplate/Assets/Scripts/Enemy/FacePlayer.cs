@@ -6,6 +6,7 @@ using UnityEngine;
 public class FacePlayer : MonoBehaviour
 {
     [SerializeField] protected float rotationSeekspeed = 0.1f;
+    bool facingPlayer = true;
 
     Transform target;
 
@@ -18,7 +19,8 @@ public class FacePlayer : MonoBehaviour
 
     void FixedUpdate()
     {
-        RotateTowardsPlayer();
+        if (facingPlayer)
+            RotateTowardsPlayer();
     }
 
     void RotateTowardsPlayer()
@@ -29,5 +31,11 @@ public class FacePlayer : MonoBehaviour
                 Quaternion.LookRotation(target.position - transform.position),
                 rotationSeekspeed
             );
+    }
+
+
+    public bool FacingPlayer
+    {
+        set => facingPlayer = value;
     }
 }
