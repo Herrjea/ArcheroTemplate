@@ -8,7 +8,7 @@ public class WiggleInPlace : EnemyMovement
     [SerializeField] Vector2 amplitude;
 
 
-    void LateFixedUpdate()
+    void LateUpdate()
     {
         transform.position +=
             (
@@ -18,5 +18,8 @@ public class WiggleInPlace : EnemyMovement
             )
             *
             Time.deltaTime;
+
+        if (gameObject.name.Equals("Approacher"))
+            print("wiggled");
     }
 }
