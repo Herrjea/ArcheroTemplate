@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(FacePlayer))]
+[RequireComponent(typeof(FaceVelocity))]
+
 public class Charger : EnemyMovement
 {
     [SerializeField] protected AnimationCurve movementEase = AnimationCurve.EaseInOut(0, 0, 1, 1);
@@ -13,12 +17,19 @@ public class Charger : EnemyMovement
 
     WaitForSeconds CDTimer;
 
+    FacePlayer facePlayerRotation;
+    FaceVelocity faceVelocityRotation;
+
 
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
 
         CDTimer = new WaitForSeconds(chargeCD);
+
+        facePlayerRotation = GetComponent<FacePlayer>();
+        faceVelocityRotation = GetComponent<FaceVelocity>();
+        SwitchToFacePlayer();
 
         StartCoroutine(ChargeTrigger());
     }
@@ -35,6 +46,7 @@ public class Charger : EnemyMovement
             targetPosition = ComputeTargetPosition();
 
             // Move to that position
+            SwitchToFaceVelocity();
             yield return StartCoroutine(MoveToTarget());
 
             // Teleport above the screen
@@ -48,8 +60,9 @@ public class Charger : EnemyMovement
             targetPosition = new Vector3(
                 Random.Range(-roomSize.x, roomSize.x),
                 transform.position.y,
-                Random.Range(0, roomSize.y)
+                Random.Range(0, roomSize.y * 0.7f)
             );
+            SwitchToFacePlayer();
             yield return StartCoroutine(MoveToTarget());
         }
     }
@@ -78,9 +91,20 @@ public class Charger : EnemyMovement
                 targetPosition,
                 movementEase.Evaluate(elapsed / movementDuration)
             );
-            print((elapsed / movementDuration) + ": " + movementEase.Evaluate(elapsed / movementDuration));
 
             yield return null;
         }
+    }
+
+    protected void SwitchToFaceVelocity()
+    {
+        facePlayerRotation.enabled = false;
+        faceVelocityRotation.enabled = true;
+    }
+
+    protected void SwitchToFacePlayer()
+    {
+        faceVelocityRotation.enabled = false;
+        facePlayerRotation.enabled = true;
     }
 }

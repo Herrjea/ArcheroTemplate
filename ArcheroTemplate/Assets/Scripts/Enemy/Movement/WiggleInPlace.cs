@@ -8,7 +8,7 @@ public class WiggleInPlace : EnemyMovement
     [SerializeField] Vector2 amplitude;
 
 
-    void FixedUpdate()
+    void LateFixedUpdate()
     {
         transform.position +=
             (
