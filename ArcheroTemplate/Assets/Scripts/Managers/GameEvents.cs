@@ -58,6 +58,7 @@ public static class GameEvents
 
 
     public class V2Event : UnityEvent<Vector2> { };
+    public class V3Event : UnityEvent<Vector3> { };
     public class PoolV3TransEvent : UnityEvent<ObjectPool, Vector3, Transform> { };
 
 
@@ -80,4 +81,7 @@ public static class GameEvents
     public static UnityEvent ToggleShooting = new UnityEvent();
 
     public static PoolV3TransEvent PlayerShot = new PoolV3TransEvent();
+
+    public static UnityEvent PlayerDied = new UnityEvent();
+    public static V3Event EnemyDied = new V3Event();
 }
