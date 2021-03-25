@@ -18,8 +18,5 @@ public class WiggleInPlace : EnemyMovement
             )
             *
             Time.deltaTime;
-
-        if (gameObject.name.Equals("Approacher"))
-            print("wiggled");
     }
 }
