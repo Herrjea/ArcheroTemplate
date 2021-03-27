@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: {x: 1.1, y: 0.7}
-  amplitude: {x: 0.5, y: 0.5}
+  amplitude: {x: 1.5, y: 0.5}
 --- !u!114 &3350151969542459825
 MonoBehaviour:
   m_ObjectHideFlags: 0

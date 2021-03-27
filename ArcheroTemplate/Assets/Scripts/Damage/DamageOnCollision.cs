@@ -11,7 +11,7 @@ public class DamageOnCollision : MonoBehaviour, IDamaging
     {
         IDamageable target = collision.gameObject.GetComponent<IDamageable>();
 
-        if (target != null)
+        if (target != null && collision.collider.gameObject.layer != gameObject.layer)
             ApplyDamage(target);
     }
 
