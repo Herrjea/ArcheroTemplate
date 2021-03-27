@@ -190,6 +190,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Approacher
       objectReference: {fileID: 0}
+    - target: {fileID: 4251676694939058943, guid: a964ff06bc75d45c0840e1238ea545b5,
+        type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a964ff06bc75d45c0840e1238ea545b5, type: 3}
 --- !u!1 &567919354

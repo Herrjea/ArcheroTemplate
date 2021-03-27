@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ApproachPlayer : MonoBehaviour
 {
-    [SerializeField] float speed = 2;
+    [SerializeField] float speed = 2f;
+    float velocityMagnitude;
 
     Transform player;
 
@@ -15,13 +16,24 @@ public class ApproachPlayer : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
+        
         transform.position +=
             (player.position - transform.position).normalized
             *
             speed
             *
             Time.deltaTime;
+        /*
+
+        velocityMagnitude = (player.position - transform.position).magnitude;
+
+        transform.position =
+            Vector3.Lerp(
+                transform.position,
+                player.position,
+                seekSpeed * Time.deltaTime
+            );*/
     }
 }
