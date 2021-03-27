@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour, IDamageable
 {
-    [SerializeField] protected float health = 10;
+    [SerializeField] protected float maxHealth = 10;
     [SerializeField] protected float defense = 1;
+    float currentHealth;
 
 
-    public void Damage(float amount, DamageType type = DamageType.Physical)
+    private void Awake()
     {
-        health -= amount;
+        currentHealth = maxHealth;
+    }
 
-        if (health <= 0)
+
+    public void ReceiveDamage(float amount, DamageType type = DamageType.Physical)
+    {
+        currentHealth -= amount;
+
+        print($"{gameObject.name}'s current health: {currentHealth}");
+
+        if (currentHealth <= 0)
             Die();
     }
 
 
     protected virtual void Die()
     {
-        Debug.Log("Unimplemented Stats::Die member");
+        Debug.Log("Unimplemented Stats::Die member on object " + gameObject.name);
     }
 }

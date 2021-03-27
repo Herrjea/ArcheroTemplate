@@ -1,5 +1,5 @@
 
 public interface IDamageable
 {
-    void Damage(float amount, DamageType type = DamageType.Physical);
+    void ReceiveDamage(float amount, DamageType type = DamageType.Physical);
 }

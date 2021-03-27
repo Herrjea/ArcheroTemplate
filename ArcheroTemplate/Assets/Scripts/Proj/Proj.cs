@@ -13,9 +13,9 @@ public abstract class Proj : MonoBehaviour
     protected abstract void FixedUpdate();
 
 
-    protected void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        print("proj entered trigger from " + other.name);
+        print("proj entered collision from " + collision.collider.name);
 
         gameObject.SetActive(false);
     }
