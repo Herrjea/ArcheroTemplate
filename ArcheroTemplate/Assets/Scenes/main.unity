@@ -243,6 +243,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Approacher
       objectReference: {fileID: 0}
+    - target: {fileID: 4251676693865896859, guid: a964ff06bc75d45c0840e1238ea545b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a964ff06bc75d45c0840e1238ea545b5, type: 3}
 --- !u!1 &567919354
@@ -817,6 +822,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Charger
       objectReference: {fileID: 0}
+    - target: {fileID: 4709743928259496392, guid: fcd5aeaa3b38d4ee9ab2561175d9df1c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4709743928259496395, guid: fcd5aeaa3b38d4ee9ab2561175d9df1c,
         type: 3}
       propertyPath: m_RootOrder
@@ -881,6 +891,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3432213432373042165, guid: 42f4a0295c83e4d818c245473b5ceaad,
+        type: 3}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7267145860503068416, guid: 42f4a0295c83e4d818c245473b5ceaad,
+        type: 3}
+      propertyPath: m_Drag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7267145860503068416, guid: 42f4a0295c83e4d818c245473b5ceaad,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7267145860503068418, guid: 42f4a0295c83e4d818c245473b5ceaad,
         type: 3}
       propertyPath: m_RootOrder
