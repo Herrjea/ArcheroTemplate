@@ -19,8 +19,6 @@ public class Stats : MonoBehaviour, IDamageable
     {
         currentHealth -= amount;
 
-        print($"{gameObject.name}'s current health: {currentHealth}");
-
         if (currentHealth <= 0)
             Die();
     }

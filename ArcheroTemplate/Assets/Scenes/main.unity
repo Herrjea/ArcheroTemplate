@@ -233,8 +233,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Approacher
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5035809438135724923, guid: a964ff06bc75d45c0840e1238ea545b5, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a964ff06bc75d45c0840e1238ea545b5, type: 3}
 --- !u!1 &567919354
 GameObject:
@@ -673,7 +672,7 @@ PrefabInstance:
     - target: {fileID: 1548917326985757976, guid: 629f2e40e2b064195937899798d04e1c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 7.98
       objectReference: {fileID: 0}
     - target: {fileID: 1548917326985757976, guid: 629f2e40e2b064195937899798d04e1c,
         type: 3}
