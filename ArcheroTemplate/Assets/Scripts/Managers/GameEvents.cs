@@ -6,6 +6,7 @@ using UnityEngine.Events;
 //Clase estática que contiene los distintos eventos que pueden lanzarse en el juego
 public static class GameEvents
 {
+    #region Howto
 
     /**** Ejemplo de evento sin parámetros
      *
@@ -56,10 +57,17 @@ public static class GameEvents
      * 
      */
 
+    #endregion
 
+
+    #region Needed types
+
+    public class FloatEvent : UnityEvent<float> { };
     public class V2Event : UnityEvent<Vector2> { };
     public class V3Event : UnityEvent<Vector3> { };
     public class PoolV3TransEvent : UnityEvent<ObjectPool, Vector3, Transform> { };
+
+    #endregion
 
 
     //
@@ -81,6 +89,8 @@ public static class GameEvents
     public static UnityEvent ToggleShooting = new UnityEvent();
 
     public static PoolV3TransEvent PlayerShot = new PoolV3TransEvent();
+
+    public static FloatEvent PlayeGotHit = new FloatEvent();
 
     public static UnityEvent PlayerDied = new UnityEvent();
     public static V3Event EnemyDied = new V3Event();

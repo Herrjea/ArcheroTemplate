@@ -106,7 +106,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2462a8c0f3375488d81112ddf85763f6, type: 2}
+  - {fileID: 2100000, guid: 02d856798a6f54f4f8ada043fff26f9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -189,7 +189,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2462a8c0f3375488d81112ddf85763f6, type: 2}
+  - {fileID: 2100000, guid: 02d856798a6f54f4f8ada043fff26f9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -270,7 +270,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2462a8c0f3375488d81112ddf85763f6, type: 2}
+  - {fileID: 2100000, guid: 02d856798a6f54f4f8ada043fff26f9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -306,6 +306,7 @@ GameObject:
   - component: {fileID: 6062552342509487074}
   - component: {fileID: 1184146456850201619}
   - component: {fileID: 7498269764291283163}
+  - component: {fileID: 8268015067893260868}
   - component: {fileID: 1632953048762958441}
   - component: {fileID: 8371871799423386537}
   m_Layer: 8
@@ -423,6 +424,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2
   defense: 1
+  currentHealth: 0
+--- !u!114 &8268015067893260868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709743928259496392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da69bb133f332403584f0b6f41604399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 02d856798a6f54f4f8ada043fff26f9e, type: 2}
+  blinkDuration: 0.05
+  repetitions: 2
 --- !u!135 &1632953048762958441
 SphereCollider:
   m_ObjectHideFlags: 0
