@@ -7,4 +7,9 @@ public class EnemyStats : Stats
 
         Destroy(gameObject);
     }
+
+    protected override void GotHit(float amount)
+    {
+        //////////////////
+    }
 }

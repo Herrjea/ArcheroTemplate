@@ -7,4 +7,9 @@ public class PlayerStats : Stats
 
         Destroy(gameObject);
     }
+
+    protected override void GotHit(float amount)
+    {
+        GameEvents.PlayeGotHit.Invoke(amount);
+    }
 }

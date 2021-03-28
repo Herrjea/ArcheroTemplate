@@ -22,11 +22,18 @@ public class Stats : MonoBehaviour, IDamageable
 
         if (currentHealth <= 0)
             Die();
+        else
+            GotHit(amount);
     }
 
 
     protected virtual void Die()
     {
         Debug.Log("Unimplemented Stats::Die member on object " + gameObject.name);
+    }
+
+    protected virtual void GotHit(float amount)
+    {
+        Debug.Log("Unimplemented Stats::GotHit member on object " + gameObject.name);
     }
 }
