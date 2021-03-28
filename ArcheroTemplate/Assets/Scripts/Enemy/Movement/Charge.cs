@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(FacePlayer))]
 [RequireComponent(typeof(FaceVelocity))]
 
-public class Charger : EnemyMovement
+public class Charge : EnemyMovement
 {
     [SerializeField] protected AnimationCurve movementEase = AnimationCurve.EaseInOut(0, 0, 1, 1);
     [SerializeField] protected float movementDuration = 4;
@@ -53,7 +53,7 @@ public class Charger : EnemyMovement
             transform.position = new Vector3(
                 0,
                 transform.position.y,
-                roomSize.y * 2
+                roomSize.y * 1.2f
             );
 
             // Move to a random position in the screen's upper half
