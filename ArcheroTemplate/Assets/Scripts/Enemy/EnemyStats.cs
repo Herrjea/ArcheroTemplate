@@ -1,6 +1,20 @@
 
+using UnityEngine;
+
+
 public class EnemyStats : Stats
 {
+    ColorBlink colorBlink;
+
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        colorBlink = GetComponent<ColorBlink>();
+    }
+
+
     protected override void Die()
     {
         GameEvents.EnemyDied.Invoke(transform.position);
@@ -10,6 +24,6 @@ public class EnemyStats : Stats
 
     protected override void GotHit(float amount)
     {
-        //////////////////
+        colorBlink.Blink();
     }
 }

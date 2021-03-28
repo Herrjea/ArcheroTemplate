@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 24a0a1eee937e47d88a642dab78861c3, type: 2}
+  - {fileID: 2100000, guid: a50a24dc90d0a4a2f955c214a18eb25f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90,9 +90,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4018597237878681469}
-  - component: {fileID: 8390006078575963563}
   - component: {fileID: 28411520561290003}
   - component: {fileID: 6966761330717261408}
+  - component: {fileID: 8390006078575963563}
+  - component: {fileID: 8284519098641495509}
   - component: {fileID: 4063947983735152226}
   - component: {fileID: 2555387797468791059}
   m_Layer: 11
@@ -117,21 +118,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &8390006078575963563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4018597237878681470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb791adbaf9494fb7a6f8d5fc71fae70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 3
-  defense: 1
-  currentHealth: 0
 --- !u!114 &28411520561290003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +146,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
+--- !u!114 &8390006078575963563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018597237878681470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb791adbaf9494fb7a6f8d5fc71fae70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  defense: 1
+  currentHealth: 0
+--- !u!114 &8284519098641495509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018597237878681470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da69bb133f332403584f0b6f41604399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: a50a24dc90d0a4a2f955c214a18eb25f, type: 2}
+  blinkDuration: 0.05
+  repetitions: 2
 --- !u!135 &4063947983735152226
 SphereCollider:
   m_ObjectHideFlags: 0

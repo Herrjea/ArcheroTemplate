@@ -10,7 +10,7 @@ public class Stats : MonoBehaviour, IDamageable
     [SerializeField] float currentHealth;
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
         currentHealth = maxHealth;
     }

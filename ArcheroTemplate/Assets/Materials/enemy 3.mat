@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player 1
+  m_Name: enemy 3
   m_Shader: {fileID: -6465566751694194690, guid: 947eab197c6d64583bcaa5d1502c3522,
     type: 3}
   m_ShaderKeywords: 
@@ -36,6 +36,6 @@ Material:
     - Vector1_b75c75c7ba9b4ace95bd13c7bfab2b13: 0
     - _BlinkAmount: 0
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.28445792, b: 0.6320754, a: 0}
+    - _BaseColor: {r: 0.6792453, g: 0.26982185, b: 0, a: 0}
     - _BlinkColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
