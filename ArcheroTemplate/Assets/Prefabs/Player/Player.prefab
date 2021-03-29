@@ -47,6 +47,8 @@ MonoBehaviour:
   frontOffset: {x: 0, y: 0, z: 2}
   sideOffset: {x: 1, y: 0, z: 0}
   rearOffset: {x: 0, y: 0, z: -2}
+  muzzleFlashPrefab: {fileID: 4090025545762815306, guid: 9b9f5d00ec82947c688bfd168792c879,
+    type: 3}
 --- !u!1 &7267145860503068422
 GameObject:
   m_ObjectHideFlags: 0

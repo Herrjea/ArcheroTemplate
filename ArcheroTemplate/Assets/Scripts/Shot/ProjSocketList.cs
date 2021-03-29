@@ -13,16 +13,24 @@ public class ProjSocketList : MonoBehaviour
     [SerializeField] protected Vector3 sideOffset = new Vector3(1, 0, 0);
     [SerializeField] protected Vector3 rearOffset = new Vector3(0, 0, -1);
 
+    [SerializeField] protected GameObject muzzleFlashPrefab = null;
+    protected GameObject newMuzzleFlash;
+
 
     protected virtual void Awake()
     {
         sockets = new List<ProjSocket>();
 
+        if (muzzleFlashPrefab != null)
+            newMuzzleFlash = GameObject.Instantiate(muzzleFlashPrefab, transform);
         newSocket = new ProjSocket(
             GameObject.Instantiate(new GameObject(), transform).transform,
-            SocketPosition.Front
+            SocketPosition.Front,
+            newMuzzleFlash?.GetComponent<ParticleSystem>()
         );
         newSocket.transform.localPosition += frontOffset;
+        if (newMuzzleFlash != null)
+            newMuzzleFlash.transform.localPosition = newSocket.transform.localPosition;
 
         sockets.Add(newSocket);
     }
@@ -41,6 +49,8 @@ public class ProjSocketList : MonoBehaviour
             proj = projObj.GetComponent<Proj>();
             proj.Velocity = velocity;
             proj.Target = target;
+
+            socket.NewShot();
         }
     }
 }
