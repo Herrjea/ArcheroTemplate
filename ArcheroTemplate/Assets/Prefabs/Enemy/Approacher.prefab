@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 7812330336094030469}
   - component: {fileID: 8695144230308518222}
   - component: {fileID: 6885171547376134340}
-  - component: {fileID: 3792623113154472583}
   - component: {fileID: 3436983334197933558}
+  - component: {fileID: 1147481642}
   m_Layer: 8
   m_Name: Approacher
   m_TagString: Untagged
@@ -123,19 +123,6 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: ef071da760e76478780441f2c726d305, type: 2}
   blinkDuration: 0.05
   repetitions: 2
---- !u!135 &3792623113154472583
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4251676693865896859}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3436983334197933558
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -152,6 +139,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!136 &1147481642
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4251676693865896859}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4251676694927117251
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,3 +445,4 @@ MonoBehaviour:
   frontOffset: {x: 0, y: 0, z: 2}
   sideOffset: {x: 1, y: 0, z: 0}
   rearOffset: {x: 0, y: 0, z: -2}
+  muzzleFlashPrefab: {fileID: 0}

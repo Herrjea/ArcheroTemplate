@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angleRange: {x: -10, y: -50}
-  speedRange: {x: 5, y: 10}
+  speedRange: {x: 4, y: 8}
   moveTowardsCenerOfScreen: 1
 --- !u!114 &6966761330717261408
 MonoBehaviour:

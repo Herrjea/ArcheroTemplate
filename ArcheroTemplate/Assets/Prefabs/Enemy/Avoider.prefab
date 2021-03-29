@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 1625771830}
   - component: {fileID: 53222841379769067}
   - component: {fileID: 2588439482037757429}
-  - component: {fileID: 3906274097283454253}
   - component: {fileID: 8515314635919561588}
+  - component: {fileID: 2064884683}
   m_Layer: 8
   m_Name: Avoider
   m_TagString: Untagged
@@ -144,19 +144,6 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: b616615b323c24b898c1350d55003b55, type: 2}
   blinkDuration: 0.05
   repetitions: 2
---- !u!135 &3906274097283454253
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548917326985757979}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8515314635919561588
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -173,6 +160,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!136 &2064884683
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548917326985757979}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1548917328038597955
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,3 +384,5 @@ MonoBehaviour:
   frontOffset: {x: 0, y: 0, z: 2}
   sideOffset: {x: 1, y: 0, z: 0}
   rearOffset: {x: 0, y: 0, z: -2}
+  muzzleFlashPrefab: {fileID: 4090025545762815306, guid: aa4452f4f6c1148638b1eb65e1498139,
+    type: 3}

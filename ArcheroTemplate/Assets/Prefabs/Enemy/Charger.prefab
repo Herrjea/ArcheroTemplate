@@ -47,6 +47,7 @@ MonoBehaviour:
   frontOffset: {x: 0, y: 0, z: 2}
   sideOffset: {x: 1, y: 0, z: 0}
   rearOffset: {x: 0, y: 0, z: -2}
+  muzzleFlashPrefab: {fileID: 0}
 --- !u!1 &4709743927177145408
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,8 +308,8 @@ GameObject:
   - component: {fileID: 1184146456850201619}
   - component: {fileID: 7498269764291283163}
   - component: {fileID: 8268015067893260868}
-  - component: {fileID: 1632953048762958441}
   - component: {fileID: 8371871799423386537}
+  - component: {fileID: 943128870}
   m_Layer: 8
   m_Name: Charger
   m_TagString: Untagged
@@ -440,19 +441,6 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 02d856798a6f54f4f8ada043fff26f9e, type: 2}
   blinkDuration: 0.05
   repetitions: 2
---- !u!135 &1632953048762958441
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4709743928259496392}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8371871799423386537
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -469,3 +457,17 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!136 &943128870
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709743928259496392}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

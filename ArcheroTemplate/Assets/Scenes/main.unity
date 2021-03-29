@@ -661,12 +661,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Avoider
       objectReference: {fileID: 0}
-    - target: {fileID: 1548917328084191114, guid: 629f2e40e2b064195937899798d04e1c,
-        type: 3}
-      propertyPath: muzzleFlashPrefab
-      value: 
-      objectReference: {fileID: 4090025545762815306, guid: aa4452f4f6c1148638b1eb65e1498139,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 629f2e40e2b064195937899798d04e1c, type: 3}
 --- !u!1001 &2856110765084164693
@@ -676,16 +670,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 28411520561290003, guid: e965b49aa719b4bd599063c07fc3d48e,
-        type: 3}
-      propertyPath: speedRange.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 28411520561290003, guid: e965b49aa719b4bd599063c07fc3d48e,
-        type: 3}
-      propertyPath: speedRange.y
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4018597237878681469, guid: e965b49aa719b4bd599063c07fc3d48e,
         type: 3}
       propertyPath: m_RootOrder
