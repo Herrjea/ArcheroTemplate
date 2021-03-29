@@ -58,12 +58,13 @@ public static class GameEvents
 
 
     public class V2Event : UnityEvent<Vector2> { };
-
+    public class IntEvent : UnityEvent<int> { };
 
     //
     // Input reading
     //
 
+        
     public static V2Event TouchPress = new V2Event();
 
     public static UnityEvent TouchRelease = new UnityEvent();
@@ -71,4 +72,7 @@ public static class GameEvents
     public static V2Event TouchDelta = new V2Event();
 
     public static UnityEvent ChangeMovementType = new UnityEvent();
+
+    public static IntEvent AddSoftCoins = new IntEvent();
+
 }
