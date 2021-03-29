@@ -5,6 +5,7 @@ using TMPro;
 
 public class SoftCoinsListener : MonoBehaviour
 {
+
     TextMeshProUGUI softCoinsText;
 
     private void Awake()

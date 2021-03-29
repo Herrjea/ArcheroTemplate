@@ -89,6 +89,14 @@ public class @Input : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""ToggleShooting"",
+                    ""type"": ""Button"",
+                    ""id"": ""492bff83-846c-435a-9cd9-19e6bf53cedd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -289,6 +297,17 @@ public class @Input : IInputActionCollection, IDisposable
                     ""action"": ""ChanegMovementType"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92e37ed8-bdbd-41e1-848f-cc16ea032793"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleShooting"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -306,6 +325,7 @@ public class @Input : IInputActionCollection, IDisposable
         m_Player_TouchHold = m_Player.FindAction("TouchHold", throwIfNotFound: true);
         m_Player_TouchRelease = m_Player.FindAction("TouchRelease", throwIfNotFound: true);
         m_Player_ChanegMovementType = m_Player.FindAction("ChanegMovementType", throwIfNotFound: true);
+        m_Player_ToggleShooting = m_Player.FindAction("ToggleShooting", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -364,6 +384,7 @@ public class @Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_TouchHold;
     private readonly InputAction m_Player_TouchRelease;
     private readonly InputAction m_Player_ChanegMovementType;
+    private readonly InputAction m_Player_ToggleShooting;
     public struct PlayerActions
     {
         private @Input m_Wrapper;
@@ -377,6 +398,7 @@ public class @Input : IInputActionCollection, IDisposable
         public InputAction @TouchHold => m_Wrapper.m_Player_TouchHold;
         public InputAction @TouchRelease => m_Wrapper.m_Player_TouchRelease;
         public InputAction @ChanegMovementType => m_Wrapper.m_Player_ChanegMovementType;
+        public InputAction @ToggleShooting => m_Wrapper.m_Player_ToggleShooting;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -413,6 +435,9 @@ public class @Input : IInputActionCollection, IDisposable
                 @ChanegMovementType.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChanegMovementType;
                 @ChanegMovementType.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChanegMovementType;
                 @ChanegMovementType.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChanegMovementType;
+                @ToggleShooting.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleShooting;
+                @ToggleShooting.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleShooting;
+                @ToggleShooting.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleShooting;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -444,6 +469,9 @@ public class @Input : IInputActionCollection, IDisposable
                 @ChanegMovementType.started += instance.OnChanegMovementType;
                 @ChanegMovementType.performed += instance.OnChanegMovementType;
                 @ChanegMovementType.canceled += instance.OnChanegMovementType;
+                @ToggleShooting.started += instance.OnToggleShooting;
+                @ToggleShooting.performed += instance.OnToggleShooting;
+                @ToggleShooting.canceled += instance.OnToggleShooting;
             }
         }
     }
@@ -459,5 +487,6 @@ public class @Input : IInputActionCollection, IDisposable
         void OnTouchHold(InputAction.CallbackContext context);
         void OnTouchRelease(InputAction.CallbackContext context);
         void OnChanegMovementType(InputAction.CallbackContext context);
+        void OnToggleShooting(InputAction.CallbackContext context);
     }
 }
