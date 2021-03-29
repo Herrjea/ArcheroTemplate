@@ -94,8 +94,8 @@ GameObject:
   - component: {fileID: 6966761330717261408}
   - component: {fileID: 8390006078575963563}
   - component: {fileID: 8284519098641495509}
-  - component: {fileID: 4063947983735152226}
   - component: {fileID: 2555387797468791059}
+  - component: {fileID: 5851406106165827975}
   m_Layer: 11
   m_Name: Drifter
   m_TagString: Untagged
@@ -176,19 +176,6 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: a50a24dc90d0a4a2f955c214a18eb25f, type: 2}
   blinkDuration: 0.05
   repetitions: 2
---- !u!135 &4063947983735152226
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4018597237878681470}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2555387797468791059
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -205,3 +192,17 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!136 &5851406106165827975
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018597237878681470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
