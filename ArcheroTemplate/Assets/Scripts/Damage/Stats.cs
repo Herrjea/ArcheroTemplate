@@ -9,10 +9,14 @@ public class Stats : MonoBehaviour, IDamageable
 
     [SerializeField] float currentHealth;
 
+    protected DeathAnimation deathAnimation;
+
 
     protected virtual void Awake()
     {
         currentHealth = maxHealth;
+
+        deathAnimation = GetComponent<DeathAnimation>();
     }
 
 

@@ -19,7 +19,7 @@ public class EnemyStats : Stats
     {
         GameEvents.EnemyDied.Invoke(transform.position);
 
-        Destroy(gameObject);
+        deathAnimation.Play();
     }
 
     protected override void GotHit(float amount)
