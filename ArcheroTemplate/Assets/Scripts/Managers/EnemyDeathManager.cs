@@ -12,6 +12,6 @@ public class EnemyDeathManager : MonoBehaviour
 
     public void EnemyDied(Vector3 position)
     {
-        print("Enemy died at " + position);
+        //////
     }
 }

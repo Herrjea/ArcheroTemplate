@@ -29,8 +29,6 @@ public abstract class Proj : MonoBehaviour
 
     protected void OnCollisionEnter(Collision collision)
     {
-        print("proj entered collision from " + collision.collider.name);
-
         StartCoroutine(OnExplosion());
     }
 
