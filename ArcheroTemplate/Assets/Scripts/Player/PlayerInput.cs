@@ -90,7 +90,7 @@ public class PlayerInput : MonoBehaviour
     {
         //print("delta: " + delta);
 
-        GameEvents.TouchDelta.Invoke(delta);
+        GameEvents.TouchDelta.Invoke(delta, input.Player.TouchPosition.ReadValue<Vector2>());
     }
 
     #endregion

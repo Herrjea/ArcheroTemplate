@@ -100,9 +100,9 @@ public class PlayerMovementController : MonoBehaviour
         Movement.TouchRelease();
     }
 
-    void TouchDelta(Vector2 delta)
+    void TouchDelta(Vector2 delta, Vector2 newPosition)
     {
-        Movement.TouchDelta(delta);
+        Movement.TouchDelta(delta, newPosition);
     }
 
     void ChangeMovementType()

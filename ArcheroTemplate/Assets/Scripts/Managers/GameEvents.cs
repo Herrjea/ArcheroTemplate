@@ -64,6 +64,7 @@ public static class GameEvents
 
     public class FloatEvent : UnityEvent<float> { };
     public class V2Event : UnityEvent<Vector2> { };
+    public class V2V2Event : UnityEvent<Vector2, Vector2> { };
     public class IntEvent : UnityEvent<int> { };
     public class V3Event : UnityEvent<Vector3> { };
     public class PoolV3TransEvent : UnityEvent<ObjectPool, Vector3, Transform> { };
@@ -78,7 +79,7 @@ public static class GameEvents
         
     public static V2Event TouchPress = new V2Event();
     public static UnityEvent TouchRelease = new UnityEvent();
-    public static V2Event TouchDelta = new V2Event();
+    public static V2V2Event TouchDelta = new V2V2Event();
 
     public static UnityEvent ChangeMovementType = new UnityEvent();
 

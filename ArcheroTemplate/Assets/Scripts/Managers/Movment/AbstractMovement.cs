@@ -46,9 +46,11 @@ public abstract class AbstractMovement : MonoBehaviour
         isTouching = false;
     }
 
-    public void TouchDelta(Vector2 delta)
+    public void TouchDelta(Vector2 delta, Vector2 newPosition)
     {
-        touchPosition += delta;
+        //touchPosition += delta;
+
+        touchPosition = newPosition;
     }
 
     public void StopMoving()
@@ -112,7 +114,7 @@ public abstract class AbstractMovement : MonoBehaviour
         );
     }
 
-    // Gradually removes teh applied roll, after the user stops moving the player
+    // Gradually removes the applied roll, after the user stops moving the player
     void DampenRoll()
     {
         StartCoroutine(DampenRollCoroutine());
