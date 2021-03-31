@@ -46,14 +46,13 @@ public class PlayerMovementController : MonoBehaviour
 
         InitMovementTypes();
 
-
-        GameEvents.TouchPress.AddListener(TouchPress);
-
-        GameEvents.TouchRelease.AddListener(TouchRelease);
-
-        GameEvents.TouchDelta.AddListener(TouchDelta);
+        StartMoving();
 
         GameEvents.ChangeMovementType.AddListener(ChangeMovementType);
+
+        GameEvents.PlayerDied.AddListener(StopMoving);
+
+
     }
 
     void InitMovementTypes()
@@ -72,6 +71,24 @@ public class PlayerMovementController : MonoBehaviour
 
 
     #region Input handling
+
+    void StartMoving()
+    {
+        GameEvents.TouchPress.AddListener(TouchPress);
+
+        GameEvents.TouchRelease.AddListener(TouchRelease);
+
+        GameEvents.TouchDelta.AddListener(TouchDelta);
+    }
+
+    void StopMoving()
+    {
+        GameEvents.TouchPress.RemoveListener(TouchPress);
+
+        GameEvents.TouchRelease.RemoveListener(TouchRelease);
+
+        GameEvents.TouchDelta.RemoveListener(TouchDelta);
+    }
 
     void TouchPress(Vector2 position)
     {

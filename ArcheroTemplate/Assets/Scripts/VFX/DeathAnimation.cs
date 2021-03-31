@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class DeathAnimation : MonoBehaviour
 {
-    [SerializeField] float circleDuration = 0.05f;
-    [SerializeField] int iterations = 2;
+    [SerializeField] protected float circleDuration = 0.05f;
+    [SerializeField] protected int iterations = 2;
 
-    GameObject whiteCircle;
-    GameObject blackCircle;
-    GameObject body;
+    protected GameObject whiteCircle;
+    protected GameObject blackCircle;
+    protected GameObject body;
 
 
-    void Awake()
+    protected virtual void Awake()
     {
         whiteCircle = transform.Find("VFX").transform.Find("WhiteCircle").gameObject;
         blackCircle = transform.Find("VFX").transform.Find("BlackCircle").gameObject;
@@ -24,12 +24,12 @@ public class DeathAnimation : MonoBehaviour
     }
 
 
-    public void Play()
+    public virtual void Play()
     {
         StartCoroutine(AnimationCoroutine());
     }
 
-    IEnumerator AnimationCoroutine()
+    protected IEnumerator AnimationCoroutine()
     {
         body.SetActive(false);
 

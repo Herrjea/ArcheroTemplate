@@ -17,6 +17,8 @@ public class PlayerShot : Shot
         GameEvents.StopShooting.AddListener(StopShooting);
         GameEvents.ToggleShooting.AddListener(ToggleShooting);
 
+        GameEvents.PlayerDied.AddListener(StopShooting);
+
         base.Start();
     }
 

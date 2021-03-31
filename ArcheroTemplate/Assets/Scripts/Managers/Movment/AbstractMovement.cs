@@ -28,6 +28,8 @@ public abstract class AbstractMovement : MonoBehaviour
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        GameEvents.PlayerDied.AddListener(StopMoving);
     }
 
 
@@ -47,6 +49,12 @@ public abstract class AbstractMovement : MonoBehaviour
     public void TouchDelta(Vector2 delta)
     {
         touchPosition += delta;
+    }
+
+    public void StopMoving()
+    {
+        TouchRelease();
+        rb.velocity = Vector3.zero;
     }
 
 
