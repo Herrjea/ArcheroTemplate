@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 3839438129127802952}
   - component: {fileID: 2555387797468791059}
   - component: {fileID: 5851406106165827975}
+  - component: {fileID: 667016081}
   m_Layer: 11
   m_Name: Drifter
   m_TagString: Untagged
@@ -386,6 +387,18 @@ CapsuleCollider:
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &667016081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018597237878681470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05eecd87cb93944339841f9d772df283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4593513604294544316
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +428,82 @@ Transform:
   m_Children:
   - {fileID: 9024079312235195985}
   - {fileID: 1046846764064802622}
+  - {fileID: 6960281595829107575}
   m_Father: {fileID: 4018597237878681469}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2856110764427221670
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7363579634682002407}
+    m_Modifications:
+    - target: {fileID: 5131027830352617937, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131027830352617937, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131027830352617937, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131027830352617937, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131027830352617937, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131027830352617937, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131027830352617937, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131027830352617937, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131027830352617937, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131027830352617937, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131027830352617937, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6266379357743529498, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14397bb9656b6416798dcddd04652e05, type: 3}
+--- !u!4 &6960281595829107575 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5131027830352617937, guid: 14397bb9656b6416798dcddd04652e05,
+    type: 3}
+  m_PrefabInstance: {fileID: 2856110764427221670}
+  m_PrefabAsset: {fileID: 0}
