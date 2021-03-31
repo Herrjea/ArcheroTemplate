@@ -12,12 +12,12 @@ public class DamageOnCollision : MonoBehaviour, IDamaging
         IDamageable target = collision.gameObject.GetComponent<IDamageable>();
 
         if (target != null && collision.collider.gameObject.layer != gameObject.layer)
-            ApplyDamage(target);
+            ApplyDamage(target, collision.GetContact(0).point);
     }
 
 
-    public void ApplyDamage(IDamageable target)
+    public void ApplyDamage(IDamageable target, Vector3 from)
     {
-        target.ReceiveDamage(damage);
+        target.ReceiveDamage(damage, from);
     }
 }

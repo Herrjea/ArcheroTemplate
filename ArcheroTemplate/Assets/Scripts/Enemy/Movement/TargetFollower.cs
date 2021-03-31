@@ -13,8 +13,10 @@ public class TargetFollower : EnemyMovement
     protected Coroutine movingCoroutine = null;
 
 
-    protected void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         player = GameObject.FindWithTag("Player").transform;
     }
 

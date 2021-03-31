@@ -1,5 +1,8 @@
 
+using UnityEngine;
+
+
 public interface IDamageable
 {
-    void ReceiveDamage(float amount, DamageType type = DamageType.Physical);
+    void ReceiveDamage(float amount, Vector3 from, DamageType type = DamageType.Physical);
 }

@@ -11,8 +11,10 @@ public class Drift : EnemyMovement
     Vector3 velocity;
 
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         float angle = Random.Range(angleRange.x, angleRange.y) * Mathf.Deg2Rad;
         float speed = Random.Range(speedRange.x, speedRange.y);
 

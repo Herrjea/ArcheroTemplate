@@ -1,4 +1,6 @@
 
+using UnityEngine;
+
 public class PlayerStats : Stats
 {
     protected override void Die()
