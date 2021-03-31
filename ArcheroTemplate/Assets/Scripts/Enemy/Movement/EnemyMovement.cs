@@ -9,6 +9,6 @@ public class EnemyMovement : MonoBehaviour
 
     protected virtual void Awake()
     {
-        roomSize = FloorResizer.RoomSize / 2;
+        roomSize = Room.RoomSize / 2;
     }
 }
