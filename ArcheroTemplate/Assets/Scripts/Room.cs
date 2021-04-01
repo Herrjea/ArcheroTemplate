@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    static float magicNumber = 40.7f;
+    static float magicNumber = 38;
+    static float fixedHeight = 26;
+    static float margin = 3;
+
     static Vector2 size = Vector2.zero;
 
 
@@ -14,8 +17,8 @@ public class Room : MonoBehaviour
         {
             if (size.Equals(Vector2.zero))
                 size = new Vector2(
-                    Screen.width / magicNumber,
-                    Screen.height / magicNumber
+                    Screen.width / magicNumber + margin,
+                    fixedHeight
                 );
 
             return size;
