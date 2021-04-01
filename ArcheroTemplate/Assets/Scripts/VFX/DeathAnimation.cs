@@ -9,7 +9,7 @@ public class DeathAnimation : MonoBehaviour
 
     protected GameObject whiteCircle;
     protected GameObject blackCircle;
-    protected GameObject body;
+    protected GameObject model;
 
 
     protected virtual void Awake()
@@ -20,7 +20,7 @@ public class DeathAnimation : MonoBehaviour
         whiteCircle.SetActive(false);
         blackCircle.SetActive(false);
 
-        body = transform.Find("Body").gameObject;
+        model = transform.Find("Model").gameObject;
     }
 
 
@@ -31,7 +31,7 @@ public class DeathAnimation : MonoBehaviour
 
     protected IEnumerator AnimationCoroutine()
     {
-        body.SetActive(false);
+        model.SetActive(false);
 
         for (int i = 0; i < iterations; i++)
         {
