@@ -27,12 +27,14 @@ public class ExplodeOnCollision : MonoBehaviour, ICollisionEffect
 
     public void ApplyEffect(Collision collision)
     {
-        print(Convert.ToString(collision.collider.gameObject.layer & layerMask, 2).PadLeft(32, '0'));
-        print(Convert.ToString(layerMask, 2).PadLeft(32, '0'));
+        /*
+         * Usually layer <n> is represented as <1 << n>,
+         * but in collision.collider.gameObject.layer it's represented as simply <n>,
+         * that's why I'm checking for <1 << layer> instead of just for <layer>
+         * against the specified layerMask
+         */
 
-        print(Convert.ToString(collision.collider.gameObject.layer, 2).PadLeft(32, '0'));
-
-        if ((collision.collider.gameObject.layer & layerMask) > 0)
+        if ((1 << collision.collider.gameObject.layer & layerMask) > 0)
         {
             model.SetActive(false);
 

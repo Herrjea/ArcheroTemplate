@@ -311,8 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33aed933b9dd749bdab68b6b0f1bb9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialParticleSize: 3
-  finalParticleSize: 0
   explosionDuration: 1
   particleSizeEase:
     serializedVersion: 2
@@ -350,6 +348,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4016745caa6f34106a6222f96391e0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 3
+  radius: 6
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &4251676694927117251
 GameObject:
   m_ObjectHideFlags: 0

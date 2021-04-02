@@ -682,6 +682,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   radius: 3
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &8136531014066545020
 GameObject:
   m_ObjectHideFlags: 0

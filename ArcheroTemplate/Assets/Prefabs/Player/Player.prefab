@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9176168040507066730}
   - component: {fileID: 6154732717425226694}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BlackCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2923751332761075899}
   - component: {fileID: 469878798986114825}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WhiteCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7267145860616893707}
   m_Layer: 7
-  m_Name: Body
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -559,7 +559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 733374329211886323}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,6 +749,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 6266379357743529498, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14397bb9656b6416798dcddd04652e05, type: 3}
