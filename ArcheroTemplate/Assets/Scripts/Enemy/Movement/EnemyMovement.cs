@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : NPCMovement
 {
     protected Vector2 roomSize = new Vector2(10, 15);
 

@@ -40,6 +40,7 @@ public class Drift : EnemyMovement
 
     void Update()
     {
-        transform.position += velocity * Time.deltaTime;
+        if (isMoving)
+            transform.position += velocity * Time.deltaTime;
     }
 }

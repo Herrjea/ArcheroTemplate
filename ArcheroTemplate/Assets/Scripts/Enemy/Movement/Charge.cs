@@ -20,6 +20,8 @@ public class Charge : EnemyMovement
     FacePlayer facePlayerRotation;
     FaceVelocity faceVelocityRotation;
 
+    Coroutine moveCoroutine = null;
+
 
     void Start()
     {
@@ -31,13 +33,13 @@ public class Charge : EnemyMovement
         faceVelocityRotation = GetComponent<FaceVelocity>();
         SwitchToFacePlayer();
 
-        StartCoroutine(ChargeTrigger());
+        moveCoroutine = StartCoroutine(ChargeTrigger());
     }
 
     
     IEnumerator ChargeTrigger()
     {
-        while (gameObject.activeSelf)
+        while (gameObject.activeSelf && isMoving)
         {
             // Start the CD and wait for it to finish
             yield return CDTimer;
@@ -82,7 +84,7 @@ public class Charge : EnemyMovement
         float elapsed = 0;
         Vector3 startingPosition = transform.position;
 
-        while (elapsed < movementDuration && gameObject.activeSelf)
+        while (elapsed < movementDuration && gameObject.activeSelf && isMoving)
         {
             elapsed += Time.deltaTime;
 
@@ -106,5 +108,14 @@ public class Charge : EnemyMovement
     {
         faceVelocityRotation.enabled = false;
         facePlayerRotation.enabled = true;
+    }
+
+
+    public override void StopMoving()
+    {
+        base.StopMoving();
+
+        if (moveCoroutine != null)
+            StopCoroutine(moveCoroutine);
     }
 }

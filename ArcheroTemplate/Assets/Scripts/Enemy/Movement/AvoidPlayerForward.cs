@@ -26,7 +26,7 @@ public class AvoidPlayerForward : TargetFollower
         float currentOffset;
         float targetPositionX;
 
-        while (gameObject.activeSelf)
+        while (gameObject.activeSelf && isMoving)
         {
             currentOffset = player.position.x - transform.position.x;
 

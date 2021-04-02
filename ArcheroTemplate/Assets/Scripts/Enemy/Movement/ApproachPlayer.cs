@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApproachPlayer : MonoBehaviour
+public class ApproachPlayer : EnemyMovement
 {
     [SerializeField] float speed = 2f;
     float velocityMagnitude;
@@ -10,30 +10,22 @@ public class ApproachPlayer : MonoBehaviour
     Transform player;
 
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         player = GameObject.FindWithTag("Player").transform;
     }
 
 
-    private void LateUpdate()
+    protected void LateUpdate()
     {
-        
-        transform.position +=
-            (player.position - transform.position).normalized
-            *
-            speed
-            *
-            Time.deltaTime;
-        /*
-
-        velocityMagnitude = (player.position - transform.position).magnitude;
-
-        transform.position =
-            Vector3.Lerp(
-                transform.position,
-                player.position,
-                seekSpeed * Time.deltaTime
-            );*/
+        if (isMoving)
+            transform.position +=
+                (player.position - transform.position).normalized
+                *
+                speed
+                *
+                Time.deltaTime;
     }
 }

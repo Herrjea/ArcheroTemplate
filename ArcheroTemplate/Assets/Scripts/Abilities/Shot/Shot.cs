@@ -39,7 +39,7 @@ public class Shot : MonoBehaviour
             shootCoroutine = StartCoroutine(Shoot(target));
     }
 
-    protected void StopShooting()
+    public void StopShooting()
     {
         shooting = false;
     }

@@ -27,6 +27,8 @@ public class TargetFollower : EnemyMovement
             Mathf.Abs(transform.position.x - targetPosition.x) > epsilon
             &&
             gameObject.activeSelf
+            &&
+            isMoving
         )
         {
             transform.position = Vector3.Lerp(

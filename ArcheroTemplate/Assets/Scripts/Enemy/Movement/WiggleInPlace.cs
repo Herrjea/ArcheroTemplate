@@ -10,13 +10,14 @@ public class WiggleInPlace : EnemyMovement
 
     void LateUpdate()
     {
-        transform.position +=
-            (
-                Vector3.right * Mathf.Sin(Time.time * frequency.x) * amplitude.x
-                +
-                Vector3.forward * Mathf.Cos(Time.time * frequency.y) * amplitude.y
-            )
-            *
-            Time.deltaTime;
+        if (isMoving)
+            transform.position +=
+                (
+                    Vector3.right * Mathf.Sin(Time.time * frequency.x) * amplitude.x
+                    +
+                    Vector3.forward * Mathf.Cos(Time.time * frequency.y) * amplitude.y
+                )
+                *
+                Time.deltaTime;
     }
 }

@@ -11,10 +11,16 @@ public class Explode : MonoBehaviour
 
     Coroutine explosionCoroutine = null;
 
+    Shot shot;
+    NPCMovement movement;
+
 
     void Awake()
     {
         explosionParticles = transform.Find("VFX").Find("Explosion").GetComponent<ParticleSystem>();
+
+        shot = GetComponent<Shot>();
+        movement = GetComponent<NPCMovement>();
     }
 
 
@@ -30,6 +36,10 @@ public class Explode : MonoBehaviour
 
     IEnumerator ExplosionAnimation(float damage, float radius)
     {
+        // Prevent the object from further acting
+        shot?.StopShooting();
+        movement?.StopMoving();
+
         float elapsed = 0;
 
         ParticleSystem.MainModule main = explosionParticles.main;
@@ -46,6 +56,8 @@ public class Explode : MonoBehaviour
                 0,
                 particleSizeEase.Evaluate(elapsed / explosionDuration)
             );
+
+            print(elapsed / explosionDuration);
 
             yield return null;
         }
