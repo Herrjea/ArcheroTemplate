@@ -10,6 +10,7 @@ public class ExplodeOnCollision : MonoBehaviour, ICollisionEffect
 {
     [SerializeField] float damage = 3;
     [SerializeField] float radius = 3;
+    [SerializeField] float pushForce = 100;
 
     [SerializeField] LayerMask layerMask;
 
@@ -38,7 +39,7 @@ public class ExplodeOnCollision : MonoBehaviour, ICollisionEffect
         {
             model.SetActive(false);
 
-            explode.Trigger(damage, radius);
+            explode.Trigger(damage, radius, collision.GetContact(0).point, pushForce);
         }
     }
 

@@ -23,8 +23,10 @@ public class Charge : EnemyMovement
     Coroutine moveCoroutine = null;
 
 
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         player = GameObject.FindWithTag("Player").transform;
 
         CDTimer = new WaitForSeconds(chargeCD);

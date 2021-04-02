@@ -24,13 +24,13 @@ public class Explode : MonoBehaviour
     }
 
 
-    public void Trigger(float damage, float radius)
+    public void Trigger(float damage, float radius, Vector3 contactPoint, float pushForce)
     {
         if (explosionCoroutine == null)
         {
             explosionCoroutine = StartCoroutine(ExplosionAnimation(damage, radius));
 
-            /////////// daño en área
+            ApplyEffect(damage, radius, contactPoint, pushForce);
         }
     }
 
@@ -57,13 +57,28 @@ public class Explode : MonoBehaviour
                 particleSizeEase.Evaluate(elapsed / explosionDuration)
             );
 
-            print(elapsed / explosionDuration);
-
             yield return null;
         }
 
         explosionParticles.Stop();
 
         Destroy(gameObject);
+    }
+
+
+    void ApplyEffect(float damage, float radius, Vector3 contactPoint, float pushForce)
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+
+        // On others (damage and push)
+        foreach (Collider collider in colliders)
+        {
+            collider.gameObject.GetComponent<IDamageable>()?.ReceiveDamage(damage, transform.position);
+
+            collider.gameObject.GetComponent<IPushable>()?.ReceivePushForce(pushForce, transform.position, radius);
+        }
+
+        // On self (only push)
+        GetComponent<IPushable>()?.ReceivePushForce(pushForce, contactPoint, radius);
     }
 }

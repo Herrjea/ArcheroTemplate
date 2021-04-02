@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCMovement : MonoBehaviour
+public class NPCMovement : MonoBehaviour, IPushable
 {
     protected bool isMoving = true;
+    protected Rigidbody rb;
+
+
+    protected virtual void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
 
     public void StartMoving()
@@ -15,5 +22,13 @@ public class NPCMovement : MonoBehaviour
     public virtual void StopMoving()
     {
         isMoving = false;
+    }
+
+
+    public void ReceivePushForce(float strength, Vector3 from, float radius)
+    {
+        print("applying pushForce " + strength);
+        Debug.Break();
+        rb?.AddExplosionForce(strength, from, radius);
     }
 }

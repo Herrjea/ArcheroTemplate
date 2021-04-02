@@ -15,8 +15,10 @@ public class AvoidPlayerForward : TargetFollower
     [SerializeField] float avoidanceCD = 3;
 
 
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         StartCoroutine(AvoidanceTrigger());
     }
 
