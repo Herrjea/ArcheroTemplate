@@ -36,6 +36,8 @@ public class Charge : EnemyMovement
         SwitchToFacePlayer();
 
         moveCoroutine = StartCoroutine(ChargeTrigger());
+
+        //GetComponent<Rigidbody>().AddExplosionForce(1000000, transform.position + Vector3.back, 5);
     }
 
     

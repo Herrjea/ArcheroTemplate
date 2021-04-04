@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementController : MonoBehaviour
+
+[RequireComponent(typeof(Rigidbody))]
+
+public class PlayerMovementController : MonoBehaviour, IPushable
 {
     [SerializeField] bool usingJoystickMovement = false;
 
@@ -13,6 +16,8 @@ public class PlayerMovementController : MonoBehaviour
 
     [SerializeField] AbstractMovement[] movementTypes;
     int selectedMovementType;
+
+    Rigidbody rb;
 
 
     AbstractMovement Movement
@@ -51,6 +56,8 @@ public class PlayerMovementController : MonoBehaviour
         GameEvents.ChangeMovementType.AddListener(ChangeMovementType);
 
         GameEvents.PlayerDied.AddListener(StopMoving);
+
+        rb = GetComponent<Rigidbody>();
 
 
     }
@@ -116,4 +123,10 @@ public class PlayerMovementController : MonoBehaviour
     }
 
     #endregion
+
+
+    public void ReceivePushForce(float strength, Vector3 from, float radius)
+    {
+        rb.AddExplosionForce(strength, from, radius);
+    }
 }

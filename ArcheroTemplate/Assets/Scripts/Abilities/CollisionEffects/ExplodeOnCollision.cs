@@ -10,7 +10,7 @@ public class ExplodeOnCollision : MonoBehaviour, ICollisionEffect
 {
     [SerializeField] float damage = 3;
     [SerializeField] float radius = 3;
-    [SerializeField] float pushForce = 100;
+    [SerializeField] float pushForce = 4000;
 
     [SerializeField] LayerMask layerMask;
 

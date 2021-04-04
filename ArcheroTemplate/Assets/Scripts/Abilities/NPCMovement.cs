@@ -27,8 +27,6 @@ public class NPCMovement : MonoBehaviour, IPushable
 
     public void ReceivePushForce(float strength, Vector3 from, float radius)
     {
-        print("applying pushForce " + strength);
-        Debug.Break();
         rb?.AddExplosionForce(strength, from, radius);
     }
 }

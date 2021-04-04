@@ -12,7 +12,7 @@ public class Explode : MonoBehaviour
     Coroutine explosionCoroutine = null;
 
     Shot shot;
-    NPCMovement movement;
+    NPCMovement[] movements;
 
 
     void Awake()
@@ -20,7 +20,7 @@ public class Explode : MonoBehaviour
         explosionParticles = transform.Find("VFX").Find("Explosion").GetComponent<ParticleSystem>();
 
         shot = GetComponent<Shot>();
-        movement = GetComponent<NPCMovement>();
+        movements = GetComponents<NPCMovement>();
     }
 
 
@@ -38,7 +38,8 @@ public class Explode : MonoBehaviour
     {
         // Prevent the object from further acting
         shot?.StopShooting();
-        movement?.StopMoving();
+        foreach(NPCMovement movement in movements)
+            movement?.StopMoving();
 
         float elapsed = 0;
 
