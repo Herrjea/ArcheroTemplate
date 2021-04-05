@@ -5,6 +5,7 @@ using UnityEngine;
 public class ColorBlink : MonoBehaviour
 {
     [SerializeField] Material material = null;
+    Material actualMaterial;
 
     [SerializeField] float blinkDuration = .05f;
     [SerializeField] int repetitions = 3;
@@ -20,7 +21,14 @@ public class ColorBlink : MonoBehaviour
         if (material == null)
             Debug.LogError("Material not set at ColorBlink::material on object " + gameObject.name);
 
-        material.SetFloat(blinkAmountId, 0);
+        // Make a copy of the specified material,
+        // so that changes to its properties
+        // don't affect other objects
+        actualMaterial = new Material(material);
+
+        // Make all model parts use the new material
+        foreach (Transform part in transform.Find("Model"))
+            part.GetComponent<MeshRenderer>().material = actualMaterial;
     }
 
 
@@ -40,13 +48,18 @@ public class ColorBlink : MonoBehaviour
     {
         for (int i = 0; i < repetitions; i++)
         {
-            material.SetFloat(blinkAmountId, 1);
+            actualMaterial.SetFloat(blinkAmountId, 1);
 
             yield return new WaitForSeconds(duration);
 
-            material.SetFloat(blinkAmountId, 0);
+            actualMaterial.SetFloat(blinkAmountId, 0);
 
             yield return new WaitForSeconds(duration);
         }
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(actualMaterial);
     }
 }
