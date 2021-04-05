@@ -928,30 +928,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: 
-    enemy: {fileID: 4251676693865896859, guid: a964ff06bc75d45c0840e1238ea545b5, type: 3}
-    amount: 1
-    maxTimeUntilNextWave: 0
-    newMinThreshold: -1
+    enemies:
+    - enemy: {fileID: 1548917326985757979, guid: 629f2e40e2b064195937899798d04e1c,
+        type: 3}
+      amount: 2
+    - enemy: {fileID: 4709743928259496392, guid: fcd5aeaa3b38d4ee9ab2561175d9df1c,
+        type: 3}
+      amount: 2
+    - enemy: {fileID: 4018597237878681470, guid: e965b49aa719b4bd599063c07fc3d48e,
+        type: 3}
+      amount: 3
+    maxTimeUntilNextWave: 30
+    newMinThreshold: 1
   - name: 
-    enemy: {fileID: 1548917326985757979, guid: 629f2e40e2b064195937899798d04e1c, type: 3}
-    amount: 1
-    maxTimeUntilNextWave: 0
-    newMinThreshold: -1
-  - name: 
-    enemy: {fileID: 4018597237878681470, guid: e965b49aa719b4bd599063c07fc3d48e, type: 3}
-    amount: 1
-    maxTimeUntilNextWave: 0
-    newMinThreshold: -1
-  - name: 
-    enemy: {fileID: 4709743928259496392, guid: fcd5aeaa3b38d4ee9ab2561175d9df1c, type: 3}
-    amount: 1
-    maxTimeUntilNextWave: 10
-    newMinThreshold: 3
-  - name: 
-    enemy: {fileID: 1548917326985757979, guid: 629f2e40e2b064195937899798d04e1c, type: 3}
-    amount: 1
-    maxTimeUntilNextWave: 10
-    newMinThreshold: -1
+    enemies:
+    - enemy: {fileID: 4251676693865896859, guid: a964ff06bc75d45c0840e1238ea545b5,
+        type: 3}
+      amount: 6
+    maxTimeUntilNextWave: 30
+    newMinThreshold: 1
   minEnemyCountThreshold: 1
 --- !u!4 &1835966535
 Transform:

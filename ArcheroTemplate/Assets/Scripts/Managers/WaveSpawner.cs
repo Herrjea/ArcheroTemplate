@@ -4,12 +4,18 @@ using UnityEngine;
 
 
 [System.Serializable]
+public class EnemyTypeInWave
+{
+    public GameObject enemy;
+    public int amount = 1;
+}
+
+[System.Serializable]
 public class Wave
 {
     public string name;
-    public GameObject enemy;
-    public int amount;
-    public float maxTimeUntilNextWave;
+    public EnemyTypeInWave[] enemies;
+    public float maxTimeUntilNextWave = 20;
     public int newMinThreshold = -1;
 }
 
@@ -51,11 +57,15 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnCoroutine()
     {
-        for (int i = 0; i < waves[currentWave].amount; i++)
-            InstantiateEnemy(waves[currentWave].enemy);
+        for (int i = 0; i < waves[currentWave].enemies.Length; i++)
+        {
+            for (int j = 0; j < waves[currentWave].enemies[i].amount; j++)
+                InstantiateEnemy(waves[currentWave].enemies[i].enemy);
+            enemiesOnScreen += waves[currentWave].enemies[i].amount;
+        }
+
         if (waves[currentWave].newMinThreshold >= 0)
             minEnemyCountThreshold = waves[currentWave].newMinThreshold;
-        enemiesOnScreen += waves[currentWave].amount;
 
         yield return new WaitForSeconds(waves[currentWave].maxTimeUntilNextWave);
 
