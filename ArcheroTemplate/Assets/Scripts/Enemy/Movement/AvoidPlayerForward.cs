@@ -20,6 +20,12 @@ public class AvoidPlayerForward : TargetFollower
         base.Awake();
 
         StartCoroutine(AvoidanceTrigger());
+
+        // Add a slight randomization,
+        // in order to make several of the same type together
+        // look not so much like a robot swarm
+        minOffset = Random.Range(minOffset * (1 - errorMargin), minOffset * (1 + errorMargin));
+        avoidanceCD = Random.Range(avoidanceCD * (1 - errorMargin), avoidanceCD * (1 + errorMargin));
     }
 
 
