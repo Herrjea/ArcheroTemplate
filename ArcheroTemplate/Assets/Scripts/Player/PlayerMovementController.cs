@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementController : MonoBehaviour
+
+[RequireComponent(typeof(Rigidbody))]
+
+public class PlayerMovementController : MonoBehaviour, IPushable
 {
     [SerializeField] bool usingJoystickMovement = false;
 
@@ -13,6 +16,8 @@ public class PlayerMovementController : MonoBehaviour
 
     [SerializeField] AbstractMovement[] movementTypes;
     int selectedMovementType;
+
+    Rigidbody rb;
 
 
     AbstractMovement Movement
@@ -46,14 +51,15 @@ public class PlayerMovementController : MonoBehaviour
 
         InitMovementTypes();
 
-
-        GameEvents.TouchPress.AddListener(TouchPress);
-
-        GameEvents.TouchRelease.AddListener(TouchRelease);
-
-        GameEvents.TouchDelta.AddListener(TouchDelta);
+        StartMoving();
 
         GameEvents.ChangeMovementType.AddListener(ChangeMovementType);
+
+        GameEvents.PlayerDied.AddListener(StopMoving);
+
+        rb = GetComponent<Rigidbody>();
+
+
     }
 
     void InitMovementTypes()
@@ -73,6 +79,24 @@ public class PlayerMovementController : MonoBehaviour
 
     #region Input handling
 
+    void StartMoving()
+    {
+        GameEvents.TouchPress.AddListener(TouchPress);
+
+        GameEvents.TouchRelease.AddListener(TouchRelease);
+
+        GameEvents.TouchDelta.AddListener(TouchDelta);
+    }
+
+    void StopMoving()
+    {
+        GameEvents.TouchPress.RemoveListener(TouchPress);
+
+        GameEvents.TouchRelease.RemoveListener(TouchRelease);
+
+        GameEvents.TouchDelta.RemoveListener(TouchDelta);
+    }
+
     void TouchPress(Vector2 position)
     {
         Movement.TouchPress(position);
@@ -83,9 +107,9 @@ public class PlayerMovementController : MonoBehaviour
         Movement.TouchRelease();
     }
 
-    void TouchDelta(Vector2 delta)
+    void TouchDelta(Vector2 delta, Vector2 newPosition)
     {
-        Movement.TouchDelta(delta);
+        Movement.TouchDelta(delta, newPosition);
     }
 
     void ChangeMovementType()
@@ -99,4 +123,10 @@ public class PlayerMovementController : MonoBehaviour
     }
 
     #endregion
+
+
+    public void ReceivePushForce(float strength, Vector3 from, float radius)
+    {
+        rb.AddExplosionForce(strength, from, radius);
+    }
 }

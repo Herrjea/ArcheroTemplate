@@ -6,6 +6,7 @@ using UnityEngine.Events;
 //Clase estática que contiene los distintos eventos que pueden lanzarse en el juego
 public static class GameEvents
 {
+    #region Howto
 
     /**** Ejemplo de evento sin parámetros
      *
@@ -56,20 +57,37 @@ public static class GameEvents
      * 
      */
 
+    #endregion
 
+
+    #region Needed types
+
+    public class FloatEvent : UnityEvent<float> { };
     public class V2Event : UnityEvent<Vector2> { };
+    public class V2V2Event : UnityEvent<Vector2, Vector2> { };
+    public class IntEvent : UnityEvent<int> { };
+    public class V3Event : UnityEvent<Vector3> { };
     public class PoolV3TransEvent : UnityEvent<ObjectPool, Vector3, Transform> { };
+
+    #endregion
 
 
     //
     // Input reading
     //
 
+        
     public static V2Event TouchPress = new V2Event();
     public static UnityEvent TouchRelease = new UnityEvent();
-    public static V2Event TouchDelta = new V2Event();
+    public static V2V2Event TouchDelta = new V2V2Event();
 
     public static UnityEvent ChangeMovementType = new UnityEvent();
+
+    //
+    // Metagame
+    //
+
+    public static IntEvent AddSoftCoins = new IntEvent();
 
     //
     // Gameplay
@@ -80,4 +98,10 @@ public static class GameEvents
     public static UnityEvent ToggleShooting = new UnityEvent();
 
     public static PoolV3TransEvent PlayerShot = new PoolV3TransEvent();
+
+    public static FloatEvent PlayeGotHit = new FloatEvent();
+
+    public static UnityEvent PlayerDied = new UnityEvent();
+    public static V3Event EnemyDied = new V3Event();
+
 }

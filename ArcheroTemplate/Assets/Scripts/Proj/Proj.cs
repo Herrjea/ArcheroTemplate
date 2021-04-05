@@ -9,25 +9,50 @@ public abstract class Proj : MonoBehaviour
 
     [SerializeField] float lifetime = 5;
 
+    ParticleSystem contactExplosion;
+    float explosionDuration = 0;
+    GameObject model;
+
+
+    protected void Awake()
+    {
+        contactExplosion = transform.Find("OnContact")?.GetComponentInChildren<ParticleSystem>();
+        if (contactExplosion != null)
+            explosionDuration = contactExplosion.main.duration;
+
+        model = transform.Find("Model").gameObject;
+    }
+
 
     protected abstract void FixedUpdate();
 
 
-    protected void OnTriggerEnter(Collider other)
+    protected void OnCollisionEnter(Collision collision)
     {
-        print("proj entered trigger from " + other.name);
-
-        gameObject.SetActive(false);
+        StartCoroutine(OnExplosion());
     }
 
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         Invoke("Hide", lifetime);
     }
 
-    void Hide()
+    protected void Hide()
     {
+        gameObject.SetActive(false);
+    }
+
+
+    protected virtual IEnumerator OnExplosion()
+    {
+        velocity = Vector3.zero;
+        model.SetActive(false);
+
+        contactExplosion.Play();
+        yield return new WaitForSeconds(explosionDuration);
+
+        model.SetActive(true);
         gameObject.SetActive(false);
     }
 
