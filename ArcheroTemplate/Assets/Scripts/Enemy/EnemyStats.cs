@@ -1,5 +1,5 @@
 
-using UnityEngine;
+using System.Diagnostics;
 
 
 public class EnemyStats : Stats
@@ -15,11 +15,17 @@ public class EnemyStats : Stats
     }
 
 
-    protected override void Die()
+    public override void Die(bool playAnimation = true)
     {
         GameEvents.EnemyDied.Invoke(transform.position);
 
-        deathAnimation.Play();
+        //print("EnemyStats::Die from " + name + ", called by " + new StackFrame(1, true).GetMethod().Name);
+        //UnityEngine.Debug.Break();
+
+        if (playAnimation)
+            deathAnimation.Play();
+        else
+            Destroy(gameObject);
     }
 
     protected override void GotHit(float amount)

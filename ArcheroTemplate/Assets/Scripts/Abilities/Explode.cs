@@ -13,6 +13,8 @@ public class Explode : MonoBehaviour
 
     Shot shot;
     NPCMovement[] movements;
+    Stats stats;
+    new Collider collider;
 
 
     void Awake()
@@ -21,6 +23,8 @@ public class Explode : MonoBehaviour
 
         shot = GetComponent<Shot>();
         movements = GetComponents<NPCMovement>();
+        stats = GetComponent<Stats>();
+        collider = GetComponent<Collider>();
     }
 
 
@@ -28,9 +32,9 @@ public class Explode : MonoBehaviour
     {
         if (explosionCoroutine == null)
         {
-            explosionCoroutine = StartCoroutine(ExplosionAnimation(damage, radius));
-
             ApplyEffect(damage, radius, contactPoint, pushForce);
+
+            explosionCoroutine = StartCoroutine(ExplosionAnimation(damage, radius));
         }
     }
 
@@ -63,13 +67,17 @@ public class Explode : MonoBehaviour
 
         explosionParticles.Stop();
 
-        Destroy(gameObject);
+        stats.Die();
     }
 
 
     void ApplyEffect(float damage, float radius, Vector3 contactPoint, float pushForce)
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+
+        // Disable own collider, so that
+        // they can't be found by OverlapSphere
+        collider.enabled = false;
 
         // On others (damage and push)
         foreach (Collider collider in colliders)
@@ -78,6 +86,8 @@ public class Explode : MonoBehaviour
 
             collider.gameObject.GetComponent<IPushable>()?.ReceivePushForce(pushForce, transform.position, radius);
         }
+
+        collider.enabled = true;
 
         // On self (only push)
         GetComponent<IPushable>()?.ReceivePushForce(pushForce, contactPoint, radius);

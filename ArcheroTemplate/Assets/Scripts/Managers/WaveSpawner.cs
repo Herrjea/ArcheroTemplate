@@ -25,7 +25,8 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] Wave[] waves;
     int currentWave = -1;
 
-    [SerializeField] int minEnemyCountThreshold = 1;
+    [Tooltip("When there are this amount of active enemies or less, the next wave will be spawned")]
+    [SerializeField] int minEnemyCountThreshold = 0;
     int enemiesOnScreen = 0;
 
     Coroutine spawnCoroutine = null;
@@ -61,7 +62,6 @@ public class WaveSpawner : MonoBehaviour
         {
             for (int j = 0; j < waves[currentWave].enemies[i].amount; j++)
                 InstantiateEnemy(waves[currentWave].enemies[i].enemy);
-            enemiesOnScreen += waves[currentWave].enemies[i].amount;
         }
 
         if (waves[currentWave].newMinThreshold >= 0)
@@ -74,7 +74,7 @@ public class WaveSpawner : MonoBehaviour
 
     void InstantiateEnemy(GameObject enemy)
     {
-        GameObject.Instantiate(
+        GameObject newEnemy = GameObject.Instantiate(
                 enemy,
                 new Vector3(
                     Random.Range(-roomSize.x, roomSize.x) / 2.3f,
@@ -84,15 +84,16 @@ public class WaveSpawner : MonoBehaviour
                 Quaternion.identity,
                 transform
             );
+
+        newEnemy.name = enemy.name + "." + newEnemy.GetComponent<EnemyID>().SetID();
     }
 
 
     void EnemyDied(Vector3 position)
     {
-        enemiesOnScreen--;
-        print(enemiesOnScreen + " enemies currently spawned");
+        enemiesOnScreen = transform.childCount - 1;
 
-        if (enemiesOnScreen < minEnemyCountThreshold)
+        if (enemiesOnScreen <= minEnemyCountThreshold)
             Spawn();
     }
 }

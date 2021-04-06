@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Stats : MonoBehaviour, IDamageable
@@ -35,7 +33,7 @@ public class Stats : MonoBehaviour, IDamageable
     }
 
 
-    protected virtual void Die()
+    public virtual void Die(bool playAnimation = true)
     {
         Debug.Log("Unimplemented Stats::Die member on object " + gameObject.name + ".");
     }
