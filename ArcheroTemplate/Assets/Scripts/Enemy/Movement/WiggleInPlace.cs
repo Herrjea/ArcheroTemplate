@@ -8,6 +8,21 @@ public class WiggleInPlace : EnemyMovement
     [SerializeField] Vector2 amplitude;
 
 
+    protected override void Awake()
+    {
+        // Add a slight randomization,
+        // in order to make several of the same type together
+        // look not so much like a robot swarm
+        frequency = new Vector2(
+            Random.Range(frequency.x * (1 - errorMargin), frequency.x * (1 + errorMargin)),
+            Random.Range(frequency.y * (1 - errorMargin), frequency.y * (1 + errorMargin))
+        );
+        amplitude = new Vector2(
+            Random.Range(amplitude.x * (1 - errorMargin), amplitude.x * (1 + errorMargin)),
+            Random.Range(amplitude.y * (1 - errorMargin), amplitude.y * (1 + errorMargin))
+        );
+    }
+
     void LateUpdate()
     {
         if (isMoving)

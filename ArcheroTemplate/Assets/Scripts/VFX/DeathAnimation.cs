@@ -10,6 +10,7 @@ public class DeathAnimation : MonoBehaviour
     protected GameObject whiteCircle;
     protected GameObject blackCircle;
     protected GameObject model;
+    protected EnemyRotation[] rotations;
 
 
     protected virtual void Awake()
@@ -21,6 +22,7 @@ public class DeathAnimation : MonoBehaviour
         blackCircle.SetActive(false);
 
         model = transform.Find("Model").gameObject;
+        rotations = GetComponents<EnemyRotation>();
     }
 
 
@@ -32,6 +34,9 @@ public class DeathAnimation : MonoBehaviour
     protected IEnumerator AnimationCoroutine()
     {
         model.SetActive(false);
+        foreach (EnemyRotation rotation in rotations)
+            rotation.enabled = false;
+        transform.rotation = Quaternion.identity;
 
         for (int i = 0; i < iterations; i++)
         {

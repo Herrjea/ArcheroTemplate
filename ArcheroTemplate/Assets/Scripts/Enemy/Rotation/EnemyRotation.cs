@@ -21,7 +21,7 @@ public class EnemyRotation : MonoBehaviour
         Debug.LogError("Unimplemented EnemyRotation::ComputeLookRotation member");
     }
 
-    protected void Rotate()
+    protected virtual void Rotate()
     {
         transform.rotation =
             Quaternion.Slerp(

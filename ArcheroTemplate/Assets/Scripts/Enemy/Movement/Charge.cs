@@ -37,7 +37,11 @@ public class Charge : EnemyMovement
 
         moveCoroutine = StartCoroutine(ChargeTrigger());
 
-        //GetComponent<Rigidbody>().AddExplosionForce(1000000, transform.position + Vector3.back, 5);
+        // Add a slight randomization,
+        // in order to make several of the same type together
+        // look not so much like a robot swarm
+        movementDuration = Random.Range(movementDuration * (1 - errorMargin), movementDuration * (1 + errorMargin));
+        chargeCD = Random.Range(chargeCD * (1 - errorMargin), chargeCD * (1 + errorMargin));
     }
 
     
