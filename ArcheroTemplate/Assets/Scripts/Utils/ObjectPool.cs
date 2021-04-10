@@ -49,4 +49,11 @@ public class ObjectPool : MonoBehaviour
     {
         get => poolSize;
     }
+
+
+    private void OnDestroy()
+    {
+        foreach (GameObject objectInPool in gameObjectsPool)
+            Destroy(objectInPool);
+    }
 }
