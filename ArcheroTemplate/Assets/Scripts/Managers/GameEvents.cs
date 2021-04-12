@@ -66,6 +66,7 @@ public static class GameEvents
     public class V2Event : UnityEvent<Vector2> { };
     public class V2V2Event : UnityEvent<Vector2, Vector2> { };
     public class IntEvent : UnityEvent<int> { };
+    public class IntIntEvent : UnityEvent<int, int> { };
     public class V3Event : UnityEvent<Vector3> { };
     public class PoolV3TransEvent : UnityEvent<ObjectPool, Vector3, Transform> { };
 
@@ -103,5 +104,7 @@ public static class GameEvents
 
     public static UnityEvent PlayerDied = new UnityEvent();
     public static V3Event EnemyDied = new V3Event();
+
+    public static IntIntEvent SubWaveFinished = new IntIntEvent();
 
 }

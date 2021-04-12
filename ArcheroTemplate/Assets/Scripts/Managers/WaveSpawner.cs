@@ -11,7 +11,7 @@ public class EnemyTypeInWave
 }
 
 [System.Serializable]
-public class Wave
+public class SubWave
 {
     public string name;
     public EnemyTypeInWave[] enemies;
@@ -19,11 +19,29 @@ public class Wave
     public int newMinThreshold = -1;
 }
 
+[System.Serializable]
+public class Wave
+{
+    public string name;
+    public SubWave[] subWaves;
+
+    public SubWave this[int index]
+    {
+        get => subWaves[index];
+    }
+
+    public int Lenght
+    {
+        get => subWaves.Length;
+    }
+}
+
 
 public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] Wave[] waves;
-    int currentWave = -1;
+    int currentWave = 0;
+    int currentSubWave = -1;
 
     [Tooltip("When there are this amount of active enemies or less, the next wave will be spawned")]
     [SerializeField] int minEnemyCountThreshold = 0;
@@ -46,7 +64,14 @@ public class WaveSpawner : MonoBehaviour
 
     void Spawn()
     {
-        currentWave++;
+        currentSubWave++;
+        if (currentSubWave == waves[currentWave].Lenght)
+        {
+            currentWave++;
+            currentSubWave = 0;
+        }
+
+        print($"Current wave: {currentWave}.{currentSubWave}");
 
         if (currentWave < waves.Length)
         {
@@ -58,16 +83,18 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnCoroutine()
     {
-        for (int i = 0; i < waves[currentWave].enemies.Length; i++)
+        for (int i = 0; i < waves[currentWave][currentSubWave].enemies.Length; i++)
         {
-            for (int j = 0; j < waves[currentWave].enemies[i].amount; j++)
-                InstantiateEnemy(waves[currentWave].enemies[i].enemy);
+            for (int j = 0; j < waves[currentWave][currentSubWave].enemies[i].amount; j++)
+                InstantiateEnemy(waves[currentWave][currentSubWave].enemies[i].enemy);
         }
 
-        if (waves[currentWave].newMinThreshold >= 0)
-            minEnemyCountThreshold = waves[currentWave].newMinThreshold;
+        if (waves[currentWave][currentSubWave].newMinThreshold >= 0)
+            minEnemyCountThreshold = waves[currentWave][currentSubWave].newMinThreshold;
 
-        yield return new WaitForSeconds(waves[currentWave].maxTimeUntilNextWave);
+        GameEvents.SubWaveFinished.Invoke(currentWave, currentSubWave);
+
+        yield return new WaitForSeconds(waves[currentWave][currentSubWave].maxTimeUntilNextWave);
 
         Spawn();
     }
