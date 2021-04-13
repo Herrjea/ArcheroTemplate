@@ -64,6 +64,9 @@ public class WaveSpawner : MonoBehaviour
 
     void Spawn()
     {
+        if (currentWave == waves.Length)
+            return;
+
         currentSubWave++;
         if (currentSubWave == waves[currentWave].Lenght)
         {
