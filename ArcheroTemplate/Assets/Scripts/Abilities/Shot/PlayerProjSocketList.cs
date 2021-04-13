@@ -8,7 +8,23 @@ public class PlayerProjSocketList : ProjSocketList
     {
         base.Awake();
 
+        GameEvents.NewProjUpAbility.AddListener(ProjUpAbility);
+
         // Only the player listens to shot input
         GameEvents.PlayerShot.AddListener(Shoot);
+    }
+
+
+    void ProjUpAbility(PlayerAbility ability)
+    {
+        if (ability.socketPosition == SocketPosition.BothSides)
+        {
+            MoreProjs(SocketPosition.Left);
+            MoreProjs(SocketPosition.Right);
+        }
+        else
+        {
+            MoreProjs(ability.socketPosition);
+        }
     }
 }

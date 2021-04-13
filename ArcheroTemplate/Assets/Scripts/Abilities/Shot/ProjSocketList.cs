@@ -25,7 +25,7 @@ public class ProjSocketList : MonoBehaviour
     {
         sockets = new List<ProjSocket>();
 
-        MoreBullets(SocketPosition.Front);
+        MoreProjs(SocketPosition.Front);
     }
 
 
@@ -49,8 +49,7 @@ public class ProjSocketList : MonoBehaviour
         }
     }
 
-
-    void MoreBullets(SocketPosition position)
+    protected void MoreProjs(SocketPosition position)
     {
         List<ProjSocket> found = new List<ProjSocket>();
 
@@ -80,7 +79,7 @@ public class ProjSocketList : MonoBehaviour
     }
 
 
-    ProjSocket AddSocketToList(SocketPosition position)
+    protected ProjSocket AddSocketToList(SocketPosition position)
     {
         if (muzzleFlashPrefab != null)
             newMuzzleFlash = GameObject.Instantiate(muzzleFlashPrefab, transform);
@@ -108,7 +107,7 @@ public class ProjSocketList : MonoBehaviour
 
     #region SocketPosition transformations
 
-    Vector3 PositionToOffset(SocketPosition position)
+    protected Vector3 PositionToOffset(SocketPosition position)
     {
         switch (position)
         {
@@ -123,7 +122,7 @@ public class ProjSocketList : MonoBehaviour
         }
     }
 
-    Vector3 PositionToDisplacement(SocketPosition position)
+    protected Vector3 PositionToDisplacement(SocketPosition position)
     {
         switch (position)
         {
@@ -138,7 +137,7 @@ public class ProjSocketList : MonoBehaviour
         }
     }
 
-    Quaternion PositionToRotation(SocketPosition position)
+    protected Quaternion PositionToRotation(SocketPosition position)
     {
         switch (position)
         {

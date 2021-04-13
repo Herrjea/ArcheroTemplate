@@ -107,6 +107,8 @@ public static class GameEvents
     public static V3Event EnemyDied = new V3Event();
 
     public static IntIntEvent SubWaveFinished = new IntIntEvent();
+
     public static PlAbEvent NewMaxHealthAbility = new PlAbEvent();
     public static PlAbEvent NewProjSptrengthAbility = new PlAbEvent();
+    public static PlAbEvent NewProjUpAbility = new PlAbEvent();
 }

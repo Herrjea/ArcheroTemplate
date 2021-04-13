@@ -8,7 +8,8 @@ public enum SocketPosition
     Front,
     Left,
     Right,
-    Rear
+    Rear,
+    BothSides
 }
 
 

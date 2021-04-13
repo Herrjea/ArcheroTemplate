@@ -44,6 +44,11 @@ public class PlayerAbilityApplier : MonoBehaviour
                 GameEvents.NewProjSptrengthAbility.Invoke(selectedAbility);
                 projStrengthMultiplier *= selectedAbility.multiplier;
                 break;
+
+            case AttrModifier.ProjUp:
+                GameEvents.NewProjUpAbility.Invoke(selectedAbility);
+                projStrengthMultiplier *= selectedAbility.multiplier;
+                break;
         }
     }
 }
