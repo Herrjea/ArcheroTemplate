@@ -29,7 +29,7 @@ public class ProjSocketList : MonoBehaviour
     }
 
 
-    public void Shoot(ObjectPool pool, Vector3 velocity, Transform target, bool reorientate = false)
+    public void Shoot(ObjectPool pool, Vector3 velocity, Transform target, bool shouldCopySocketRotation = false)
     {
         GameObject projObj;
         Proj proj;
@@ -38,7 +38,7 @@ public class ProjSocketList : MonoBehaviour
         {
             projObj = pool.GetNext();
             projObj.transform.position = socket.transform.position;
-            if (reorientate)
+            if (shouldCopySocketRotation)
                 projObj.transform.rotation = socket.transform.rotation;
 
             proj = projObj.GetComponent<Proj>();
