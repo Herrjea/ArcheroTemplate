@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DamageOnCollision : MonoBehaviour, IDamaging, ICollisionEffect
 {
-    [SerializeField] float damage = 1;
+    [SerializeField] protected float damage = 1;
 
 
     public void ApplyDamage(IDamageable target, Vector3 from)
     {
-        target.ReceiveDamage(damage, from);
+        target.ReceiveDamage(ComputeDamage(), from);
     }
 
 
@@ -19,5 +19,11 @@ public class DamageOnCollision : MonoBehaviour, IDamaging, ICollisionEffect
 
         if (target != null)
             ApplyDamage(target, collision.GetContact(0).point);
+    }
+
+
+    protected virtual float ComputeDamage()
+    {
+        return damage;
     }
 }

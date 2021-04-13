@@ -74,8 +74,6 @@ public class WaveSpawner : MonoBehaviour
             currentSubWave = 0;
         }
 
-        print($"Current wave: {currentWave}.{currentSubWave}");
-
         if (currentWave < waves.Length)
         {
             if (spawnCoroutine != null)

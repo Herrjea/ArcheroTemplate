@@ -5,7 +5,7 @@ public class Stats : MonoBehaviour, IDamageable
     [SerializeField] protected float maxHealth = 10;
     [SerializeField] protected float defense = 1;
 
-    [SerializeField] float currentHealth;
+    [SerializeField] protected float currentHealth;
 
     protected DeathAnimation deathAnimation;
     protected HitBlood hitBlood;
