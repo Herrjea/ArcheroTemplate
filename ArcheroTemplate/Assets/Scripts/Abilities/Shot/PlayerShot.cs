@@ -35,7 +35,8 @@ public class PlayerShot : Shot
                 GameEvents.PlayerShot.Invoke(
                     projPool,
                     projVelocity,
-                    target
+                    target,
+                    true
                 );
 
                 CDRemaining = shotCD;

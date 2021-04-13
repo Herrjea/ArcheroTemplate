@@ -68,7 +68,7 @@ public static class GameEvents
     public class IntEvent : UnityEvent<int> { };
     public class IntIntEvent : UnityEvent<int, int> { };
     public class V3Event : UnityEvent<Vector3> { };
-    public class PoolV3TransEvent : UnityEvent<ObjectPool, Vector3, Transform> { };
+    public class PoolV3TransBoolEvent : UnityEvent<ObjectPool, Vector3, Transform, bool> { };
     public class PlAbEvent : UnityEvent<PlayerAbility> { };
 
     #endregion
@@ -99,7 +99,7 @@ public static class GameEvents
     public static UnityEvent StopShooting = new UnityEvent();
     public static UnityEvent ToggleShooting = new UnityEvent();
 
-    public static PoolV3TransEvent PlayerShot = new PoolV3TransEvent();
+    public static PoolV3TransBoolEvent PlayerShot = new PoolV3TransBoolEvent();
 
     public static FloatEvent PlayeGotHit = new FloatEvent();
 

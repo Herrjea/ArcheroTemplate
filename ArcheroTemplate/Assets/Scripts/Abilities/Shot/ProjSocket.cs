@@ -6,7 +6,8 @@ using UnityEngine;
 public enum SocketPosition
 {
     Front,
-    Side,
+    Left,
+    Right,
     Rear
 }
 
