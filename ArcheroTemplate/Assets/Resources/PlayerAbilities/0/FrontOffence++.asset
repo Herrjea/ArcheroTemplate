@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FrontOffence++
   m_EditorClassIdentifier: 
   attribute: 2
-  multiplier: 0.8
+  multiplier: 0.85
   socketPosition: 0

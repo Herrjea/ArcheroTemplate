@@ -106,6 +106,7 @@ public static class GameEvents
     public static UnityEvent PlayerDied = new UnityEvent();
     public static V3Event EnemyDied = new V3Event();
 
+    public static IntIntEvent WaveFinished = new IntIntEvent();
     public static IntIntEvent SubWaveFinished = new IntIntEvent();
 
     public static PlAbEvent NewMaxHealthAbility = new PlAbEvent();

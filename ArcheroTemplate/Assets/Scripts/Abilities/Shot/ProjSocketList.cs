@@ -89,11 +89,11 @@ public class ProjSocketList : MonoBehaviour
             newMuzzleFlash?.GetComponent<ParticleSystem>()
         );
         newSocket.transform.localPosition += PositionToOffset(position);
-        newSocket.transform.rotation = PositionToRotation(position);
+        newSocket.transform.localRotation = PositionToRotation(position);
         if (newMuzzleFlash != null)
         {
             newMuzzleFlash.transform.localPosition = newSocket.transform.localPosition;
-            newMuzzleFlash.transform.rotation = newSocket.transform.rotation;
+            newMuzzleFlash.transform.localRotation = newSocket.transform.localRotation;
         }
 
         sockets.Add(newSocket);

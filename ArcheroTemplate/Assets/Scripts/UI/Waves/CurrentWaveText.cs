@@ -16,11 +16,13 @@ public class CurrentWaveText : MonoBehaviour
         textHolder = GetComponent<TMP_Text>();
 
         GameEvents.SubWaveFinished.AddListener(ChangeText);
+
+        ChangeText(0, 0);
     }
 
 
     void ChangeText(int wave, int subWave)
     {
-        textHolder.text = $"{wave}.{subWave}";
+        textHolder.text = $"{wave + 1}.{subWave + 1}";
     }
 }

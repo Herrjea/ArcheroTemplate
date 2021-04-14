@@ -25,13 +25,14 @@ public class PlayerAbilityApplier : MonoBehaviour
         print(abilityPool.Count + " abilities found");
 
         GameEvents.SubWaveFinished.AddListener(ApplyRandomAbility);
+        GameEvents.WaveFinished.AddListener(ApplyRandomAbility);
     }
 
 
     void ApplyRandomAbility(int wave, int subwave)
     {
         selectedAbility = abilityPool[Random.Range(0, abilityPool.Count)];
-        print("Applying ability " + selectedAbility.name);
+        print("--------- Applying ability " + selectedAbility.name);
 
         switch (selectedAbility.attribute)
         {
