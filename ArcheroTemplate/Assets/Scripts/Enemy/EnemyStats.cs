@@ -14,7 +14,6 @@ public class EnemyStats : Stats
         colorBlink = GetComponent<ColorBlink>();
     }
 
-
     public override void Die(bool playAnimation = true)
     {
         GameEvents.EnemyDied.Invoke(transform.position);

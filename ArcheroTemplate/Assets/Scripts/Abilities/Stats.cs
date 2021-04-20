@@ -22,6 +22,10 @@ public class Stats : MonoBehaviour, IDamageable
 
     public void ReceiveDamage(float amount, Vector3 from, DamageType type = DamageType.Physical)
     {
+        // Prevent dead units from taking additional damage
+        if (currentHealth <= 0)
+            return;
+
         currentHealth -= amount;
 
         Bleed(from);

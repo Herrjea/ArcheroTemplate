@@ -67,7 +67,7 @@ public class Explode : MonoBehaviour
 
         explosionParticles.Stop();
 
-        stats.Die();
+        stats.ReceiveDamage(int.MaxValue, transform.position);
     }
 
 

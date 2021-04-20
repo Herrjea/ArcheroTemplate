@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerAbilityApplier : MonoBehaviour
 {
     List<PlayerAbility> abilityPool;
-    PlayerAbility selectedAbility;
+    int[] selectedAbilities;
 
     [HideInInspector] int highestUnlocked = 0;
 
@@ -24,32 +24,66 @@ public class PlayerAbilityApplier : MonoBehaviour
 
         print(abilityPool.Count + " abilities found");
 
-        GameEvents.SubWaveFinished.AddListener(ApplyRandomAbility);
-        GameEvents.WaveFinished.AddListener(ApplyRandomAbility);
+        GameEvents.SubWaveFinished.AddListener(SelectRandomAbilities);
+        GameEvents.WaveFinished.AddListener(SelectRandomAbilities);
+
+        GameEvents.NewChosenAbility.AddListener(ApplyChosenAbility);
     }
 
 
-    void ApplyRandomAbility(int wave, int subwave)
+    void SelectRandomAbilities(int wave, int subwave)
     {
-        selectedAbility = abilityPool[Random.Range(0, abilityPool.Count)];
-        print("--------- Applying ability " + selectedAbility.name);
+        selectedAbilities = new int[] { -1, -1, -1 };
+        int newSelectedIndex;
 
-        switch (selectedAbility.attribute)
+        for (int i = 0; i < selectedAbilities.Length; i++)
+        {
+            do
+            {
+                newSelectedIndex = Random.Range(0, abilityPool.Count);
+            } while (Contains(selectedAbilities, newSelectedIndex));
+            selectedAbilities[i] = newSelectedIndex;
+        }
+
+        GameEvents.NewAbilitiesToChoose.Invoke(
+            abilityPool[selectedAbilities[0]],
+            abilityPool[selectedAbilities[1]],
+            abilityPool[selectedAbilities[2]]
+        );
+    }
+
+    void ApplyChosenAbility(PlayerAbility ability)
+    {
+        print("--------- Applying ability " + ability.name);
+
+        switch (ability.attribute)
         {
             case AttrModifier.MaxHealth:
-                GameEvents.NewMaxHealthAbility.Invoke(selectedAbility);
+                GameEvents.NewMaxHealthAbility.Invoke(ability);
                 
                 break;
 
             case AttrModifier.ProjStrength:
-                GameEvents.NewProjSptrengthAbility.Invoke(selectedAbility);
-                projStrengthMultiplier *= selectedAbility.multiplier;
+                GameEvents.NewProjSptrengthAbility.Invoke(ability);
+                projStrengthMultiplier *= ability.multiplier;
+                GameEvents.NewPlayerStrengthValue.Invoke();
                 break;
 
             case AttrModifier.ProjUp:
-                GameEvents.NewProjUpAbility.Invoke(selectedAbility);
-                projStrengthMultiplier *= selectedAbility.multiplier;
+                GameEvents.NewProjUpAbility.Invoke(ability);
+                projStrengthMultiplier *= ability.multiplier;
+                GameEvents.NewPlayerStrengthValue.Invoke();
                 break;
         }
+    }
+
+
+    bool Contains(int[] array, int value)
+    {
+        foreach (int i in array)
+            if (i == value)
+                return true;
+
+        return false;
     }
 }

@@ -17,6 +17,6 @@ public class DieIfFarAway : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.tag.Equals("RoomRims"))
-            stats.Die(false);
+            stats.ReceiveDamage(int.MaxValue, transform.position);
     }
 }

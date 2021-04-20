@@ -61,6 +61,7 @@ public class WaveSpawner : MonoBehaviour
     protected virtual void Awake()
     {
         GameEvents.EnemyDied.AddListener(EnemyDied);
+        GameEvents.NewChosenAbility.AddListener(NewChosenAbility);
 
         roomSize = Room.RoomSize;
 
@@ -79,7 +80,7 @@ public class WaveSpawner : MonoBehaviour
             currentWave++;
             currentSubWave = 0;
 
-            GameEvents.WaveFinished.Invoke(currentWave, currentSubWave);
+            //GameEvents.WaveFinished.Invoke(currentWave, currentSubWave);
         }
 
         if (currentWave < waves.Length)
@@ -90,6 +91,11 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+    void NewChosenAbility(PlayerAbility ability)
+    {
+        Spawn();
+    }
+
     IEnumerator SpawnCoroutine()
     {
         print("Spawning wave " + currentWave + "." + currentSubWave);
@@ -98,6 +104,8 @@ public class WaveSpawner : MonoBehaviour
         {
             for (int j = 0; j < waves[currentWave][currentSubWave].enemies[i].amount; j++)
                 InstantiateEnemy(waves[currentWave][currentSubWave].enemies[i].enemy);
+
+            enemiesOnScreen += waves[currentWave][currentSubWave].enemies[i].amount;
         }
 
         if (waves[currentWave][currentSubWave].newMinThreshold >= 0)
@@ -108,8 +116,7 @@ public class WaveSpawner : MonoBehaviour
         if (currentSubWave < waves[currentWave].Lenght)
         {
             yield return new WaitForSeconds(waves[currentWave][currentSubWave].maxTimeUntilNextWave);
-            GameEvents.SubWaveFinished.Invoke(currentWave, currentSubWave);
-            Spawn();
+            //GameEvents.SubWaveFinished.Invoke(currentWave, currentSubWave);
         }
     }
 
@@ -132,12 +139,15 @@ public class WaveSpawner : MonoBehaviour
 
     void EnemyDied(Vector3 position)
     {
-        enemiesOnScreen = transform.childCount - 1;
+        enemiesOnScreen--;
 
-        if (enemiesOnScreen <= minEnemyCountThreshold)
+        if (enemiesOnScreen == minEnemyCountThreshold)
         {
             GameEvents.SubWaveFinished.Invoke(currentWave, currentSubWave);
-            Spawn();
+        }
+        else if (enemiesOnScreen < minEnemyCountThreshold)
+        {
+            print("Argo raro pasa por ahí eh, perdona que te diga");
         }
     }
 }

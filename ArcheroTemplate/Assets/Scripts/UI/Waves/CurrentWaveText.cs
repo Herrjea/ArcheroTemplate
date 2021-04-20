@@ -23,6 +23,6 @@ public class CurrentWaveText : MonoBehaviour
 
     void ChangeText(int wave, int subWave)
     {
-        textHolder.text = $"{wave + 1}.{subWave + 1}";
+        textHolder.text = $"wave {wave + 1}.{subWave + 1}";
     }
 }

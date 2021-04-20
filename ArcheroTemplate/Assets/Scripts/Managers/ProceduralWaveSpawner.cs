@@ -77,7 +77,7 @@ public class ProceduralWaveSpawner : WaveSpawner
         for (int i = 0; i < waves[wave][subWave].enemies.Length; i++)
             waves[wave][subWave].enemies[i] = new EnemyTypeInWave(enemyPool[Random.Range(0, enemyPool.Length)]);
 
-        waves[wave][subWave].newMinThreshold = Random.Range(0, maxEnemyThreshold);
+        waves[wave][subWave].newMinThreshold = Random.Range(0, maxEnemyThreshold + 1);
     }
 
     void NormalizeProbabilities()

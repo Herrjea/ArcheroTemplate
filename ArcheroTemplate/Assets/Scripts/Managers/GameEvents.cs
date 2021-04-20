@@ -63,6 +63,7 @@ public static class GameEvents
     #region Needed types
 
     public class FloatEvent : UnityEvent<float> { };
+    public class Float2Event : UnityEvent<float, float> { };
     public class V2Event : UnityEvent<Vector2> { };
     public class V2V2Event : UnityEvent<Vector2, Vector2> { };
     public class IntEvent : UnityEvent<int> { };
@@ -70,6 +71,7 @@ public static class GameEvents
     public class V3Event : UnityEvent<Vector3> { };
     public class PoolV3TransBoolEvent : UnityEvent<ObjectPool, Vector3, Transform, bool> { };
     public class PlAbEvent : UnityEvent<PlayerAbility> { };
+    public class PlAb3Event : UnityEvent<PlayerAbility, PlayerAbility, PlayerAbility> { };
 
     #endregion
 
@@ -78,7 +80,7 @@ public static class GameEvents
     // Input reading
     //
 
-        
+
     public static V2Event TouchPress = new V2Event();
     public static UnityEvent TouchRelease = new UnityEvent();
     public static V2V2Event TouchDelta = new V2V2Event();
@@ -109,7 +111,13 @@ public static class GameEvents
     public static IntIntEvent WaveFinished = new IntIntEvent();
     public static IntIntEvent SubWaveFinished = new IntIntEvent();
 
+
+    public static PlAb3Event NewAbilitiesToChoose = new PlAb3Event();
+    public static PlAbEvent NewChosenAbility = new PlAbEvent();
     public static PlAbEvent NewMaxHealthAbility = new PlAbEvent();
     public static PlAbEvent NewProjSptrengthAbility = new PlAbEvent();
     public static PlAbEvent NewProjUpAbility = new PlAbEvent();
+
+    public static Float2Event NewPlayerHealthValues = new Float2Event();
+    public static UnityEvent NewPlayerStrengthValue = new UnityEvent();
 }

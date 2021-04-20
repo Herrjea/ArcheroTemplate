@@ -10,4 +10,6 @@ public class PlayerAbility : ScriptableObject
     public AttrModifier attribute;
     public float multiplier = 1.2f;
     public SocketPosition socketPosition;
+
+    public string formattedName;
 }

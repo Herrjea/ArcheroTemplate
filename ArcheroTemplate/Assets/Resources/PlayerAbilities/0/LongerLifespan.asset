@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attribute: 0
   multiplier: 1.2
+  socketPosition: 0
+  formattedName: longer lifespan
