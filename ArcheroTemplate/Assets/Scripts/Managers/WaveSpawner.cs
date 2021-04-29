@@ -29,6 +29,7 @@ public class Wave
 {
     public string name;
     public SubWave[] subWaves;
+    public bool isBossEncounter;
 
     public SubWave this[int index]
     {

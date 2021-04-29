@@ -15,7 +15,7 @@ public class EnemyShot : Shot
     {
         shooting = true;
 
-        while (shooting)
+        while (shooting && enabled)
         {
             CDRemaining -= Time.deltaTime;
 

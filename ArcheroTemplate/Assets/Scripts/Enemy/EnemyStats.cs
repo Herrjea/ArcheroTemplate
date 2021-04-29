@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 public class EnemyStats : Stats
 {
-    ColorBlink colorBlink;
+    protected ColorBlink colorBlink;
 
 
     protected override void Awake()

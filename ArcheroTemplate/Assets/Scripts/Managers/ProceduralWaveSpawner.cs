@@ -21,12 +21,16 @@ public class ProceduralWaveSpawner : WaveSpawner
     [SerializeField] int subwavesPerWave = 5;
     [SerializeField] int minEnemiesPerSubwave = 3;
     [SerializeField] int maxEnemiesPerSubwave = 6;
+    [SerializeField] int bossEncounterCD = 3;
 
     [Tooltip("Amount of remaining enemies required to trigger the next wave")]
     [SerializeField] int maxEnemyThreshold = 2;
 
     [Tooltip("Enemies down the list will be considered harder and will only appear in later waves")]
     [SerializeField] GameObject[] enemyPool;
+
+    [Tooltip("Bosses down the list will be considered harder and will only appear in later waves")]
+    [SerializeField] GameObject[] bossPool;
 
     [SerializeField] IsolatedEnemyGroup[] isolatedGroups;
 
@@ -60,12 +64,30 @@ public class ProceduralWaveSpawner : WaveSpawner
         //NormalizeProbabilities();
 
         for (int i = 0; i < waveCount; i++)
-            for (int j = 0; j < subwavesPerWave; j++)
-            {
-                GenerateSubwave(i, j);
-            }
+        {
+            // Boss wave
+            if (i > 0 && i % bossEncounterCD == 0)
+                GenerateBossWave(i);
+
+            // Regular wave
+            else
+                for (int j = 0; j < subwavesPerWave; j++)
+                {
+                    GenerateSubwave(i, j);
+                }
+        }
 
         yield return null;
+    }
+
+    void GenerateBossWave(int wave)
+    {
+        waves[wave].subWaves = new SubWave[1];
+        waves[wave][0] = new SubWave();
+        waves[wave].isBossEncounter = true;
+        waves[wave][0].enemies = new EnemyTypeInWave[1];
+        waves[wave][0].enemies[0] = new EnemyTypeInWave(bossPool[Random.Range(0, bossPool.Length)]);
+        print(waves[wave][0].enemies[0].enemy.name);
     }
 
     void GenerateSubwave(int wave, int subWave)

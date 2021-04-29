@@ -16,7 +16,7 @@ public class Shot : MonoBehaviour
     protected Vector3 projVelocity;
     protected Transform target = null;
 
-    [SerializeField] protected float shotCD = 1;
+    [SerializeField] protected float shotCD;
     protected float CDRemaining = 0;
 
     [SerializeField] protected ObjectPool projPool;
