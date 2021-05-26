@@ -1,10 +1,14 @@
 
 using System.Diagnostics;
+using UnityEngine;
 
+
+[RequireComponent(typeof(DropOnDeath))]
 
 public class EnemyStats : Stats
 {
     protected ColorBlink colorBlink;
+    protected DropOnDeath dropOnDeath;
 
 
     protected override void Awake()
@@ -12,11 +16,14 @@ public class EnemyStats : Stats
         base.Awake();
 
         colorBlink = GetComponent<ColorBlink>();
+        dropOnDeath = GetComponent<DropOnDeath>();
     }
 
     public override void Die(bool playAnimation = true)
     {
         GameEvents.EnemyDied.Invoke(transform.position);
+
+        dropOnDeath.DropItem();
 
         //print("EnemyStats::Die from " + name + ", called by " + new StackFrame(1, true).GetMethod().Name);
         //UnityEngine.Debug.Break();

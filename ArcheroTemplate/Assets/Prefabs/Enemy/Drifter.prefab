@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1046846764064802622}
   - component: {fileID: 8082150480015105833}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BlackCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9024079312235195985}
   - component: {fileID: 8148650341873598954}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WhiteCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 667016081}
   - component: {fileID: 1541434911}
   - component: {fileID: 556152064}
+  - component: {fileID: 7892779939051281859}
   m_Layer: 11
   m_Name: Drifter
   m_TagString: Untagged
@@ -331,7 +332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7776915088e5e4fad96ba51cd75706ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
 --- !u!114 &28411520561290003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,6 +473,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed3936efc006462c83eae7b6827c712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7892779939051281859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018597237878681470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31336762100d040fda501467a3e8a176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - prefab: {fileID: 5402607616314985652, guid: 871fb131ea62e46b9ab9a8087a832fad,
+      type: 3}
+    probability: 0.05
+    amount: 1
 --- !u!1 &4593513604294544316
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7363579634682002407}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,6 +589,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 6266379357743529498, guid: 14397bb9656b6416798dcddd04652e05,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14397bb9656b6416798dcddd04652e05, type: 3}

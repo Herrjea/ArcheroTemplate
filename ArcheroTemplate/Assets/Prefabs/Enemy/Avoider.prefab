@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 2064884683}
   - component: {fileID: 220150738}
   - component: {fileID: 819093866}
+  - component: {fileID: 4232325235271671387}
   m_Layer: 8
   m_Name: Avoider
   m_TagString: Untagged
@@ -90,7 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7776915088e5e4fad96ba51cd75706ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
 --- !u!114 &1548917326985758438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +263,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+--- !u!114 &4232325235271671387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548917326985757979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31336762100d040fda501467a3e8a176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - prefab: {fileID: 5402607616314985652, guid: 871fb131ea62e46b9ab9a8087a832fad,
+      type: 3}
+    probability: 0.05
+    amount: 1
 --- !u!1 &1548917328038597955
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5764083664723775026}
   - component: {fileID: 938367353318958019}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WhiteCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 961973030622961484}
   - component: {fileID: 6254139810333253730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlackCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

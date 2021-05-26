@@ -41,7 +41,6 @@ public class AbilitySelection : MonoBehaviour
 
     public void AbilityChosen(int index)
     {
-        print("chosen " + abilities[index].name);
         GameEvents.NewChosenAbility.Invoke(abilities[index]);
 
         panel.SetActive(false);
