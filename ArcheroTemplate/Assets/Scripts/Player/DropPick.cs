@@ -22,8 +22,18 @@ public class DropPick : MonoBehaviour
 
         if (pickable != null)
         {
-            if (pickable.Type == ResourceType.Health)
-                stats.ReceiveHealing(pickable.Amount);
+            switch (pickable.Type)
+            {
+                case ResourceType.Health:
+                    stats.ReceiveHealing(pickable.Amount);
+                    break;
+                case ResourceType.Money:
+                    print("money++");
+                    break;
+                default:
+                    print("Unknown resource type: " + pickable.Type);
+                    break;
+            }
 
             pickable.ResourceCollected();
         }

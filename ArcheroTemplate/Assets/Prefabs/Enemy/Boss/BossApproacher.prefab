@@ -277,11 +277,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31336762100d040fda501467a3e8a176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropOnlyOne: 0
   items:
   - prefab: {fileID: 5402607616314985652, guid: 871fb131ea62e46b9ab9a8087a832fad,
       type: 3}
     probability: 1
     amount: 2
+  - prefab: {fileID: 5402607616314985652, guid: 3feb7272a8e984bff88fd506f477daa1,
+      type: 3}
+    probability: 1
+    amount: 10
 --- !u!1 &2069227226185060841
 GameObject:
   m_ObjectHideFlags: 0

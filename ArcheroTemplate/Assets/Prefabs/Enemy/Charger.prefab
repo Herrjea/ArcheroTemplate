@@ -746,8 +746,16 @@ MonoBehaviour:
   items:
   - prefab: {fileID: 5402607616314985652, guid: 871fb131ea62e46b9ab9a8087a832fad,
       type: 3}
-    probability: 0
-    amount: 0
+    probability: 0.05
+    amount: 1
+  - prefab: {fileID: 5402607616314985652, guid: 3feb7272a8e984bff88fd506f477daa1,
+      type: 3}
+    probability: 0.15
+    amount: 1
+  - prefab: {fileID: 5402607616314985652, guid: 3feb7272a8e984bff88fd506f477daa1,
+      type: 3}
+    probability: 0.1
+    amount: 2
 --- !u!1 &8136531014066545020
 GameObject:
   m_ObjectHideFlags: 0

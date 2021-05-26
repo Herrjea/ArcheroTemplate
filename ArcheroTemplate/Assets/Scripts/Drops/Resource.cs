@@ -6,7 +6,7 @@ using UnityEngine;
 public class Resource
 {
     public ResourceType type;
-    public int amount;
+    public int amount = 1;
 
     public Resource(ResourceType type, int amount)
     {
