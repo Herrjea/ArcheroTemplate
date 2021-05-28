@@ -6,19 +6,9 @@ using UnityEngine;
 
 public class SaveDataController : MonoBehaviour
 {
-    static SaveData saveData;
+    public static SaveData saveData;
     static string fileName = "SaveData.json";
-    public static int GetSoftCoins()
-    {
-        CheckInitialized();
-        return saveData.softCoins;
-    }
-    public static void SetSoftCoins(int newValue)
-    {
-        CheckInitialized();
-        saveData.softCoins = newValue;
-        SaveToFile();
-    }
+
     public static void Initialize()
     {
         saveData = new SaveData();
@@ -44,7 +34,7 @@ public class SaveDataController : MonoBehaviour
         }
     }
 
-    static void SaveToFile()
+    public static void SaveToFile()
     {
         string saveDataJSON = JsonUtility.ToJson(saveData);
         string encodedString = EncryptDecrypt(saveDataJSON);

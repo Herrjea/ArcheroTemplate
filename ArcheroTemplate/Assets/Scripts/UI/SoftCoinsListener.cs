@@ -15,6 +15,6 @@ public class SoftCoinsListener : MonoBehaviour
 
     void Update()
     {
-        softCoinsText.text = SaveDataController.GetSoftCoins().ToString();
+        softCoinsText.text = EconomyDataController.GetSoftCoins().ToString();
     }
 }
