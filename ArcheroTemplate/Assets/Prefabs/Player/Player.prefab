@@ -92,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5959706050266118598}
   - component: {fileID: 767812220730035550}
+  - component: {fileID: 128703701}
   m_Layer: 7
   m_Name: PlayerProjSockets
   m_TagString: Untagged
@@ -131,6 +132,18 @@ MonoBehaviour:
   rearOffset: {x: 0, y: 0, z: -2}
   muzzleFlashPrefab: {fileID: 4090025545762815306, guid: 9b9f5d00ec82947c688bfd168792c879,
     type: 3}
+--- !u!114 &128703701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631680396824520234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ea96d00ddb40edaa907d533b35e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4211307469669876874
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +241,6 @@ GameObject:
   - component: {fileID: 7267145860503068420}
   - component: {fileID: 7267145860503068479}
   - component: {fileID: 8792432267947761531}
-  - component: {fileID: 7267145860503068421}
   - component: {fileID: 7267145860503068478}
   - component: {fileID: 788257704}
   - component: {fileID: 7724219268489536602}
@@ -237,6 +249,8 @@ GameObject:
   - component: {fileID: 7267145860503068416}
   - component: {fileID: 5552388253617367080}
   - component: {fileID: 6664350700479377985}
+  - component: {fileID: 6660084309217622523}
+  - component: {fileID: 926037872}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -376,21 +390,6 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 00e97bbe8787b54458c8222f1b436b49, type: 2}
   blinkDuration: 0.01
   repetitions: 2
---- !u!114 &7267145860503068421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7267145860503068422}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
 --- !u!114 &7267145860503068478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToPool: {fileID: 556716477552090682, guid: 96844790f4f7f4898b643b948580fe53,
     type: 3}
-  poolSize: 20
+  poolSize: 40
   makeChildrenOfSelf: 0
 --- !u!114 &7724219268489536602
 MonoBehaviour:
@@ -518,6 +517,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05eecd87cb93944339841f9d772df283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6660084309217622523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7267145860503068422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4f38fe95e5a4f9fa9aa7b1d61d10a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &926037872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7267145860503068422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6008d95ca6be48bfaf2c378f47e4cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7267145860616893708

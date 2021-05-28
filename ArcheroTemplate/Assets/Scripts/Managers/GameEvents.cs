@@ -104,6 +104,7 @@ public static class GameEvents
     public static PoolV3TransBoolEvent PlayerShot = new PoolV3TransBoolEvent();
 
     public static FloatEvent PlayeGotHit = new FloatEvent();
+    public static FloatEvent PlayeGotHealed = new FloatEvent();
 
     public static UnityEvent PlayerDied = new UnityEvent();
     public static V3Event EnemyDied = new V3Event();

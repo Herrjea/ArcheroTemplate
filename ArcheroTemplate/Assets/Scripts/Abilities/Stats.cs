@@ -37,6 +37,17 @@ public class Stats : MonoBehaviour, IDamageable
     }
 
 
+    public void ReceiveHealing(float amount)
+    {
+        // Prevent dead units from being healed
+        if (currentHealth <= 0)
+            return;
+
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+        GotHealed(amount);
+    }
+
+
     public virtual void Die(bool playAnimation = true)
     {
         Debug.Log("Unimplemented Stats::Die member on object " + gameObject.name + ".");
@@ -45,6 +56,11 @@ public class Stats : MonoBehaviour, IDamageable
     protected virtual void GotHit(float amount)
     {
         Debug.Log("Unimplemented Stats::GotHit member on object " + gameObject.name + ".");
+    }
+
+    protected virtual void GotHealed(float amount)
+    {
+        Debug.Log("Unimplemented Stats::GotHealed member on object " + gameObject.name + ".");
     }
 
     protected virtual void Bleed(Vector3 contactPoint)

@@ -20,6 +20,12 @@ public class PlayerStats : Stats
         GameEvents.NewPlayerHealthValues.Invoke(currentHealth, maxHealth);
     }
 
+    protected override void GotHealed(float amount)
+    {
+        GameEvents.PlayeGotHealed.Invoke(amount);
+        GameEvents.NewPlayerHealthValues.Invoke(currentHealth, maxHealth);
+    }
+
     protected void OnNewMaxHealthAbility(PlayerAbility ability)
     {
         maxHealth *= ability.multiplier;
