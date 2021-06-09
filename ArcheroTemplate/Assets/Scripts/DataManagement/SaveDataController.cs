@@ -37,8 +37,8 @@ public class SaveDataController : MonoBehaviour
     public static void SaveToFile()
     {
         string saveDataJSON = JsonUtility.ToJson(saveData);
-        string encodedString = EncryptDecrypt(saveDataJSON);
-        File.WriteAllText(Application.persistentDataPath + "/" + fileName, encodedString);
+        //string encodedString = EncryptDecrypt(saveDataJSON);
+        File.WriteAllText(Application.persistentDataPath + "/" + fileName, saveDataJSON);
     }
     
     public static string EncryptDecrypt(string textToEncrypt)
