@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 819093866}
   - component: {fileID: 4232325235271671387}
   m_Layer: 8
-  m_Name: Avoider
+  m_Name: Avoider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b6482e059994a2b95b0a79cfa3fecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projSpeed: 0.5
-  shotCD: 1
+  projSpeed: 0.6
+  shotCD: 1.2
   projPool: {fileID: 1548917326985758438}
 --- !u!114 &1625771825
 MonoBehaviour:
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb791adbaf9494fb7a6f8d5fc71fae70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 5
   defense: 1
   currentHealth: 0
 --- !u!114 &2588439482037757429
@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31336762100d040fda501467a3e8a176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropOnlyOne: 1
   items:
   - prefab: {fileID: 5402607616314985652, guid: 871fb131ea62e46b9ab9a8087a832fad,
       type: 3}

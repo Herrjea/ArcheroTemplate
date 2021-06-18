@@ -22,7 +22,7 @@ public class PlayerAbilityApplier : MonoBehaviour
             foreach (PlayerAbility ability in Resources.LoadAll<PlayerAbility>("PlayerAbilities/" + i))
                 abilityPool.Add(ability);
 
-        print(abilityPool.Count + " abilities found");
+        //print(abilityPool.Count + " abilities found");
 
         GameEvents.SubWaveFinished.AddListener(SelectRandomAbilities);
         GameEvents.WaveFinished.AddListener(SelectRandomAbilities);

@@ -231,6 +231,16 @@ PrefabInstance:
       propertyPath: ShapeModule.radius.value
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5656131529196367490, guid: e1be2c344a04242109463864371a74c4,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656131529196367490, guid: e1be2c344a04242109463864371a74c4,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5821388606403555887, guid: e1be2c344a04242109463864371a74c4,
         type: 3}
       propertyPath: m_RootOrder

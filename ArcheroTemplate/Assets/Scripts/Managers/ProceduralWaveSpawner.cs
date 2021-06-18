@@ -87,7 +87,6 @@ public class ProceduralWaveSpawner : WaveSpawner
         waves[wave].isBossEncounter = true;
         waves[wave][0].enemies = new EnemyTypeInWave[1];
         waves[wave][0].enemies[0] = new EnemyTypeInWave(bossPool[Random.Range(0, bossPool.Length)]);
-        print(waves[wave][0].enemies[0].enemy.name);
     }
 
     void GenerateSubwave(int wave, int subWave)
@@ -97,7 +96,13 @@ public class ProceduralWaveSpawner : WaveSpawner
         waves[wave][subWave].enemies = new EnemyTypeInWave[Random.Range(minEnemiesPerSubwave, maxEnemiesPerSubwave)];
 
         for (int i = 0; i < waves[wave][subWave].enemies.Length; i++)
-            waves[wave][subWave].enemies[i] = new EnemyTypeInWave(enemyPool[Random.Range(0, enemyPool.Length)]);
+            waves[wave][subWave].enemies[i] = new EnemyTypeInWave(enemyPool[
+                Mathf.Clamp(
+                    Remap(wave, 0, waves.Length, 0, enemyPool.Length) + RandomOffset(),
+                    0,
+                    enemyPool.Length - 1
+                )
+            ]);
 
         waves[wave][subWave].newMinThreshold = Random.Range(0, maxEnemyThreshold + 1);
     }
@@ -114,5 +119,28 @@ public class ProceduralWaveSpawner : WaveSpawner
 
         foreach (IsolatedEnemyGroup group in isolatedGroups)
             group.spawnProbability *= normalizeFactor;
+    }
+
+
+    // Simulates normal distribution randomness through
+    // combining several linear distribution randoms
+    int RandomOffset(float range = 5, int iterations = 3)
+    {
+        float result = 0;
+        range /= iterations;
+
+        for (int i = 0; i < iterations; i++)
+            result += Random.Range(-range, range);
+
+        return (int) result;
+    }
+
+    int Remap(float value, float minBefore, float maxBefore, float minAfter, float maxAfter)
+    {
+        float normalized = (value - minBefore) / (maxBefore - minBefore);
+
+        float denormalized = normalized * (maxAfter - minAfter) + minAfter;
+
+        return (int) denormalized;
     }
 }
