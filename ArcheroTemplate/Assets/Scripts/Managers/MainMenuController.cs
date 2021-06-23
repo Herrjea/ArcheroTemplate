@@ -12,22 +12,27 @@ public class MainMenuController : MonoBehaviour
     RectTransform[] _buttons;
     [SerializeField]
     RectTransform _buttonsHolderRectTransform;
+    [SerializeField]
+    AnimationCurve _animationCurve;
+    float _animationTime;
+
     Vector2 _leftPanelPosition;
     Vector2 _rightPanelPosition;
+
     int _currentOption;
-    float _animationTime;
     int _selectedButtonScaleFactor = 3;
     float _sliceSize;
     bool _buttonsInstantiated = false;
     bool _changing;
-    [SerializeField]
-    AnimationCurve _animationCurve;
+
+
     void Start()
     {
         _leftPanelPosition = new Vector2(_canvasRectTransform.sizeDelta.x, 0);
         _rightPanelPosition = new Vector2(-_canvasRectTransform.sizeDelta.x, 0);
         _currentOption = 2;
         _animationTime = 0.2f;
+
         float buttonsHeight = _canvasRectTransform.sizeDelta.y / 6.4f;
 
         for (int i =0; i < _tabs.Length; i++)
@@ -43,12 +48,16 @@ public class MainMenuController : MonoBehaviour
                 _tabs[i].offsetMin = new Vector2(0, buttonsHeight);
             }
         }
+
         _buttonsHolderRectTransform.sizeDelta = new Vector2(_canvasRectTransform.sizeDelta.x, buttonsHeight);
+
         float numberOfSlices = (_buttons.Length * _selectedButtonScaleFactor) + 1;
         _sliceSize = _buttonsHolderRectTransform.sizeDelta.x / (float)(numberOfSlices);
+
         SelectButton(2);
     }
-    
+
+
     public void SelectButton(int selectedButton)
     {
 
@@ -124,6 +133,8 @@ public class MainMenuController : MonoBehaviour
             StartCoroutine(CoAnimateSelectButton(selectedButton, currentPositions, targetPositions, currentSizes, targetSizes));
         }
     }
+
+
     public IEnumerator SwipeLeft(RectTransform currentPanel, RectTransform targetPanel)
     {
         targetPanel.offsetMin = new Vector2(_leftPanelPosition.x, targetPanel.offsetMin.y);
@@ -163,6 +174,8 @@ public class MainMenuController : MonoBehaviour
         currentPanel.offsetMin = new Vector2(_canvasRectTransform.sizeDelta.x, currentPanel.offsetMin.y);
         currentPanel.offsetMax = new Vector2(_canvasRectTransform.sizeDelta.x, currentPanel.offsetMax.y);
     }
+
+
     IEnumerator CoAnimateSelectButton(int selected, List<float> originalPositions, List<float> targetPositions, List<Vector2> originalSizeX, List<Vector2> targetSizeX)
     {
         float animationSpeed = 0.2f;

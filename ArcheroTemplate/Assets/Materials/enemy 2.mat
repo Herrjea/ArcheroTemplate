@@ -43,6 +43,8 @@ Material:
     m_Floats:
     - Vector1_b75c75c7ba9b4ace95bd13c7bfab2b13: 0
     - _BlinkAmount: 0
+    - _DissolveAmount: 0
+    - _DissolveEdge: -0.06
     - _FresnelIntensity: 4
     m_Colors:
     - _BaseColor: {r: 0.38679248, g: 0, b: 0.20838009, a: 0}

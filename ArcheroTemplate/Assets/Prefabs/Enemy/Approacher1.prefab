@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 6353449128991223269}
   - component: {fileID: 4251995605923785725}
   - component: {fileID: 967523304029562313}
+  - component: {fileID: 255130236657852288}
   m_Layer: 8
   m_Name: Approacher1
   m_TagString: Untagged
@@ -427,6 +428,19 @@ MonoBehaviour:
       type: 3}
     probability: 0.1
     amount: 2
+--- !u!114 &255130236657852288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4251676693865896859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baffcfb1b4dab434987310ae66e600b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
 --- !u!1 &4251676694927117251
 GameObject:
   m_ObjectHideFlags: 0
