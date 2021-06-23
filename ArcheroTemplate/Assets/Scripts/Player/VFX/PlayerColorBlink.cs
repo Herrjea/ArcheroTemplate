@@ -8,6 +8,6 @@ public class PlayerColorBlink : ColorBlink
     {
         base.Awake();
 
-        GameEvents.PlayeGotHit.AddListener(OnGotHit);
+        GameEvents.PlayerGotHit.AddListener(OnGotHit);
     }
 }

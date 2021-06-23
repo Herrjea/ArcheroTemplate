@@ -19,7 +19,7 @@ public class GotHitOverlay : MonoBehaviour
 
         strengthId = Shader.PropertyToID("_Strength");
 
-        GameEvents.PlayeGotHit.AddListener(OnPlayerGotHit);
+        GameEvents.PlayerGotHit.AddListener(OnPlayerGotHit);
     }
 
 

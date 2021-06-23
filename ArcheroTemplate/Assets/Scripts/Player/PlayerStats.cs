@@ -16,13 +16,13 @@ public class PlayerStats : Stats
 
     protected override void GotHit(float amount)
     {
-        GameEvents.PlayeGotHit.Invoke(amount);
+        GameEvents.PlayerGotHit.Invoke(amount);
         GameEvents.NewPlayerHealthValues.Invoke(currentHealth, maxHealth);
     }
 
     protected override void GotHealed(float amount)
     {
-        GameEvents.PlayeGotHealed.Invoke(amount);
+        GameEvents.PlayerGotHealed.Invoke(amount);
         GameEvents.NewPlayerHealthValues.Invoke(currentHealth, maxHealth);
     }
 
