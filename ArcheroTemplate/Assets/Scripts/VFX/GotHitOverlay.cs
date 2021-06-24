@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GotHitOverlay : MonoBehaviour
 {
+    [SerializeField] Transform scaleReference;
+
     [SerializeField] float duration = 1;
     float remaining;
 
@@ -13,9 +15,9 @@ public class GotHitOverlay : MonoBehaviour
     Coroutine coroutine = null;
 
 
-    private void Awake()
+    private void Start()
     {
-        material = GetComponent<MeshRenderer>().material;
+        transform.localScale = scaleReference.localScale;        material = GetComponent<MeshRenderer>().material;
 
         strengthId = Shader.PropertyToID("_Strength");
 

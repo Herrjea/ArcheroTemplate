@@ -427,14 +427,14 @@ MonoBehaviour:
   bossEncounterCD: 3
   maxEnemyThreshold: 0
   enemyPool:
-  - {fileID: 4251676693865896859, guid: d8f558fa67e0842bb8a3b461d70a17ee, type: 3}
-  - {fileID: 1548917326985757979, guid: ec9c7d1167e844af6b3975d8eb56d626, type: 3}
-  - {fileID: 4709743928259496392, guid: 4d6ad9c6ac59745619047ac151b95303, type: 3}
   - {fileID: 4018597237878681470, guid: 4bb4e2142a3a847a08533701eb365403, type: 3}
+  - {fileID: 4251676693865896859, guid: d8f558fa67e0842bb8a3b461d70a17ee, type: 3}
+  - {fileID: 4709743928259496392, guid: 4d6ad9c6ac59745619047ac151b95303, type: 3}
+  - {fileID: 1548917326985757979, guid: ec9c7d1167e844af6b3975d8eb56d626, type: 3}
+  - {fileID: 4018597237878681470, guid: e965b49aa719b4bd599063c07fc3d48e, type: 3}
   - {fileID: 4251676693865896859, guid: a964ff06bc75d45c0840e1238ea545b5, type: 3}
   - {fileID: 4709743928259496392, guid: fcd5aeaa3b38d4ee9ab2561175d9df1c, type: 3}
   - {fileID: 1548917326985757979, guid: 629f2e40e2b064195937899798d04e1c, type: 3}
-  - {fileID: 4018597237878681470, guid: e965b49aa719b4bd599063c07fc3d48e, type: 3}
   bossPool:
   - {fileID: 2069227225123439025, guid: 401f3495246384ae19577b09a5730314, type: 3}
   isolatedGroups: []
@@ -1774,6 +1774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84b542c7bc7d441e97eb257b5d4d9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleReference: {fileID: 567919358}
   duration: 1
 --- !u!1 &892656456
 GameObject:
