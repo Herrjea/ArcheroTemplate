@@ -13,6 +13,14 @@ public class HealthDisplay : MonoBehaviour
         textHolder = GetComponent<TMP_Text>();
 
         GameEvents.NewPlayerHealthValues.AddListener(ChangeText);
+
+        Empty();
+    }
+
+
+    void Empty()
+    {
+        textHolder.text = "";
     }
 
 

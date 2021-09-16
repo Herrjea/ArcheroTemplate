@@ -62,7 +62,6 @@ public class AvoidPlayerForward : TargetFollower
                     transform.position.y,
                     transform.position.z
                 );
-                GameEvents.borrame.Invoke(targetPositionX);
 
                 if (movingCoroutine != null)
                     StopCoroutine(movingCoroutine);

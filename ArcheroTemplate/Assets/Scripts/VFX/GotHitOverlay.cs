@@ -20,7 +20,7 @@ public class GotHitOverlay : MonoBehaviour
     private void Start()
     {
         transform.localScale = scaleReference.localScale;
-        material = GetComponent<Image>().material;
+        material = GetComponent<MeshRenderer>().material;
 
         strengthId = Shader.PropertyToID("_Strength");
 

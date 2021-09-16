@@ -90,6 +90,10 @@ public class WaveSpawner : MonoBehaviour
                 StopCoroutine(spawnCoroutine);
             spawnCoroutine = StartCoroutine(SpawnCoroutine());
         }
+        else
+        {
+            GameEvents.AllWaveFinished.Invoke();
+        }
     }
 
     void NewChosenAbility(PlayerAbility ability)

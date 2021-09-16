@@ -102,6 +102,7 @@ public static class GameEvents
     public static UnityEvent ToggleShooting = new UnityEvent();
 
     public static PoolV3TransBoolEvent PlayerShot = new PoolV3TransBoolEvent();
+    public static FloatEvent EnemyShot = new FloatEvent();
 
     public static FloatEvent PlayerGotHit = new FloatEvent();
     public static FloatEvent PlayerGotHealed = new FloatEvent();
@@ -109,6 +110,7 @@ public static class GameEvents
     public static UnityEvent PlayerDied = new UnityEvent();
     public static V3Event EnemyDied = new V3Event();
 
+    public static UnityEvent AllWaveFinished = new UnityEvent();
     public static IntIntEvent WaveFinished = new IntIntEvent();
     public static IntIntEvent SubWaveFinished = new IntIntEvent();
 
@@ -121,6 +123,4 @@ public static class GameEvents
 
     public static Float2Event NewPlayerHealthValues = new Float2Event();
     public static UnityEvent NewPlayerStrengthValue = new UnityEvent();
-
-    public static FloatEvent borrame = new FloatEvent();
 }

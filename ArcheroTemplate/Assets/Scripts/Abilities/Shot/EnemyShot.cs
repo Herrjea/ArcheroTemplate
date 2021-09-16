@@ -26,6 +26,7 @@ public class EnemyShot : Shot
                     transform.forward * projSpeed,
                     target
                 );
+                GameEvents.EnemyShot.Invoke(0);
 
                 CDRemaining = shotCD;
             }
