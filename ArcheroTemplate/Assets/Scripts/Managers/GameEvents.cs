@@ -121,4 +121,6 @@ public static class GameEvents
 
     public static Float2Event NewPlayerHealthValues = new Float2Event();
     public static UnityEvent NewPlayerStrengthValue = new UnityEvent();
+
+    public static FloatEvent borrame = new FloatEvent();
 }

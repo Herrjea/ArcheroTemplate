@@ -24,7 +24,7 @@ public class Dissolve : MonoBehaviour
 
     IEnumerator DissolveCoroutine()
     {
-        print("aaaa " + gameObject.name);
+        //print("aaaa " + gameObject.name);
 
         float remaining = 2;
 

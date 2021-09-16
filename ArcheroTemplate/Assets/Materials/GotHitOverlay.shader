@@ -10,11 +10,14 @@ Shader "Unlit/GotHitOverlay"
     SubShader
     {
         Tags {
-            "RenderType" = "Opaque"
+            "RenderType" = "Sprite"
             "Queue" = "Transparent"
+            "AlphaDepth" = "False"
+            "CanUseSpriteAtlas" = "True"
+            "IgnoreProjector" = "True"
         }
         Blend SrcAlpha OneMinusSrcAlpha
-        ZTest Always
+        Lighting Off
         LOD 100
 
         Pass

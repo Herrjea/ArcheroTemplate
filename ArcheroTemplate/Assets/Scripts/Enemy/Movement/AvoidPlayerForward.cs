@@ -42,6 +42,7 @@ public class AvoidPlayerForward : TargetFollower
             {
                 currentOffsetSign = Mathf.Sign(currentOffset);
                 targetOffset = Random.Range(minOffset, minOffset * 2);
+                //print((currentOffsetSign > 0 ? "++" : "--"));
 
                 // Movement horizontally away from the player
                 targetPositionX = ComputeTargetXPosition();
@@ -49,13 +50,19 @@ public class AvoidPlayerForward : TargetFollower
                 // Movement towards the opposite direction
                 // if it would end up outside the screen
                 if (Mathf.Abs(targetPositionX) > roomSize.x)
+                {
                     targetPositionX = ComputeTargetXPosition(-1);
+                    //print("--");
+                }
+                else
+                    ;// print("++");
 
                 targetPosition = new Vector3(
                     targetPositionX,
                     transform.position.y,
                     transform.position.z
                 );
+                GameEvents.borrame.Invoke(targetPositionX);
 
                 if (movingCoroutine != null)
                     StopCoroutine(movingCoroutine);

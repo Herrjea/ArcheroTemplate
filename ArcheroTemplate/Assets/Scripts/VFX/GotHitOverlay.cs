@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class GotHitOverlay : MonoBehaviour
 {
@@ -17,7 +19,8 @@ public class GotHitOverlay : MonoBehaviour
 
     private void Start()
     {
-        transform.localScale = scaleReference.localScale;        material = GetComponent<MeshRenderer>().material;
+        transform.localScale = scaleReference.localScale;
+        material = GetComponent<Image>().material;
 
         strengthId = Shader.PropertyToID("_Strength");
 
