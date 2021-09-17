@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca3977f2a1e134dad87d9e1ea4f165c4, type: 3}
+  m_Name: MusicSoundBank
+  m_EditorClassIdentifier: 
+  bank:
+  - Clip: {fileID: 8300000, guid: d0f9a8310b27a00449623164053f7775, type: 3}
+    EventKey: MenuTheme
+    Volume: 1
+  - Clip: {fileID: 8300000, guid: 80587305b881b4b4680b07e4829f81f3, type: 3}
+    EventKey: GameplayTheme
+    Volume: 1

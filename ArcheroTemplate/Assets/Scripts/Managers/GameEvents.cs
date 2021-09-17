@@ -123,4 +123,9 @@ public static class GameEvents
 
     public static Float2Event NewPlayerHealthValues = new Float2Event();
     public static UnityEvent NewPlayerStrengthValue = new UnityEvent();
+
+    public static UnityEvent EnterMenu = new UnityEvent();
+    public static UnityEvent EnterGame = new UnityEvent();
+
+    public static IntEvent CoinsGathered = new IntEvent();
 }

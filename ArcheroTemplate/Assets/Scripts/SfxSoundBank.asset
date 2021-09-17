@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca3977f2a1e134dad87d9e1ea4f165c4, type: 3}
-  m_Name: SoundBank
+  m_Name: SfxSoundBank
   m_EditorClassIdentifier: 
   bank:
   - Clip: {fileID: 8300000, guid: 493b4c8c700ea594993a4225f9b649d2, type: 3}
@@ -29,7 +29,7 @@ MonoBehaviour:
     EventKey: MoneyPickup
     Volume: 1
   - Clip: {fileID: 8300000, guid: 9735eb07c8bb25d4888b05587cbd2302, type: 3}
-    EventKey: PlayerHeal
+    EventKey: PlayerHealed
     Volume: 0.7
   - Clip: {fileID: 8300000, guid: d57a88de6d297e046bf2155ffabc996c, type: 3}
     EventKey: PlayerShot

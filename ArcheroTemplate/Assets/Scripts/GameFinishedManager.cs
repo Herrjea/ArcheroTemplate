@@ -7,8 +7,10 @@ public class GameFinishedManager : MonoBehaviour
 {
     [SerializeField] GameObject gameFinishedPanel;
     [SerializeField] TMP_Text result;
-    [SerializeField] TMP_Text reached;
+    [SerializeField] TMP_Text wave;
     [SerializeField] TMP_Text coins;
+
+    [SerializeField] ReachedInRun reached;
 
 
     void Start()
@@ -23,8 +25,9 @@ public class GameFinishedManager : MonoBehaviour
     {
         //SceneManager.LoadScene("GameFinished");
         result.text = "Defeated D=";
-        reached.text = "Highest wave: " + 0;
-        coins.text = "Coins gathered: " + 0;
+        wave.text = "Highest wave: " + (reached.wave + 1) + "." + (reached.subwave + 1);
+        coins.text = "Coins gathered: " + reached.coins;
+        print(reached.coins + " coins");
 
         gameFinishedPanel.SetActive(true);
     }
@@ -33,8 +36,8 @@ public class GameFinishedManager : MonoBehaviour
     {
         //SceneManager.LoadScene("GameFinished");
         result.text = "Success!";
-        reached.text = "All waves defeated";
-        coins.text = "Coins gathered: " + 0;
+        wave.text = "All waves defeated";
+        coins.text = "Coins gathered: " + reached.coins;
 
         gameFinishedPanel.SetActive(true);
     }

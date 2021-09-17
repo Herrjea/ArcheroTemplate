@@ -28,7 +28,7 @@ public class DropPick : MonoBehaviour
                     stats.ReceiveHealing(pickable.Amount);
                     break;
                 case ResourceType.Money:
-                    print("money++");
+                    GameEvents.CoinsGathered.Invoke(10);
                     break;
                 default:
                     print("Unknown resource type: " + pickable.Type);

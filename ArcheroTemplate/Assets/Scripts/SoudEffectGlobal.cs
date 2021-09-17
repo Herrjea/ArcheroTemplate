@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class SoudEffectGlobal : MonoBehaviour
 {
-    [SerializeField] private SoundBank bankReference;
-    [SerializeField] private AudioSource audioEmitter;
+    [SerializeField] private SoundBank sfxBankReference;
+    [SerializeField] private SoundBank musicBankReference;
+    [SerializeField] private AudioSource sfxAudioEmitter;
+    [SerializeField] private AudioSource musicAudioEmitter;
 
-    private Dictionary<string, SoundBank.SoundDefinition> SoundBank { get; set; }
+    private Dictionary<string, SoundBank.SoundDefinition> sfxSoundBank { get; set; }
+    private Dictionary<string, SoundBank.SoundDefinition> musicSoundBank { get; set; }
 
     private void Awake()
     {
-        SoundBank = bankReference.GetBankDictionary();
+        sfxSoundBank = sfxBankReference.GetBankDictionary();
+        musicSoundBank = musicBankReference.GetBankDictionary();
     }
 
     private void OnEnable()
@@ -22,6 +26,11 @@ public class SoudEffectGlobal : MonoBehaviour
         GameEvents.PlayerGotHealed.AddListener(PlayerGotHealedEvent);
         GameEvents.PlayerGotHit.AddListener(PlayerGotHitEvent);
         GameEvents.EnemyShot.AddListener(EnemyShotEvent);
+
+        GameEvents.EnterMenu.AddListener(EnterMenu);
+        GameEvents.EnterGame.AddListener(EnterGame);
+
+        //EnterMenu();
     }
     
     private void OnDisable()
@@ -46,9 +55,15 @@ public class SoudEffectGlobal : MonoBehaviour
     
     private void EnemyDeathEvent(Vector3 arg0) => FireEvent("EnemyDeath");
 
+
+    private void EnterMenu() => ChangeMusic("MenuTheme");
+
+    private void EnterGame() => ChangeMusic("GameTheme");
+
+
     private void FireEvent(string key)
     {
-        if (SoundBank.TryGetValue(key, out var sound))
+        if (sfxSoundBank.TryGetValue(key, out var sound))
         {
             PlaySound(sound.Clip, sound.Volume);
         }
@@ -60,6 +75,23 @@ public class SoudEffectGlobal : MonoBehaviour
     
     private void PlaySound(AudioClip clip, float volume)
     {
-        audioEmitter.PlayOneShot(clip, volume);
+        sfxAudioEmitter.PlayOneShot(clip, volume);
+    }
+
+    private void ChangeMusic(string key)
+    {
+        if (musicSoundBank.TryGetValue(key, out var sound))
+        {
+            PlayMusic(sound.Clip, sound.Volume);
+        }
+        else
+        {
+            Debug.LogError("Sound Event " + key + " not found.");
+        }
+    }
+
+    private void PlayMusic(AudioClip clip, float volume)
+    {
+        musicAudioEmitter.PlayOneShot(clip, volume);
     }
 }
