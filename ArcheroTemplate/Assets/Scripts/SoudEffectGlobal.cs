@@ -18,7 +18,7 @@ public class SoudEffectGlobal : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        /*DontDestroyOnLoad(this);
 
         if (soundInstance == null)
         {
@@ -27,7 +27,7 @@ public class SoudEffectGlobal : MonoBehaviour
         else
         {
             Object.Destroy(gameObject);
-        }
+        }*/
 
         sfxSoundBank = sfxBankReference.GetBankDictionary();
         musicSoundBank = musicBankReference.GetBankDictionary();
@@ -42,10 +42,10 @@ public class SoudEffectGlobal : MonoBehaviour
         GameEvents.PlayerGotHit.AddListener(PlayerGotHitEvent);
         GameEvents.EnemyShot.AddListener(EnemyShotEvent);
 
-        GameEvents.EnterMenu.AddListener(EnterMenu);
-        GameEvents.EnterGame.AddListener(EnterGame);
+        //GameEvents.EnterMenu.AddListener(EnterMenu);
+        //GameEvents.EnterGame.AddListener(EnterGame);
 
-        EnterMenu();
+        //EnterMenu();
     }
     
     private void OnDisable()

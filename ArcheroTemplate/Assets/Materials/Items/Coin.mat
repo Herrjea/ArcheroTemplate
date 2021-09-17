@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _baseColor:
-        m_Texture: {fileID: 2800000, guid: 11ee59e6ab391ba459f0f73e3a6fe8a6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7491cfaf981994444a4358badac69497, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -39,5 +39,5 @@ Material:
     m_Floats:
     - _fresnelIntensity: 3
     m_Colors:
-    - _colorFressnel: {r: 5.002231, g: 2.5568175, b: 0.9428289, a: 0}
+    - _colorFressnel: {r: 0.9428289, g: 5.002231, b: 3.2315996, a: 0}
   m_BuildTextureStacks: []
