@@ -5,10 +5,25 @@ using UnityEngine;
 public class SceneLoader : MonoBehaviour
 {
 
-    public void LoadGame(string otherScene)
-    {   
+    public void LoadScene(string otherScene)
+    {
         GameFlowEvents.LoadScene.Invoke(otherScene);
     }
+
+    public void LoadGame()
+    {
+        GameFlowEvents.LoadScene.Invoke("MainGame");
+
+        GameEvents.EnterGame.Invoke();
+    }
+
+    public void LoadMenu()
+    {
+        GameFlowEvents.LoadScene.Invoke("MainMenu");
+
+        GameEvents.EnterMenu.Invoke();
+    }
+
     void Start()
     {
         

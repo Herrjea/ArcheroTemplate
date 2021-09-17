@@ -7,13 +7,28 @@ public class SoudEffectGlobal : MonoBehaviour
     [SerializeField] private SoundBank sfxBankReference;
     [SerializeField] private SoundBank musicBankReference;
     [SerializeField] private AudioSource sfxAudioEmitter;
-    [SerializeField] private AudioSource musicAudioEmitter;
+    [SerializeField] private AudioSource menuThemeAudioEmitter;
+    [SerializeField] private AudioSource gameplayThemeAudioEmitter;
 
     private Dictionary<string, SoundBank.SoundDefinition> sfxSoundBank { get; set; }
     private Dictionary<string, SoundBank.SoundDefinition> musicSoundBank { get; set; }
 
+    SoudEffectGlobal soundInstance = null;
+
+
     private void Awake()
     {
+        DontDestroyOnLoad(this);
+
+        if (soundInstance == null)
+        {
+            soundInstance = this;
+        }
+        else
+        {
+            Object.Destroy(gameObject);
+        }
+
         sfxSoundBank = sfxBankReference.GetBankDictionary();
         musicSoundBank = musicBankReference.GetBankDictionary();
     }
@@ -30,7 +45,7 @@ public class SoudEffectGlobal : MonoBehaviour
         GameEvents.EnterMenu.AddListener(EnterMenu);
         GameEvents.EnterGame.AddListener(EnterGame);
 
-        //EnterMenu();
+        EnterMenu();
     }
     
     private void OnDisable()
@@ -41,6 +56,7 @@ public class SoudEffectGlobal : MonoBehaviour
         GameEvents.PlayerGotHealed.RemoveListener(PlayerGotHealedEvent);
         GameEvents.PlayerGotHit.RemoveListener(PlayerGotHitEvent);
     }
+
 
     private void EnemyShotEvent(float arg0) => FireEvent("EnemyShot");
 
@@ -56,9 +72,9 @@ public class SoudEffectGlobal : MonoBehaviour
     private void EnemyDeathEvent(Vector3 arg0) => FireEvent("EnemyDeath");
 
 
-    private void EnterMenu() => ChangeMusic("MenuTheme");
+    private void EnterMenu() => PlayMenuMusic();
 
-    private void EnterGame() => ChangeMusic("GameTheme");
+    private void EnterGame() => PlayGameplayMusic();
 
 
     private void FireEvent(string key)
@@ -78,7 +94,7 @@ public class SoudEffectGlobal : MonoBehaviour
         sfxAudioEmitter.PlayOneShot(clip, volume);
     }
 
-    private void ChangeMusic(string key)
+    /*private void ChangeMusic(string key)
     {
         if (musicSoundBank.TryGetValue(key, out var sound))
         {
@@ -88,10 +104,27 @@ public class SoudEffectGlobal : MonoBehaviour
         {
             Debug.LogError("Sound Event " + key + " not found.");
         }
+    }*/
+
+    public void PlayMenuMusic()
+    {
+        PlayMusic(menuThemeAudioEmitter);
+        StopMusic(gameplayThemeAudioEmitter);
     }
 
-    private void PlayMusic(AudioClip clip, float volume)
+    public void PlayGameplayMusic()
     {
-        musicAudioEmitter.PlayOneShot(clip, volume);
+        PlayMusic(gameplayThemeAudioEmitter);
+        StopMusic(menuThemeAudioEmitter);
+    }
+
+    private void PlayMusic(AudioSource source)
+    {
+        source.Play(); //.PlayOneShot(clip, volume);
+    }
+
+    private void StopMusic(AudioSource source)
+    {
+        source.Stop(); //.PlayOneShot(clip, volume);
     }
 }

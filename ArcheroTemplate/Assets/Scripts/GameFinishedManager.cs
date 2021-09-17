@@ -26,8 +26,11 @@ public class GameFinishedManager : MonoBehaviour
         //SceneManager.LoadScene("GameFinished");
         result.text = "Defeated D=";
         wave.text = "Highest wave: " + (reached.wave + 1) + "." + (reached.subwave + 1);
+        reached.coins /= 2;
         coins.text = "Coins gathered: " + reached.coins;
         print(reached.coins + " coins");
+
+        EconomyDataController.SetSoftCoins(EconomyDataController.GetSoftCoins() + reached.coins);
 
         gameFinishedPanel.SetActive(true);
     }
@@ -38,6 +41,8 @@ public class GameFinishedManager : MonoBehaviour
         result.text = "Success!";
         wave.text = "All waves defeated";
         coins.text = "Coins gathered: " + reached.coins;
+
+        EconomyDataController.SetSoftCoins(EconomyDataController.GetSoftCoins() + reached.coins);
 
         gameFinishedPanel.SetActive(true);
     }

@@ -20,6 +20,8 @@ public class PlayerShot : Shot
         GameEvents.PlayerDied.AddListener(StopShooting);
 
         base.Start();
+
+        GameEvents.AllWaveFinished.AddListener(StopShooting);
     }
 
     protected override IEnumerator Shoot(Transform target)
