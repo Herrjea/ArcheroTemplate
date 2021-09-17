@@ -34,20 +34,20 @@ public class MainMenuController : MonoBehaviour
         _animationTime = 0.2f;
 
         float buttonsHeight = _canvasRectTransform.sizeDelta.y / 6.4f;
-
-        for (int i =0; i < _tabs.Length; i++)
-        {
-            if (i != 2)
-            {
-                _tabs[i].offsetMax = new Vector2(_rightPanelPosition.x,-200);
-                _tabs[i].offsetMin = new Vector2(_rightPanelPosition.x,buttonsHeight);
-            }
-            else
-            {
-                _tabs[i].offsetMax = new Vector2(0, -200);
-                _tabs[i].offsetMin = new Vector2(0, buttonsHeight);
-            }
-        }
+        //
+        // for (int i =0; i < _tabs.Length; i++)
+        // {
+        //     if (i != 2)
+        //     {
+        //         _tabs[i].offsetMax = new Vector2(_rightPanelPosition.x,-200);
+        //         _tabs[i].offsetMin = new Vector2(_rightPanelPosition.x,buttonsHeight);
+        //     }
+        //     else
+        //     {
+        //         _tabs[i].offsetMax = new Vector2(0, -200);
+        //         _tabs[i].offsetMin = new Vector2(0, buttonsHeight);
+        //     }
+        // }
 
         _buttonsHolderRectTransform.sizeDelta = new Vector2(_canvasRectTransform.sizeDelta.x, buttonsHeight);
 
