@@ -43,10 +43,12 @@ Material:
     m_Floats:
     - Vector1_b75c75c7ba9b4ace95bd13c7bfab2b13: 0
     - _BlinkAmount: 0
+    - _DissolveAmount: 0
+    - _DissolveEdge: -0.06
     - _FresnelIntensity: 1.5
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0}
     - _BlinkColor: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 0}
-    - _FresnelColor: {r: 3.9533494, g: 1.7800422, b: 1.1177008, a: 0}
+    - _FresnelColor: {r: 3.9533494, g: 1.3620896, b: 1.1177007, a: 0}
   m_BuildTextureStacks: []

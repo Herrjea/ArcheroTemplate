@@ -37,7 +37,7 @@ public class SoudEffectGlobal : MonoBehaviour
     {
         GameEvents.EnemyDied.AddListener(EnemyDeathEvent);
         GameEvents.PlayerShot.AddListener(PlayerShotEvent);
-        GameEvents.AddSoftCoins.AddListener(SoftCoinPickUpEvent);
+        GameEvents.CoinsGathered.AddListener(SoftCoinPickUpEvent);
         GameEvents.PlayerGotHealed.AddListener(PlayerGotHealedEvent);
         GameEvents.PlayerGotHit.AddListener(PlayerGotHitEvent);
         GameEvents.EnemyShot.AddListener(EnemyShotEvent);
@@ -52,7 +52,7 @@ public class SoudEffectGlobal : MonoBehaviour
     {
         GameEvents.EnemyDied.RemoveListener(EnemyDeathEvent);
         GameEvents.PlayerShot.RemoveListener(PlayerShotEvent);
-        GameEvents.AddSoftCoins.RemoveListener(SoftCoinPickUpEvent);
+        GameEvents.CoinsGathered.RemoveListener(SoftCoinPickUpEvent);
         GameEvents.PlayerGotHealed.RemoveListener(PlayerGotHealedEvent);
         GameEvents.PlayerGotHit.RemoveListener(PlayerGotHitEvent);
     }
